@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import MainComp from "./main";
 
 export default function HomeView() {
@@ -23,4 +23,3 @@ const WrapperContent = styled.div`
   display: flex;
   height: 100%;
 `;
-
