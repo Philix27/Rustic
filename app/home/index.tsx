@@ -1,10 +1,26 @@
 import React from "react";
 import { styled } from "styled-components";
+import Sidebar from "./Sidebar";
+import MainComp from "./main";
 
 export default function HomeView() {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <WrapperContent>
+        <Sidebar />
+        <MainComp />
+      </WrapperContent>
+    </Wrapper>
+  );
 }
 
-const Wrapper = styled.div``;
-const Sidebar = styled.div``;
-const Main = styled.div``;
+const Wrapper = styled.div`
+  background-color: #282828;
+  width: 100vw;
+  height: 100vh;
+`;
+const WrapperContent = styled.div`
+  display: flex;
+  height: 100%;
+`;
+
