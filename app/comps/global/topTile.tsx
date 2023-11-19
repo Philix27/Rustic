@@ -1,6 +1,7 @@
 import { TextBody, TextHeader } from "../text";
 import React from "react";
 import { styled } from "styled-components";
+import { AppStyles } from "@/lib/utils";
 
 export default function TopTitles(props: { title: string; subtitle: string }) {
   return (
@@ -15,7 +16,7 @@ export default function TopTitles(props: { title: string; subtitle: string }) {
 const Wrapper = styled.div`
   padding: 30px;
   hr {
-    border: solid 0.1px #a7a7a7;
+    border: solid 0.1px ${AppStyles.colors.backgroundLight};
     margin-bottom: 10px;
   }
   p {

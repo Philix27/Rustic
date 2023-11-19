@@ -1,4 +1,5 @@
 import { AllMcq } from "@/lib/docs/mcq";
+import { AppStyles } from "@/lib/utils";
 import React from "react";
 import styled from "styled-components";
 import Text from "../comps/Text";
@@ -71,7 +72,7 @@ const ContentsWrapper = styled.div`
 const CardList = styled.div`
   padding: 40px 50px;
   display: flex;
-  background-color: #262626;
+  background-color: ${AppStyles.colors.backgroundDark};
   flex-direction: column;
   align-items: center;
   justify-items: center;
@@ -81,9 +82,12 @@ const CardList = styled.div`
 const Card = styled.div`
   padding: 10px;
   width: 100%;
-  border-bottom: solid 0.01px grey;
+  border-bottom: solid 0.01px ${AppStyles.colors.backgroundLight};
 `;
 
 const Wrapper = styled.div`
   width: 100%;
+  /* overflow-y: hidden; */
+  overflow-y: auto;
+  scroll-behavior: smooth;
 `;

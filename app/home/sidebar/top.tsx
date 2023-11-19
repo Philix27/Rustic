@@ -1,3 +1,4 @@
+import { AppStyles } from "@/lib/utils";
 import React from "react";
 import styled from "styled-components";
 import Text from "../comps/Text";
@@ -34,7 +35,7 @@ export default function TopBar(props: {
 const Wrapper = styled.div`
   width: 100%;
   height: 35px;
-  background-color: #303030;
+  background-color: ${AppStyles.colors.backgroundLight};
   /* padding: 0 20px; */
   display: flex;
   align-items: center;

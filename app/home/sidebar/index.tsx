@@ -1,4 +1,5 @@
 import { McqList, McqTypes } from "@/lib/docs/mcq/types";
+import { AppStyles } from "@/lib/utils";
 import React, { useState } from "react";
 import styled from "styled-components";
 import ContentMcq from "./ContenMcq";
@@ -23,7 +24,7 @@ export default function Sidebar(props: { title: string }) {
 
 const Container = styled.div`
   width: 30%;
-  border-right: solid 0.1px gray;
+  border-right: solid 1px ${AppStyles.colors.backgroundLight};
   height: 100%;
 `;
 

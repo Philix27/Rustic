@@ -1,3 +1,4 @@
+import { AppStyles } from "@/lib/utils";
 import React from "react";
 import {
   AiFillHome,
@@ -30,7 +31,7 @@ export default function MainTopBar() {
 const TopBar = styled.div`
   width: 100%;
   height: 35px;
-  background-color: #303030;
+  background-color: ${AppStyles.colors.backgroundLight};
   display: flex;
   align-items: center;
   justify-content: space-between;

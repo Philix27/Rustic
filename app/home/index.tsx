@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import Sidebar from "./sidebar";
 import MainComp from "./main";
 import { McqList } from "@/lib/docs/mcq/types";
+import { AppStyles } from "@/lib/utils";
 
 export default function HomeView(props: { title: string }) {
   return (
@@ -17,7 +18,7 @@ export default function HomeView(props: { title: string }) {
 
 
 const Wrapper = styled.div`
-  background-color: #282828;
+  background-color: ${AppStyles.colors.background};
   width: 100vw;
   height: 100vh;
 `;

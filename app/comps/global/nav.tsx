@@ -2,7 +2,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import { usePathname, useRouter } from "next/navigation";
-import { AppLinks } from "../../lib/utils";
+import { AppLinks, AppStyles } from "../../lib/utils";
 
 export default function AppNav() {
   const router = useRouter();
@@ -44,7 +44,7 @@ export default function AppNav() {
 const Wrapper = styled.div`
   height: 50px;
   width: 100%;
-  background-color: #1a0e0e;
+  background-color: ${AppStyles.colors.backgroundLight};
   color: white;
   border-bottom: solid 5px red;
 `;
