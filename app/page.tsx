@@ -8,7 +8,7 @@ import HomeView from "./home/index";
 export default function Home() {
   return (
     <ClientOnly>
-      <HomeView />
+      <HomeView title={"Data Types"} />
     </ClientOnly>
   );
 }
