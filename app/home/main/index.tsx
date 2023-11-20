@@ -1,5 +1,6 @@
 import { AllMcq } from "@/lib/docs/mcq";
 import { AppStyles } from "@/lib/utils";
+import { AppHelperFn } from "@/lib/utils/app_helper";
 import React from "react";
 import styled from "styled-components";
 import Text from "../comps/Text";
@@ -7,7 +8,9 @@ import MainTopBar from "./TopBar";
 
 export default function MainComp(props: { title: string }) {
   const dataList = AllMcq.filter(
-    (v, index) => v.title.toLowerCase() === props.title.toLowerCase()
+    (v, index) =>
+      AppHelperFn.remove_whitespace(v.title.toLowerCase()) ===
+      props.title.toLowerCase()
   )[0];
 
   return (
