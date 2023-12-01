@@ -17,6 +17,15 @@ export default function TopBar(props: {
           console.log("Article");
         }}
       >
+        <Text variants="BarTitle">Tutorials</Text>
+      </Item>
+      <Item
+        $isActive={props.activeTab === "ARTICLE"}
+        onClick={() => {
+          props.setActive("ARTICLE");
+          console.log("Article");
+        }}
+      >
         <Text variants="BarTitle">Articles</Text>
       </Item>
       <Item
