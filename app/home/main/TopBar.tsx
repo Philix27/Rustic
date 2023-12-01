@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import { FaBookmark, FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
-import Text from "../comps/Text";
+import Text from "../../comps/text/Text";
 
 export default function MainTopBar() {
   return (

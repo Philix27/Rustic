@@ -1,18 +1,17 @@
+"use client";
 import React, { ReactNode } from "react";
 import { styled } from "styled-components";
 
 type TVariants = "BarTitle" | "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
-interface T {
-  variants: TVariants;
+
+export function Text(props: {
+  variant: TVariants;
   children: ReactNode;
   style?: React.CSSProperties;
-}
-
-export default function Text(props: T) {
-  switch (props.variants) {
+}) {
+  switch (props.variant) {
     case "BarTitle":
       return <BarTitle style={props.style}>{props.children}</BarTitle>;
-
     case "B1":
       return <B1 style={props.style}>{props.children}</B1>;
     case "B2":

@@ -2,7 +2,7 @@ import { AllMcq } from "@/lib/docs/mcq";
 import { McqList, McqTypes } from "@/lib/docs/mcq/types";
 import React, { Fragment } from "react";
 import { styled } from "styled-components";
-import Text from "../comps/Text";
+import { Text } from "@/comps";
 import { mcqData } from "../data/mcq";
 import Link from "next/link";
 import { AppHelperFn } from "@/lib/utils/app_helper";
@@ -13,8 +13,8 @@ export default function ContentMcq(props: { title: string }) {
       {AllMcq.map((v, i) => (
         <ListItem key={i}>
           <Link href={`/mcq/${AppHelperFn.remove_whitespace(v.title)}`}>
-            <Text variants="B4">{v.title}</Text>
-            <Text variants="B5">{v.subtitle}</Text>
+            <Text variant="B4">{v.title}</Text>
+            <Text variant="B5">{v.subtitle}</Text>
             {/* <p>{v.date_updated}</p> */}
             <hr />
           </Link>

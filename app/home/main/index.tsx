@@ -3,7 +3,7 @@ import { AppStyles } from "@/lib/utils";
 import { AppHelperFn } from "@/lib/utils/app_helper";
 import React from "react";
 import styled from "styled-components";
-import Text from "../comps/Text";
+import Text from "../../comps/text/Text";
 import MainTopBar from "./TopBar";
 
 export default function MainComp(props: { title: string }) {

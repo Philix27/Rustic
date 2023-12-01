@@ -1,10 +1,12 @@
-import { AppStyles } from "@/lib/utils";
+"use client";
 import React from "react";
+import { TabsTypes } from "@/home/sidebar/types";
+import { AppStyles } from "@/lib/utils";
 import styled from "styled-components";
-import { Text } from "@/comps";
-import { TabsTypes } from "./types";
+import { Text } from "../comps/text/Text";
+// import { TextHeader } from "@/comps";
 
-export default function TopBar(props: {
+export function CmsTopBar(props: {
   activeTab: TabsTypes;
   setActive: React.Dispatch<React.SetStateAction<TabsTypes>>;
 }) {
@@ -26,16 +28,16 @@ export default function TopBar(props: {
           console.log("Article");
         }}
       >
-        <Text variant="BarTitle">Articles</Text>
+        <Text variant="BarTitle">Mcq</Text>
       </Item>
       <Item
-        $isActive={props.activeTab === "MCQ"}
+        $isActive={props.activeTab === "ARTICLE"}
         onClick={() => {
-          props.setActive("MCQ");
-          console.log("MCQ");
+          props.setActive("ARTICLE");
+          console.log("Article");
         }}
       >
-        <Text variant="BarTitle">MCQ</Text>
+        <Text variant="BarTitle">Article</Text>
       </Item>
     </Wrapper>
   );

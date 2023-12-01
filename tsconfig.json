@@ -2,9 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    // "allowJs": true,
     "skipLibCheck": true,
-    // "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -13,6 +11,26 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "strict": false,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    // "moduleResolution": "Bundler",
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "plugins": [
       {
         "name": "next"
@@ -20,13 +38,11 @@
     ],
     "paths": {
       "@/*": ["./app/*", "./*"],
+      // "@/comps/*": ["./app/comps"],
       "@/docs/*": ["./app/lib/docs"],
       "@/hooks/*": ["./app/lib/hooks"],
       "@/utils/*": ["./app/lib/utils"]
-    },
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
-    "strict": false
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
