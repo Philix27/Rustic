@@ -7,6 +7,7 @@ type TVariants = "BarTitle" | "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
 export function Text(props: {
   variant: TVariants;
   children: ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }) {
   switch (props.variant) {

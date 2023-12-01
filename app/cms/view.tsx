@@ -18,7 +18,7 @@ export default function CmsView() {
 function getActiveForm(activeForm: string): JSX.Element {
   switch (activeForm) {
     case "value":
-      return <CmsArticle />;
+      return <CmsMcq />;
     case "value":
       return <CmsTutorial />;
     case "value":

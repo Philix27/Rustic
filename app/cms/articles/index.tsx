@@ -3,5 +3,12 @@
 import React from "react";
 
 export default function CmsArticle() {
-  return <div>Article CMS</div>;
+  return (
+    <div>
+      <input type={"text"} placeholder="title" />
+      <input type={"text"} placeholder="title" />
+      <input type={"text"} placeholder="title" />
+      <input type={"text"} placeholder="title" />
+    </div>
+  );
 }
