@@ -2,7 +2,6 @@
 import { AppWrapper } from "../../comps/wrapper/wrapper";
 import { Landing } from "../banner";
 import { MarkdownStyledComp } from "../../comps/markdown";
-import { useRouter } from "next/router";
 import { AppProjects } from "../../lib/docs/projects";
 
 export default function ProjectsContentPage({

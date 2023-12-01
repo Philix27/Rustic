@@ -1,5 +1,5 @@
 "use client";
-import ClientOnly from "@/comps/CleintOnly";
+import { ClientOnly } from "@/comps";
 import HomeView from "@/home";
 import { Metadata } from "next";
 
