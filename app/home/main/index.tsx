@@ -3,7 +3,7 @@ import { AppStyles } from "@/lib/utils";
 import { AppHelperFn } from "@/lib/utils/app_helper";
 import React from "react";
 import styled from "styled-components";
-import Text from "../../comps/text/Text";
+import { Text } from "@/comps";
 import MainTopBar from "./TopBar";
 
 export default function MainComp(props: { title: string }) {
@@ -22,18 +22,18 @@ export default function MainComp(props: { title: string }) {
             <Card key={i}>
               <QuestionItem>
                 <div>{i + 1}.</div>
-                <Text variants="B3">{v.question}</Text>
+                <Text variant="B3">{v.question}</Text>
               </QuestionItem>
               <OptionsSection>
                 <OptionsItem>
                   <div>a.</div>
-                  <Text variants="B4" style={{ color: "white" }}>
+                  <Text variant="B4" style={{ color: "white" }}>
                     {v.option1}
                   </Text>
                 </OptionsItem>
                 <OptionsItem>
                   <div>b.</div>
-                  <Text variants="B4" style={{ color: "white" }}>
+                  <Text variant="B4" style={{ color: "white" }}>
                     {v.option2}
                   </Text>
                 </OptionsItem>

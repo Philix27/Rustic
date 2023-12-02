@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import { FaBookmark, FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
-import Text from "../../comps/text/Text";
+import { Text } from "@/comps";
 
 export default function MainTopBar() {
   return (
@@ -17,7 +17,7 @@ export default function MainTopBar() {
         <FaCloudflare color="#8a8a8a" fontSize={16} />
       </div>
       <div>
-        <Text variants="BarTitle">Title</Text>
+        <Text variant="BarTitle">Title</Text>
       </div>
       <IconsTray>
         <AiOutlineHome />
