@@ -1,5 +1,5 @@
 "use client";
-import sanityConfig from "@/sanity.config";
+import sanityConfig from "@/sanity/sanity.config";
 import React from "react";
 import { NextStudio } from "next-sanity/studio";
 
