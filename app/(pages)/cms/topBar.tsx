@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { TabsTypes } from "@/home/sidebar/types";
+import { TabsTypes } from "@/(pages)/home/sidebar/types";
 import { AppStyles } from "@/lib/utils";
 import styled from "styled-components";
-import { Text } from "../comps/text/Text";
+import { Text } from "../../comps/text/Text";
 // import { TextHeader } from "@/comps";
 
 export function CmsTopBar(props: {
