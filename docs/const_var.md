@@ -1,6 +1,5 @@
-# Medium simple topics for Rust
+# Difference between immutable variables and const in Rust
 
-- Difference between immutable variables and const in rust
 Differences Between Variables and Constants
 Being unable to change the value of a variable might have reminded you of
 another programming concept that most other languages have: constants.
