@@ -1,11 +1,8 @@
-import { AllMcq } from "@/lib/docs/mcq";
-import { McqList, McqTypes } from "@/lib/docs/mcq/types";
-import React, { Fragment } from "react";
+import { AllMcq, AppHelperFn } from "@/lib";
+import React from "react";
 import { styled } from "styled-components";
 import { Text } from "@/comps";
-import { mcqData } from "../data/mcq";
 import Link from "next/link";
-import { AppHelperFn } from "@/lib/utils/app_helper";
 
 export default function ContentMcq(props: { title: string }) {
   return (

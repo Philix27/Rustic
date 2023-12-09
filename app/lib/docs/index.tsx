@@ -1,3 +1,3 @@
 export * from "./registryBlog";
 export * from "./registryProject";
-export * from "./types";
+export * from "./mcq";

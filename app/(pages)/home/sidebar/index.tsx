@@ -1,5 +1,4 @@
-import { McqList, McqTypes } from "@/lib/docs/mcq/types";
-import { AppStyles } from "@/lib/utils";
+import { AppStyles } from "@/lib";
 import React, { useState } from "react";
 import styled from "styled-components";
 import ContentMcq from "./ContenMcq";

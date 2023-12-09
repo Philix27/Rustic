@@ -1,4 +1,4 @@
-import { AppStyles } from "@/lib/utils";
+import { AppStyles } from "@/lib";
 import React from "react";
 import styled from "styled-components";
 import { Text } from "@/comps";

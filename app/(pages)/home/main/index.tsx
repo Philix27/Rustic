@@ -1,6 +1,4 @@
-import { AllMcq } from "@/lib/docs/mcq";
-import { AppStyles } from "@/lib/utils";
-import { AppHelperFn } from "@/lib/utils/app_helper";
+import { AllMcq, AppStyles, AppHelperFn } from "@/lib";
 import React from "react";
 import styled from "styled-components";
 import { Text } from "@/comps";
@@ -46,6 +44,7 @@ export default function MainComp(props: { title: string }) {
   );
 }
 
+
 const QuestionItem = styled.div`
   display: flex;
   align-items: center;
@@ -71,7 +70,6 @@ const ContentsWrapper = styled.div`
   align-items: center;
   justify-items: center;
 `;
-
 const CardList = styled.div`
   padding: 40px 50px;
   display: flex;
@@ -81,13 +79,11 @@ const CardList = styled.div`
   justify-items: center;
   width: 80%;
 `;
-
 const Card = styled.div`
   padding: 10px;
   width: 100%;
   border-bottom: solid 0.01px ${AppStyles.colors.backgroundLight};
 `;
-
 const Wrapper = styled.div`
   width: 100%;
   /* overflow-y: hidden; */
