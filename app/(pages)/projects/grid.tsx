@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { TextBody, TextHeader } from "../../comps/text";
 import { styled } from "styled-components";
-import { AppProjects } from "../../lib/docs/projects";
+import { AppProjects } from "../../lib/docs/registryProject";
 import Link from "next/link";
 import { AppLinks } from "@/lib/utils";
 

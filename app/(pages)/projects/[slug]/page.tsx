@@ -1,7 +1,7 @@
 "use client";
 import { AppWrapper, MarkdownStyledComp } from "@/comps";
 import { Landing } from "../banner";
-import { AppProjects } from "@/lib/docs/projects";
+import { AppProjects } from "@/lib/docs/registryProject";
 
 export default function ProjectsContentPage({
   params,
