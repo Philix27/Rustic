@@ -1,6 +1,6 @@
 "use client";
 import { AppStyles } from "@/lib";
-import React from "react";
+import React, { Fragment } from "react";
 import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
