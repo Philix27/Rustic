@@ -3,7 +3,20 @@ import { AppTopNavbar } from "@/comps";
 import React, { useState } from "react";
 import { MdPreview, MdPublish } from "react-icons/md";
 
-export default function WriteComp() {
+export default function WriteComp(props: {
+  docContent: {
+    title: string;
+    subtitle: string;
+    content: string;
+  };
+  setDocContent: React.Dispatch<
+    React.SetStateAction<{
+      title: string;
+      subtitle: string;
+      content: string;
+    }>
+  >;
+}) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");
   return (
     <>
@@ -39,6 +52,13 @@ export default function WriteComp() {
             <input
               type={"text"}
               placeholder="Title"
+              onChange={(e) =>
+                props.setDocContent({
+                  ...props.docContent,
+                  title: e.target.value,
+                })
+              }
+              value={props.docContent.title}
               style={{
                 minWidth: "100%",
                 border: "none",
@@ -56,6 +76,13 @@ export default function WriteComp() {
               type={"text"}
               placeholder="Subtitle"
               aria-rowspan={2}
+              value={props.docContent.subtitle}
+              onChange={(e) =>
+                props.setDocContent({
+                  ...props.docContent,
+                  subtitle: e.target.value,
+                })
+              }
               style={{
                 minWidth: "100%",
                 border: "none",
@@ -70,6 +97,13 @@ export default function WriteComp() {
             />
             <textarea
               placeholder="Story"
+              value={props.docContent.content}
+              onChange={(e) =>
+                props.setDocContent({
+                  ...props.docContent,
+                  content: e.target.value,
+                })
+              }
               style={{
                 maxWidth: "100%",
                 minWidth: "100%",

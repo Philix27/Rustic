@@ -40,7 +40,7 @@ export default function View() {
           markdown={docContent?.content}
         />
       ) : (
-        <WriteComp />
+        <WriteComp docContent={docContent} setDocContent={setDocContent} />
       )}
     </>
   );
