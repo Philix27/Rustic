@@ -5,7 +5,7 @@ import { Text } from "@/comps";
 import MainTopBar from "./TopBar";
 
 export default function MainComp(props: { title: string }) {
-  const dataList = AllMcq.filter(
+  let dataList = AllMcq.filter(
     (v, index) =>
       AppHelperFn.remove_whitespace(v.title.toLowerCase()) ===
       props.title.toLowerCase()
@@ -16,34 +16,35 @@ export default function MainComp(props: { title: string }) {
       <MainTopBar />
       <ContentsWrapper>
         <CardList>
-          {dataList.list.map((v, i) => (
-            <Card key={i}>
-              <QuestionItem>
-                <div>{i + 1}.</div>
-                <Text variant="B3">{v.question}</Text>
-              </QuestionItem>
-              <OptionsSection>
-                <OptionsItem>
-                  <div>a.</div>
-                  <Text variant="B4" style={{ color: "white" }}>
-                    {v.option1}
-                  </Text>
-                </OptionsItem>
-                <OptionsItem>
-                  <div>b.</div>
-                  <Text variant="B4" style={{ color: "white" }}>
-                    {v.option2}
-                  </Text>
-                </OptionsItem>
-              </OptionsSection>
-            </Card>
-          ))}
+          {dataList &&
+            dataList.list.length &&
+            dataList.list.map((v, i) => (
+              <Card key={i}>
+                <QuestionItem>
+                  <div>{i + 1}.</div>
+                  <Text variant="B3">{v.question}</Text>
+                </QuestionItem>
+                <OptionsSection>
+                  <OptionsItem>
+                    <div>a.</div>
+                    <Text variant="B4" style={{ color: "white" }}>
+                      {v.option1}
+                    </Text>
+                  </OptionsItem>
+                  <OptionsItem>
+                    <div>b.</div>
+                    <Text variant="B4" style={{ color: "white" }}>
+                      {v.option2}
+                    </Text>
+                  </OptionsItem>
+                </OptionsSection>
+              </Card>
+            ))}
         </CardList>
       </ContentsWrapper>
     </Wrapper>
   );
 }
-
 
 const QuestionItem = styled.div`
   display: flex;

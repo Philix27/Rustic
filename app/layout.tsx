@@ -7,8 +7,8 @@ import { store } from "./lib/redux/store";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 export const metadata: Metadata = {
-  title: "Eligbue Felix",
-  description: "Eligbue Felix",
+  title: "Rustic Guide",
+  description: "Software Engineering",
 };
 
 export default function RootLayout({

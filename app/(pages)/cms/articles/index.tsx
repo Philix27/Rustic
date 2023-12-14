@@ -1,8 +1,10 @@
 "use client";
 
+import { getArticles } from "@/sanity";
 import React from "react";
 
-export default function CmsArticle() {
+export default async function CmsArticle() {
+  const articles = await getArticles()
   return (
     <div>
       <input type={"text"} placeholder="title" />

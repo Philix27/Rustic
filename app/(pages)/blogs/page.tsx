@@ -16,7 +16,7 @@ export default function BlogsPage() {
   return (
     <ClientOnly>
       <AppWrapper title={"Blogs and Articles"} subtitle={"Blogs"}>
-        <MetaHeader title={"Blogs | Felix Eligbue"} />
+        <MetaHeader title={"Blogs | Software Engineering"} />
         <BlogComp />
       </AppWrapper>
     </ClientOnly>
