@@ -9,8 +9,9 @@ export class AppStyles {
     background: "#1F1F1F",
     backgroundLight: "#303030",
     backgroundDark: "#262626",
-
     button: "hsl(205.1,100%,36.1%)",
+    offWhite1: "#eff1f6bf",
+    offWhite2: "#DADBDEBF",
   };
   // Breakpoints for responsive design
   static breakpoints = {

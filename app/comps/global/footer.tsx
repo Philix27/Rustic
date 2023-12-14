@@ -11,8 +11,9 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { styled } from "styled-components";
+import { AppStyles } from "@/lib";
 
-export default function Footer() {
+export function AppFooter() {
   return (
     <Wrapper>
       <InnerWrapper>
@@ -50,9 +51,8 @@ export default function Footer() {
 const Wrapper = styled.div`
   height: 50px;
   width: 100%;
-  background-color: #1a0e0e;
-  color: white;
-  border-bottom: solid 5px red;
+  background-color: ${AppStyles.colors.backgroundDark};
+  color: ${AppStyles.colors.offWhite2};
   padding: 10px;
 `;
 
@@ -65,7 +65,7 @@ const InnerWrapper = styled.div`
 
   div {
     a {
-      color: white;
+      color: ${AppStyles.colors.offWhite1};
       margin-left: 10px;
       margin-right: 10px;
     }

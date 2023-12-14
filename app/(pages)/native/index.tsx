@@ -1,29 +1,26 @@
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
-import { AppTopNavbar, AppFooter } from "@/comps";
-
+import Sidebar from "./sidebar";
+import MainComp from "./main";
+import { McqList } from "@/lib/docs/mcq/types";
+import { AppStyles } from "@/lib/utils";
 
 export default function HomeView(props: { title: string }) {
   return (
     <Wrapper>
-      <AppTopNavbar title={"Welcome"} icons={[]} />
       <WrapperContent>
-        <div>MCq</div>
-        <div>Books</div>
+        <Sidebar title={props.title} />
+        <MainComp title={props.title} />
       </WrapperContent>
-      <AppFooter />
     </Wrapper>
   );
 }
+
 
 const Wrapper = styled.div`
   background-color: ${AppStyles.colors.background};
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 
 const WrapperContent = styled.div`
