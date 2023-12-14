@@ -1,8 +1,8 @@
 import { defineField, defineType, defineArrayMember } from "sanity";
 
 export const mcqSchema = {
+  title: "Mcqs",
   name: "mcqs",
-  title: "mcqs",
   type: "document",
   fields: [
     defineField({

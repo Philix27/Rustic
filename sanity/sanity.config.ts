@@ -10,6 +10,9 @@ const sanityConfig = defineConfig({
   basePath: "/admin",
   plugins: [deskTool()],
   schema: { types: schemaRegistry },
+  // plugins: [
+  // codeInput(),
+  // ],
 });
 
 export default sanityConfig;

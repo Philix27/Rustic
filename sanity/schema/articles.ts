@@ -1,8 +1,8 @@
 import { defineField, defineType, defineArrayMember } from "sanity";
 
 export const article = {
+  title: "Articles",
   name: "article",
-  title: "articles",
   type: "document",
   fields: [
     defineField({
@@ -15,26 +15,7 @@ export const article = {
     }),
     defineField({
       name: "content",
-      type: "text",
-      rows: 4,
+      type: "blockContent",
     }),
-  ],
-  of: [
-    defineArrayMember({
-      title: "Block",
-      type: "block",
-    }),
-    {
-      title: "Another block",
-      type: "block",
-    },
-    {
-      title: "img",
-      type: "image",
-    },
-    {
-      title: "Code block",
-      type: "code",
-    },
   ],
 };
