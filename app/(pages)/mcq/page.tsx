@@ -1,7 +1,6 @@
 "use client";
 import { ClientOnly } from "@/comps";
-import HomeView from "@/(pages)/home";
-
+import HomeView from "@/(home)/welcome";
 
 export default function McqPage() {
   return (

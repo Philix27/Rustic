@@ -1,7 +1,6 @@
 "use client";
-import { ClientOnly } from "@/comps";
-import HomeView from "@/(pages)/home/index";
+import WelcomeView from "@/(home)/welcome/index";
 
 export default function Home() {
-  return <HomeView title={"Data Types"} />;
+  return <WelcomeView title={"Data Types"} />;
 }

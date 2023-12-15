@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { AppStyles } from "@/lib";
 import { AppTopNavbar, AppFooter, Text } from "@/comps";
 
-export default function HomeView(props: { title: string }) {
+export default function WelcomeView(props: { title: string }) {
   return (
     <Wrapper>
       <AppTopNavbar title={"Welcome"} icons={[]} />
