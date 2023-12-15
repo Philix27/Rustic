@@ -1,7 +1,8 @@
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+import { AppLinks, AppStyles } from "@/lib";
 import { AppTopNavbar, AppFooter, Text } from "@/comps";
+import Link from "next/link";
 
 export default function WelcomeView(props: { title: string }) {
   return (
@@ -15,7 +16,9 @@ export default function WelcomeView(props: { title: string }) {
           <div>MCQs</div>
           <div>Others</div>
         </CardGrid>
-        <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
+        <Link href={AppLinks.explore}>
+          <Text variant={"B4"}>Explore</Text>
+        </Link>
       </WrapperContent>
       <AppFooter />
     </Wrapper>

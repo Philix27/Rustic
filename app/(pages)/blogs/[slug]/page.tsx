@@ -2,7 +2,7 @@
 import { AppBlogs } from "@/lib/docs";
 import { AppWrapper, ClientOnly } from "@/comps";
 import { MarkdownStyledComp } from "@/comps/markdown";
-import { Landing } from "../../projects/banner";
+import { Landing } from "../../books/banner";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const activeContent = AppBlogs.filter((v, index) => v.id === params.slug)[0];

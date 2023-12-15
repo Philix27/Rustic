@@ -1,16 +1,19 @@
 "use client";
-import { AppStyles } from "@/lib";
+import { AppLinks, AppStyles } from "@/lib";
 import React, { Fragment } from "react";
 import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
+import Link from "next/link";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   return (
     <TopBar>
-      <div>
-        <FaCloudflare color="#8a8a8a" fontSize={16} />
-      </div>
+      <Link href={AppLinks.home}>
+        <div>
+          <FaCloudflare color="#8a8a8a" fontSize={16} />
+        </div>
+      </Link>
       <div>
         <Text variant="BarTitle">{props.title}</Text>
       </div>
