@@ -3,7 +3,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { AppStyles } from "@/lib/utils";
 
-export default function TopTitles(props: { title: string; subtitle: string }) {
+export function TopTitles(props: { title: string; subtitle: string }) {
   return (
     <Wrapper>
       <TextHeader variant="one">{props.title}</TextHeader>

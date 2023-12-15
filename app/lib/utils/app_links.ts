@@ -5,5 +5,5 @@ export class AppLinks {
   static books = "/books";
   static blogs = "/blogs";
   static about = "/about";
-  static mcqs = "/mcqs";
+  static mcqs = "/quiz";
 }

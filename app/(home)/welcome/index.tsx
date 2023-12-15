@@ -11,10 +11,18 @@ export default function WelcomeView(props: { title: string }) {
       <WrapperContent>
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
         <CardGrid>
-          <div>Books</div>
-          <div>Blogs</div>
-          <div>MCQs</div>
-          <div>Others</div>
+          <Link href={AppLinks.books}>
+            <div>Books</div>
+          </Link>
+          <Link href={AppLinks.blogs}>
+            <div>Blogs</div>
+          </Link>
+          <Link href={AppLinks.mcqs}>
+            <div>MCQs</div>
+          </Link>
+          <Link href={AppLinks.explore}>
+            <div>Others</div>
+          </Link>
         </CardGrid>
         <Link href={AppLinks.explore}>
           <Text variant={"B4"}>Explore</Text>
@@ -53,15 +61,17 @@ const CardGrid = styled.div`
   /* background-color: #07232b; */
   width: 100%;
   margin: 50px 0;
-  div {
+  a {
     background-color: ${AppStyles.colors.backgroundDark};
-    border: solid 0.2px ${AppStyles.colors.grey2};
+    color: ${AppStyles.colors.offWhite2};
     padding: 15px;
     border-radius: 10px;
-    min-height: 200px;
 
     &:hover {
-      border: solid 0.2px ${AppStyles.colors.offWhite1};
+      border: solid 0.2px ${AppStyles.colors.grey2};
+    }
+    div {
+      min-height: 200px;
     }
   }
 `;

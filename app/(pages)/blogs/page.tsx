@@ -4,6 +4,7 @@ import { MetaHeader } from "../../comps/global/meta";
 
 import { ClientOnly } from "../../comps/cleint";
 import BlogComp from ".";
+import { AppTopNavbar } from "@/comps";
 
 interface PropTypes {
   slug: string;
@@ -15,10 +16,11 @@ interface PropTypes {
 export default function BlogsPage() {
   return (
     <ClientOnly>
-      <AppWrapper title={"Blogs and Articles"} subtitle={"Blogs"}>
-        <MetaHeader title={"Blogs | Software Engineering"} />
-        <BlogComp />
-      </AppWrapper>
+      <AppTopNavbar title={"Blogs"} icons={[]} />
+      {/* <AppWrapper title={"Blogs and Articles"} subtitle={"Blogs"}> */}
+      <MetaHeader title={"Blogs | Software Engineering"} />
+      <BlogComp />
+      {/* </AppWrapper> */}
     </ClientOnly>
   );
 }

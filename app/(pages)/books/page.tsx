@@ -1,5 +1,5 @@
 "use client";
-import { ClientOnly } from "@/comps";
+import { AppTopNavbar, ClientOnly } from "@/comps";
 import { AppWrapper } from "../../comps/wrapper/wrapper";
 import ProjectsList from "./grid";
 
@@ -12,12 +12,8 @@ interface PropTypes {
 export default function ProjectsPage() {
   return (
     <ClientOnly>
-      <AppWrapper
-        title={"Projects"}
-        subtitle={"List of personal projects over the years"}
-      >
-        <ProjectsList />
-      </AppWrapper>
+      <AppTopNavbar title={"Books"} icons={[]} />
+      <ProjectsList />
     </ClientOnly>
   );
 }
