@@ -1,6 +1,6 @@
 "use client";
 import { AppBlogs } from "@/lib/docs";
-import { AppWrapper, ClientOnly } from "@/comps";
+import { AppTopNavbar, AppWrapper, ClientOnly } from "@/comps";
 import { MarkdownStyledComp } from "@/comps/markdown";
 import { Landing } from "../../books/banner";
 
@@ -9,7 +9,8 @@ export default function Page({ params }: { params: { slug: string } }) {
   console.log(params.slug, "SLUGGY");
   return (
     <ClientOnly>
-      <AppWrapper title={"Topper"} subtitle={"Hello"}>
+      <AppTopNavbar title={activeContent.title} icons={[]} />
+      <AppWrapper>
         <Landing
           title={activeContent.title}
           imgUrl={activeContent.cover_image}

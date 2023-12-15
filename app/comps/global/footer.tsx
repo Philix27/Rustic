@@ -11,12 +11,15 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+import { AppLinks, AppStyles } from "@/lib";
 
 export function AppFooter() {
   return (
     <Wrapper>
       <InnerWrapper>
+        <Link passHref href={AppLinks.about}>
+          <TextBody variant="four">About us</TextBody>
+        </Link>
         <TextBody variant="four">
           © 2023 Copyright &copy; All Rights Reserved.
         </TextBody>
@@ -60,7 +63,7 @@ const InnerWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 10px;
 
   div {

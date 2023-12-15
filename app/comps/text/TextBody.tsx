@@ -1,3 +1,4 @@
+import { AppStyles } from "@/lib";
 import React, { ReactNode } from "react";
 import { styled } from "styled-components";
 
@@ -24,24 +25,30 @@ export function TextBody(props: { variant: Variants; children: ReactNode }) {
 const BodyText1 = styled.p`
   font-size: 18px;
   font-weight: 600;
+  color: ${AppStyles.colors.offWhite2}
 `;
 const BodyText2 = styled.p`
   font-size: 16px;
   font-weight: 600;
+  color: ${AppStyles.colors.offWhite2};
 `;
 const BodyText3 = styled.p`
   font-size: 14px;
   font-weight: 500;
+  color: ${AppStyles.colors.offWhite2};
 `;
 const BodyText4 = styled.p`
   font-size: 12px;
   font-weight: 400;
+  color: ${AppStyles.colors.offWhite2};
 `;
 const BodyText5 = styled.p`
   font-size: 10px;
   font-weight: 400;
+  color: ${AppStyles.colors.offWhite2};
 `;
 const BodyText6 = styled.p`
   font-size: 8px;
   font-weight: 300;
+  color: ${AppStyles.colors.offWhite2};
 `;
