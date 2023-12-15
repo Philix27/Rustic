@@ -1,6 +1,5 @@
 "use client";
 import { AppTopNavbar, ClientOnly } from "@/comps";
-import { AppWrapper } from "../../comps/wrapper/wrapper";
 import ProjectsList from "./grid";
 
 interface PropTypes {

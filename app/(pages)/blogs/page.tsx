@@ -1,5 +1,4 @@
 "use client";
-import { AppWrapper } from "../../comps/wrapper/wrapper";
 import { MetaHeader } from "../../comps/global/meta";
 
 import { ClientOnly } from "../../comps/cleint";
@@ -17,10 +16,8 @@ export default function BlogsPage() {
   return (
     <ClientOnly>
       <AppTopNavbar title={"Blogs"} icons={[]} />
-      {/* <AppWrapper title={"Blogs and Articles"} subtitle={"Blogs"}> */}
       <MetaHeader title={"Blogs | Software Engineering"} />
       <BlogComp />
-      {/* </AppWrapper> */}
     </ClientOnly>
   );
 }
