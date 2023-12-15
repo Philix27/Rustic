@@ -1,19 +1,20 @@
 "use client";
 import { AppLinks, AppStyles } from "@/lib";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import Link from "next/link";
+import TopNavLinks from "./navLinks";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
+  const [showSheet, setShowSheet] = useState(false);
   return (
     <TopBar>
-      <Link href={AppLinks.home}>
-        <div>
-          <FaCloudflare color="#8a8a8a" fontSize={16} />
-        </div>
-      </Link>
+      <Menu onClick={() => setShowSheet(!showSheet)}>
+        <FaCloudflare color={AppStyles.colors.offWhite2} fontSize={16} />
+        {showSheet && <TopNavLinks />}
+      </Menu>
       <div>
         <Text variant="BarTitle">{props.title}</Text>
       </div>
@@ -46,4 +47,9 @@ const IconsTray = styled.div`
       color: white;
     }
   }
+`;
+
+const Menu = styled.div`
+  position: relative;
+  cursor: pointer;
 `;
