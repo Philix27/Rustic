@@ -1,3 +1,4 @@
+"use client"
 import { TextBody } from "../text";
 import Link from "next/link";
 import React from "react";
@@ -54,7 +55,7 @@ export function AppFooter() {
 const Wrapper = styled.div`
   height: 50px;
   width: 100%;
-  background-color: ${AppStyles.colors.backgroundDark};
+  background-color: ${AppStyles.colors.backgroundLight};
   color: ${AppStyles.colors.offWhite2};
   padding: 10px;
 `;

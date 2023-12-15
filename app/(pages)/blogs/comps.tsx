@@ -5,8 +5,9 @@ export const Wrapper = styled.div`
   text-align: center;
   padding-top: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  margin-bottom: 20px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -48,7 +49,7 @@ export const FirstContent = styled.div`
   display: flex;
   align-items: flex-start;
   text-align: left;
- 
+
   div {
     /* padding: 0 20px; */
   }

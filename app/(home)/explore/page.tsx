@@ -10,10 +10,8 @@ export default function HomeView(props: { title: string }) {
       <AppTopNavbar title={"Explore"} icons={[]} />
       <WrapperContent>
         <Text variant={"B1"}>Explore our collections</Text>
-
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
       </WrapperContent>
-      <AppFooter />
     </Wrapper>
   );
 }

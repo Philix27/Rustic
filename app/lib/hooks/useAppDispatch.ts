@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { AppActions } from "../redux/store/persist";

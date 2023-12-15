@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { AppLinks, AppStyles } from "@/lib";
-import { AppTopNavbar, AppFooter, Text } from "@/comps";
+import { AppTopNavbar, AppFooter, Text, AppModal } from "@/comps";
 import Link from "next/link";
+import { FaHamburger } from "react-icons/fa";
 
 export default function WelcomeView(props: { title: string }) {
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <Wrapper>
-      <AppTopNavbar title={"Welcome"} icons={[]} />
+      <AppTopNavbar
+        title={"Welcome"}
+        icons={[<FaHamburger onClick={() => setShowSidebar(true)} />]}
+      />
       <WrapperContent>
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
         <CardGrid>
@@ -28,6 +33,12 @@ export default function WelcomeView(props: { title: string }) {
           <Text variant={"B4"}>Explore</Text>
         </Link>
       </WrapperContent>
+      <AppModal
+        isMounted={showSidebar}
+        onBlankClick={() => setShowSidebar(false)}
+      >
+        We did check
+      </AppModal>
       <AppFooter />
     </Wrapper>
   );
