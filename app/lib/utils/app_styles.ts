@@ -12,6 +12,8 @@ export class AppStyles {
     button: "hsl(205.1,100%,36.1%)",
     offWhite1: "#eff1f6bf",
     offWhite2: "#DADBDEBF",
+    grey1: "#555656B1",
+    grey2: "#363737F2",
   };
   // Breakpoints for responsive design
   static breakpoints = {

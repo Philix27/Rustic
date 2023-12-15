@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id               String            @id
+  Profile          BookChapter?
+  BookChapterTopic BookChapterTopic?
+}
+
+model BookChapter {
+  id               String            @id
+  title            String
+  subtitle         String?
+  book_id          String?           @unique
+  Book             Book?             @relation(fields: [book_id], references: [id])
+  BookChapterTopic BookChapterTopic?
+}
+
+model BookChapterTopic {
+  id         String       @id
+  title      String
+  content   String?
+  video_url   String?
+  book_id    String?      @unique
+  Book       Book?        @relation(fields: [book_id], references: [id])
+  chapter_id String?      @unique
+  chapter    BookChapter? @relation(fields: [chapter_id], references: [id])
+}
+
+model Blog {
+  id       String  @id
+  title    String
+  subtitle String?
+  story    String
+}
+
+model Mcq {
+  id       String  @id
+  title    String
+  subtitle String?
+  story    String
+}

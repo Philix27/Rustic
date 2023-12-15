@@ -14,6 +14,9 @@
     "@next/mdx": "^14.0.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@sanity/code-input": "^4.1.1",
+    "@tanstack/react-query": "^5.13.4",
+    "@trpc/client": "^10.44.1",
+    "@trpc/react-query": "^10.44.1",
     "framer-motion": "^6.2.6",
     "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.1",
@@ -40,8 +43,10 @@
     "@types/mdx": "2.0.3",
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
+    "@stylexjs/stylex": "^0.3.0",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
+    "prisma": "^5.7.0",
     "typescript": "^4.9.4"
   }
 }
