@@ -4,7 +4,6 @@ import React, { Fragment, useState } from "react";
 import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
-import Link from "next/link";
 import NavLinksCard from "./navLinksCard";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {

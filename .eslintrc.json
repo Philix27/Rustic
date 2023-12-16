@@ -1,5 +1,11 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": { "react/no-unescaped-entities": 0 }
+  "plugins": ["@stylexjs"],
+  "rules": {
+    "react/no-unescaped-entities": 0,
+    // The Eslint rule still needs work, but you can
+    // enable it to test things out.
+    "@stylexjs/valid-styles": "error"
+  }
   // "react/no-unescaped-entities": ["enabled", { "forbid": ["`"] }]
 }

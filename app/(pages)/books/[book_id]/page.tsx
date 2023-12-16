@@ -9,14 +9,14 @@ import Sidebar from "./sidebar";
 export default function ProjectsContentPage({
   params,
 }: {
-  params: { slug: string };
+  params: { book_id: string };
 }) {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   const activeContent = AppProjects.filter(
-    (v, index) => v.id === params.slug
+    (v, index) => v.id === params.book_id
   )[0];
   return (
-    <Fragment>
+    <div>
       <AppTopNavbar
         title={activeContent.title}
         icons={[
@@ -26,7 +26,7 @@ export default function ProjectsContentPage({
       <div style={{ display: "flex", minHeight: "100vh" }}>
         {showSidebar && <Sidebar />}
 
-        <div>
+        <div style={{ width: "100%" }}>
           <Landing
             title={activeContent.title}
             imgUrl={activeContent.cover_image}
@@ -50,6 +50,6 @@ export default function ProjectsContentPage({
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
