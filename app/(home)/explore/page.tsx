@@ -12,6 +12,7 @@ export default function HomeView(props: { title: string }) {
         <Text variant={"B1"}>Explore our collections</Text>
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
       </WrapperContent>
+      <AppFooter />
     </Wrapper>
   );
 }

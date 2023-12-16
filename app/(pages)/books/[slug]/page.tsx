@@ -12,7 +12,7 @@ export default function ProjectsContentPage({
     (v, index) => v.id === params.slug
   )[0];
   return (
-    <AppWrapper title={"Topper"} subtitle={"Hello"}>
+    <AppWrapper>
       <Landing
         title={activeContent.title}
         imgUrl={activeContent.cover_image}

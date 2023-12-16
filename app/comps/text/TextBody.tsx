@@ -3,29 +3,33 @@ import React, { ReactNode } from "react";
 import { styled } from "styled-components";
 
 type Variants = "one" | "two" | "three" | "four" | "five" | "six";
-export function TextBody(props: { variant: Variants; children: ReactNode }) {
+export function TextBody(props: {
+  variant: Variants;
+  children: ReactNode;
+  style?: React.CSSProperties;
+}) {
   switch (props.variant) {
     case "one":
-      return <BodyText1>{props.children}</BodyText1>;
+      return <BodyText1 style={props.style}>{props.children}</BodyText1>;
     case "two":
-      return <BodyText2>{props.children}</BodyText2>;
+      return <BodyText2 style={props.style}>{props.children}</BodyText2>;
     case "three":
-      return <BodyText3>{props.children}</BodyText3>;
+      return <BodyText3 style={props.style}>{props.children}</BodyText3>;
     case "four":
-      return <BodyText4>{props.children}</BodyText4>;
+      return <BodyText4 style={props.style}>{props.children}</BodyText4>;
     case "five":
-      return <BodyText5>{props.children}</BodyText5>;
+      return <BodyText5 style={props.style}>{props.children}</BodyText5>;
     case "six":
-      return <BodyText5>{props.children}</BodyText5>;
+      return <BodyText5 style={props.style}>{props.children}</BodyText5>;
     default:
-      return <BodyText6>{props.children}</BodyText6>;
+      return <BodyText6 style={props.style}>{props.children}</BodyText6>;
   }
 }
 
 const BodyText1 = styled.p`
   font-size: 18px;
   font-weight: 600;
-  color: ${AppStyles.colors.offWhite2}
+  color: ${AppStyles.colors.offWhite2};
 `;
 const BodyText2 = styled.p`
   font-size: 16px;

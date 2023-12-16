@@ -3,7 +3,7 @@ import { TextBody, TextHeader } from "../../comps/text";
 import { styled } from "styled-components";
 import { AppProjects } from "../../lib/docs/registryProject";
 import Link from "next/link";
-import { AppLinks } from "@/lib/utils";
+import { AppLinks, AppStyles } from "@/lib/utils";
 
 interface PropTypes {
   slug: string;
@@ -25,13 +25,35 @@ export default function ProjectsList() {
         {AppProjects.map((val, index) => (
           <InLink
             passHref={false}
-            href={`${AppLinks.projects}/${val.id}`}
+            href={`${AppLinks.books}/${val.id}`}
             key={index}
           >
             <Img src={val.cover_image} />
-            <div style={{ padding: "20px" }}>
-              <TextHeader variant="five">{val.title}</TextHeader>
-              <TextBody variant="four">{val.subtitle}</TextBody>
+            <div style={{ width: "100%" }}>
+              <CardTitle>
+                <TextBody variant="two" style={{ paddingBottom: "10px" }}>
+                  {val.title}
+                </TextBody>
+                <TextBody variant="four">{val.subtitle}</TextBody>
+              </CardTitle>
+              <ChapterTitle>
+                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                  {val.title}
+                </TextBody>
+                <TextBody variant="four">{val.subtitle}</TextBody>
+              </ChapterTitle>
+              <ChapterTitle>
+                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                  {val.title}
+                </TextBody>
+                <TextBody variant="four">{val.subtitle}</TextBody>
+              </ChapterTitle>
+              <ChapterTitle>
+                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                  {val.title}
+                </TextBody>
+                <TextBody variant="four">{val.subtitle}</TextBody>
+              </ChapterTitle>
             </div>
           </InLink>
         ))}
@@ -43,17 +65,22 @@ export default function ProjectsList() {
 const Wrapper = styled.div`
   text-align: center;
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 `;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  // visibility: hidden;
-  object-fit: cover;
-  overflow: hidden;
+const GridWrapper = styled.div`
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 3rem;
+  column-gap: 2rem;
+  row-gap: 3rem;
 `;
+
 const InLink = styled(Link)`
-  background-color: #fff;
-  color: #490000;
+  background-color: ${AppStyles.colors.backgroundLight};
+  color: ${AppStyles.colors.offWhite1};
   display: block;
   border-radius: 10px;
   display: flex;
@@ -61,25 +88,33 @@ const InLink = styled(Link)`
   align-items: center;
   justify-items: center;
   text-align: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 `;
 
-// const Card = styled.div`
-//   /* padding: 20px; */
-//   border-radius: 10px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-items: center;
-//   text-align: center;
-//   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-//   cursor: pointer;
-// `;
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 3rem;
-  column-gap: 3rem;
-  row-gap: 3rem;
+const Img = styled.img`
+  width: 100%;
+  /* height: 100px; */
+  aspect-ratio: 25/9;
+  max-height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+`;
+
+const CardTitle = styled.div`
+  background-color: ${AppStyles.colors.background3};
+  color: ${AppStyles.colors.offWhite2};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px 15px;
+`;
+const ChapterTitle = styled.div`
+  background-color: ${AppStyles.colors.backgroundLight};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px 15px;
+  border-bottom: solid 1px ${AppStyles.colors.grey1};
 `;

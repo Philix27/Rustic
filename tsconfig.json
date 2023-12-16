@@ -44,6 +44,12 @@
       "@/utils/*": ["./app/lib/utils"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/comps/global/topNav/navLinks.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/comps/global/topNav/navLinksCard.tsx"
+  ],
   "exclude": ["node_modules"]
 }

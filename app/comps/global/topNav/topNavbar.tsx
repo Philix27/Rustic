@@ -5,7 +5,7 @@ import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import Link from "next/link";
-import TopNavLinks from "./navLinks";
+import NavLinksCard from "./navLinksCard";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   const [showSheet, setShowSheet] = useState(false);
@@ -13,7 +13,7 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
     <TopBar>
       <Menu onClick={() => setShowSheet(!showSheet)}>
         <FaCloudflare color={AppStyles.colors.offWhite2} fontSize={16} />
-        {showSheet && <TopNavLinks />}
+        {showSheet && <NavLinksCard />}
       </Menu>
       <div>
         <Text variant="BarTitle">{props.title}</Text>
