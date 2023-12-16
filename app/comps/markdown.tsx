@@ -23,7 +23,7 @@ export const MarkdownStyledComp = styled.div`
     text-justify: inter-word;
     margin: 10px 0;
     color: ${AppStyles.colors.offWhite1};
-    line-height: 1.6;
+    line-height: 1.3;
     font-weight: 400;
   }
   img {
