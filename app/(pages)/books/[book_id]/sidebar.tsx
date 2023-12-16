@@ -1,17 +1,17 @@
-import { AppStyles } from "@/lib";
+import { AppStyles, ICustomStyles } from "@/lib";
 import React from "react";
 import { CSSProperties } from "styled-components";
 import ChapterCard from "./chapterCard";
 import { ChapterList } from "./chapterList";
 
-const s:  = {
+const s: ICustomStyles = {
   wrapper: {
-    height: "100%",
+    maxHeight: "100vh",
     width: "30%",
     backgroundColor: AppStyles.colors.backgroundLight,
     borderTop: `solid 1px ${AppStyles.colors.grey1}`,
-    overflowY: "hidden",
-    scrollBehavior: "smooth"
+    overflowY: "auto",
+    scrollBehavior: "smooth",
   },
 };
 

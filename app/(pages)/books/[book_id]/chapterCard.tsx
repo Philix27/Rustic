@@ -1,10 +1,10 @@
-import { AppStyles } from "@/lib";
+import { AppStyles, ICustomStyles } from "@/lib";
 import { TextBody, TextHeader } from "@/comps";
 import * as stylex from "@stylexjs/stylex";
 import React, { useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-const s = {
+const s: ICustomStyles = {
   wrapper: {
     minHeight: "100vh",
     width: "30%",
