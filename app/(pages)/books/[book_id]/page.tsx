@@ -12,14 +12,14 @@ const s: ICustomStyles = {
     minHeight: "calc(100vh - 40px)",
   },
   contentWrapper: { display: "flex", maxHeight: "100vh", overflowY: "auto" },
-  innerContentWrapper: { width: "80%", maxHeight: "100vh", overflowY: "auto" },
+  innerContentWrapper: { width: "100%", maxHeight: "100vh", overflowY: "auto" },
   mdWrapper: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
   },
   mdContentWrapper: {
-    width: "80%",
+    width: "100%",
   },
 };
 export default function BooksContentPage({

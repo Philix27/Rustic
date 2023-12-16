@@ -14,6 +14,7 @@ const s: ICustomStyles = {
   chapterCard: { borderBottom: `solid 1px ${AppStyles.colors.grey1}` },
   chapterTitle: {
     display: "flex",
+    alignItems: "center",
     justifyContent: "space-between",
     padding: "10px 10px",
   },
@@ -34,7 +35,7 @@ export default function ChapterCard(props: {
         style={s.chapterTitle}
         onClick={() => setOpenChapter((prev) => !prev)}
       >
-        <TextHeader variant={"five"}>{props.chapter.title}</TextHeader>
+        <TextBody variant={"two"}>{props.chapter.title}</TextBody>
         {openChapter ? (
           <MdArrowDropDown size={25} />
         ) : (

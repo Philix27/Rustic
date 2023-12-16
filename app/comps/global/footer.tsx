@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import { TextBody } from "../text";
 import Link from "next/link";
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import {
   AiFillFacebook,
-  AiFillGithub,
   AiFillLinkedin,
   AiFillPhone,
   AiFillTwitterSquare,
