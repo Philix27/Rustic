@@ -1,18 +1,18 @@
 import { AppLinks } from "@/lib";
 import { FaBlog, FaBook } from "react-icons/fa";
-import { MdHomeMini, MdMore } from "react-icons/md";
+import { MdHome, MdMore, MdAdminPanelSettings, MdQuiz } from "react-icons/md";
 
 export const navLinkList: {
   title: string;
   desc: string;
-  color?: string;
+  color: string;
   link: string;
   icon: JSX.Element;
 }[] = [
   {
     title: "Home",
     desc: "Welcome to Rustic guide community",
-    icon: <MdHomeMini />,
+    icon: <MdHome />,
     color: "#2da02d",
     link: AppLinks.home,
   },
@@ -20,7 +20,7 @@ export const navLinkList: {
     title: "Books",
     desc: "All courses organised as books for easy study",
     icon: <FaBook />,
-    color: "#11a58f",
+    color: "#d9b205",
     link: AppLinks.books,
   },
   {
@@ -31,10 +31,17 @@ export const navLinkList: {
     link: AppLinks.blogs,
   },
   {
-    title: "Others",
-    desc: "All blog contents",
-    icon: <MdMore />,
+    title: "Quiz",
+    desc: "Practice questions on various topics",
+    icon: <MdQuiz />,
     color: "#ee790b",
-    link: AppLinks.explore,
+    link: AppLinks.quiz,
+  },
+  {
+    title: "Admin",
+    desc: "Content management system",
+    icon: <MdAdminPanelSettings />,
+    color: "#0699a9",
+    link: AppLinks.admin,
   },
 ];
