@@ -11,14 +11,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
-    "@tanstack/react-query": "^5.13.4",
-    "@trpc/client": "^10.44.1",
-    "@trpc/react-query": "^10.44.1",
-    "@trpc/server": "^10.44.1",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.3",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@tanstack/react-query": "^5.13.4",
+    "@trpc/client": "^10.44.1",
+    "@trpc/next": "^10.44.1",
+    "@trpc/react-query": "^10.44.1",
+    "@trpc/server": "^10.44.1",
     "bright": "^0.8.4",
     "framer-motion": "^6.2.6",
     "gray-matter": "^4.0.3",
@@ -39,7 +40,8 @@
     "redux-persist": "^6.0.0",
     "sanity": "^3.20.2",
     "sass": "^1.69.4",
-    "styled-components": "^6.1.1"
+    "styled-components": "^6.1.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -47,14 +49,14 @@
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/plugin-syntax-typescript": "^7.22.5",
     "@mdx-js/loader": "^3.0.0",
-    "rimraf": "^5.0.5",
     "@types/mdx": "2.0.3",
-    "eslint": "8.8.0",
-    "prisma": "^5.7.0",
-    "typescript": "^4.9.4",
     "@types/node": "20.8.10",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
-    "eslint-config-next": "14.0.1"
+    "eslint": "8.8.0",
+    "eslint-config-next": "14.0.1",
+    "prisma": "^5.7.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^4.9.4"
   }
 }
