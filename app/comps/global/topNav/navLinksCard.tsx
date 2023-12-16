@@ -2,7 +2,6 @@ import { TextBody } from "@/comps/text";
 import { AppStyles } from "@/lib";
 import Link from "next/link";
 import React from "react";
-import { MdHome } from "react-icons/md";
 import { styled } from "styled-components";
 import { navLinkList } from "./links";
 
