@@ -10,7 +10,7 @@ export default function NavLinksCard() {
   return (
     <Container>
       {navLinkList.map((v, i) => (
-        <Link href={v.link}>
+        <Link href={v.link} key={i}>
           <Item key={i}>
             <Icon>{v.icon}</Icon>
             <div>

@@ -22,9 +22,10 @@ export default function View() {
       <AppTopNavbar
         title={"Write an article "}
         icons={[
-          <MdPublish />,
-          <MdPreview />,
+          <MdPublish key={1} />,
+          <MdPreview key={2} />,
           <MdSwitchLeft
+            key={3}
             onClick={() => {
               showDoc === "PREVIEW"
                 ? setShowDoc("WRITE")

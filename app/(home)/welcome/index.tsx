@@ -11,7 +11,7 @@ export default function WelcomeView(props: { title: string }) {
     <Wrapper>
       <AppTopNavbar
         title={"Welcome"}
-        icons={[<FaHamburger onClick={() => setShowSidebar(true)} />]}
+        icons={[<FaHamburger key={1} onClick={() => setShowSidebar(true)} />]}
       />
       <WrapperContent>
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>

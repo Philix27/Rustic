@@ -1,6 +1,5 @@
 import { AppStyles, ICustomStyles } from "@/lib";
 import { TextBody, TextHeader } from "@/comps";
-import * as stylex from "@stylexjs/stylex";
 import React, { useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
@@ -44,7 +43,7 @@ export default function ChapterCard(props: {
       </div>
       {openChapter &&
         props.chapter.topics.map((v, i) => (
-          <div style={s.topicTitle}>
+          <div style={s.topicTitle} key={i}>
             <TextBody variant={"four"}>{v.title}</TextBody>
           </div>
         ))}

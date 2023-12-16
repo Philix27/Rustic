@@ -14,19 +14,20 @@ export function AppModal(props: {
     ref.current = document.querySelector<HTMLElement>("#modal-portal");
   }, []);
 
-  return props.isMounted && ref.current ? (
-    createPortal(
-      <Container
-        style={{ backgroundColor: "#00080B88" }}
-        onClick={props.onBlankClick}
-      >
-        {props.children}
-      </Container>,
-      ref.current
-    )
-  ) : (
-    <div></div>
-  );
+  // return props.isMounted && ref.current ? (
+  //   createPortal(
+  //     <Container
+  //       style={{ backgroundColor: "#00080B88" }}
+  //       onClick={props.onBlankClick}
+  //     >
+  //       {props.children}
+  //     </Container>,
+  //     ref.current
+  //   )
+  // ) : (
+  //   <div></div>
+  // );
+  return <div></div>;
 }
 
 const Container = styled.div`

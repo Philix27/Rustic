@@ -10,7 +10,7 @@ export default function BlogContentPage() {
     (v, index) => v.id === router.query.slug
   )[0];
   return (
-    <AppWrapper title={"Topper"} subtitle={"Hello"}>
+    <AppWrapper>
       <Landing
         title={activeContent.title}
         imgUrl={activeContent.cover_image}

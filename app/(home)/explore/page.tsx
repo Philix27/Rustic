@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { AppStyles } from "@/lib";
 import { AppTopNavbar, AppFooter, Text } from "@/comps";
 
-export default function HomeView(props: { title: string }) {
+export default function ExploreView() {
   return (
     <Wrapper>
       <AppTopNavbar title={"Explore"} icons={[]} />

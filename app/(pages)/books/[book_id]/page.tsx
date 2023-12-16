@@ -22,6 +22,7 @@ const s: ICustomStyles = {
     width: "100%",
   },
 };
+
 export default function BooksContentPage({
   params,
 }: {
@@ -31,12 +32,13 @@ export default function BooksContentPage({
   const activeContent = AppProjects.filter(
     (v, index) => v.id === params.book_id
   )[0];
+
   return (
     <div style={s.container}>
       <AppTopNavbar
         title={activeContent.title}
         icons={[
-          <MdViewSidebar onClick={() => setShowSidebar((prev) => !prev)} />,
+          <MdViewSidebar key={1} onClick={() => setShowSidebar((prev) => !prev)} />,
         ]}
       />
       <div style={s.contentWrapper}>
