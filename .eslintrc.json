@@ -1,7 +1,7 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "react/no-unescaped-entities": 0,
+    "react/no-unescaped-entities": 0
     // The Eslint rule still needs work, but you can
     // enable it to test things out.
   }
