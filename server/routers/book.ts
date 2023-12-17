@@ -25,7 +25,6 @@ export const booksRouter = router({
           desc: input.desc,
           img_url: input.img_url,
         },
-        // input.title,
       });
     }),
   delete: publicProcedure
