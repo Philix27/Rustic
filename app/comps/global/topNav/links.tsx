@@ -14,7 +14,7 @@ export const navLinkList: {
     desc: "Welcome to Rustic guide community",
     icon: <MdHome />,
     color: "#2da02d",
-    link: AppLinks.home,
+    link: AppLinks.home.index,
   },
   {
     title: "Books",

@@ -5,13 +5,14 @@ import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import NavLinksCard from "./navLinksCard";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   const [showSheet, setShowSheet] = useState(false);
   return (
     <TopBar>
       <Menu onClick={() => setShowSheet(!showSheet)}>
-        <FaCloudflare color={AppStyles.colors.offWhite2} fontSize={16} />
+        <AiOutlineMenu color={AppStyles.colors.offWhite2} fontSize={16} />
         {showSheet && <NavLinksCard />}
       </Menu>
       <div>

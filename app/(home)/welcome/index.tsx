@@ -22,11 +22,11 @@ export default function WelcomeView(props: { title: string }) {
           <Link href={AppLinks.blogs}>
             <div>Blogs</div>
           </Link>
-          <Link href={AppLinks.mcqs}>
-            <div>MCQs</div>
+          <Link href={AppLinks.quiz}>
+            <div>Quiz</div>
           </Link>
-          <Link href={AppLinks.explore}>
-            <div>Others</div>
+          <Link href={AppLinks.admin}>
+            <div>Admin</div>
           </Link>
         </CardGrid>
         <Link href={AppLinks.explore}>
@@ -67,7 +67,7 @@ const WrapperContent = styled.div`
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   /* background-color: #07232b; */
   width: 100%;

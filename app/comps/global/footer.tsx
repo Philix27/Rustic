@@ -17,13 +17,27 @@ export function AppFooter() {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Link passHref href={AppLinks.about}>
-          <TextBody variant="four">About us</TextBody>
-        </Link>
+        <div style={{ display: "flex" }}>
+          <Link passHref href={AppLinks.home.index}>
+            <TextBody variant="four">Home</TextBody>
+          </Link>
+          <Link passHref href={AppLinks.home.about}>
+            <TextBody variant="four">About us</TextBody>
+          </Link>
+          <Link passHref href={AppLinks.home.faq}>
+            <TextBody variant="four">FAQ</TextBody>
+          </Link>
+          <Link passHref href={AppLinks.home.terms}>
+            <TextBody variant="four">Terms</TextBody>
+          </Link>
+          <Link passHref href={AppLinks.home.privacy}>
+            <TextBody variant="four">Privacy</TextBody>
+          </Link>
+        </div>
         <TextBody variant="four">
           © 2023 Copyright &copy; All Rights Reserved.
         </TextBody>
-        <div>
+        <div style={{ display: "flex" }}>
           <Link passHref href="mailto:philixbob@gmail.com">
             <AiOutlineMail size={15} />
           </Link>
