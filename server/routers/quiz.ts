@@ -1,6 +1,6 @@
 import { publicProcedure, router } from "@/server";
 
-export const mcqRouter = router({
+export const quizRouter = router({
   get_todo: publicProcedure.query(async () => {
     return [10, 20, 30];
   }),

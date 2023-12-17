@@ -53,7 +53,7 @@ model Blog {
   updated_at DateTime? @updatedAt
 }
 
-model Mcq {
+model Quiz {
   id           String    @id @default(uuid())
   question     String
   option1      String
