@@ -39,7 +39,6 @@ export default function WelcomeView(props: { title: string }) {
       >
         We did check
       </AppModal>
-      <AppFooter />
     </Wrapper>
   );
 }
