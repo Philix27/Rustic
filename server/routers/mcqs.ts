@@ -1,6 +1,6 @@
-import { publicProcedure, router } from "@/trpc";
+import { publicProcedure, router } from "@/server";
 
-export const booksRouter = router({
+export const mcqRouter = router({
   get_todo: publicProcedure.query(async () => {
     return [10, 20, 30];
   }),
@@ -12,5 +12,3 @@ export const booksRouter = router({
     return [10, 20, 30];
   }),
 });
-
-
