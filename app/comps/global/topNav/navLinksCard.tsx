@@ -11,7 +11,7 @@ export default function NavLinksCard() {
       {navLinkList.map((v, i) => (
         <Link href={v.link} key={i}>
           <Item key={i}>
-            <Icon style={{ backgroundColor: v.color }}>{v.icon}</Icon>
+            <Icon bgColor={v.color}>{v.icon}</Icon>
             <div>
               <TextBody variant={"three"}>{v.title}</TextBody>
               <TextBody variant={"four"}>{v.desc}</TextBody>
@@ -43,7 +43,7 @@ const Item = styled.div`
     background-color: ${AppStyles.colors.backgroundDark};
   }
 `;
-const Icon = styled.div`
+const Icon = styled.div<{ bgColor: string }>`
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -52,6 +52,7 @@ const Icon = styled.div`
   align-items: center;
   justify-content: center;
   color: ${AppStyles.colors.offWhite1};
+  background-color: ${(props) => props.bgColor};
 
   svg {
     font-size: 20px;

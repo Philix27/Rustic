@@ -1,6 +1,6 @@
-import type { CreateNextContextOptions } from '@trpc/server/adapters/next';
+import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { prisma } from './prisma';
+import { prisma } from "./prisma";
 
 /**
  * Defines your inner context shape.
@@ -24,7 +24,7 @@ export interface CreateInnerContextOptions
 export async function createInnerTRPCContext(opts?: CreateInnerContextOptions) {
   return {
     prisma,
-    task: prisma.blog,
+    // task: prisma.blog,
     ...opts,
   };
 }
@@ -34,21 +34,21 @@ export async function createInnerTRPCContext(opts?: CreateInnerContextOptions) {
  *
  * @see https://trpc.io/docs/context#inner-and-outer-context
  */
-// export const createTRPCContext = async (opts?: CreateNextContextOptions) => {
-//   const acceptLanguage = opts?.req.headers['accept-language'];
-//   // If you store locales on User in DB, you can use that instead
-//   // We use the accept-language header to determine the locale here.
-//   const locale = acceptLanguage?.includes('en') ? 'en' : 'sv';
-//   const _i18n = await serverSideTranslations(locale, ['common']);
+export const createTRPCContext = async (opts?: CreateNextContextOptions) => {
+  const acceptLanguage = opts?.req.headers["accept-language"];
+  // If you store locales on User in DB, you can use that instead
+  // We use the accept-language header to determine the locale here.
+  const locale = acceptLanguage?.includes("en") ? "en" : "sv";
+  // const _i18n = await serverSideTranslations(locale, ['common']);
 
-//   const innerContext = await createInnerTRPCContext({
-//     req: opts?.req,
-//     locale,
-//     i18n: _i18n,
-//   });
+  const innerContext = await createInnerTRPCContext({
+    req: opts?.req,
+    locale,
+    // i18n: _i18n,
+  });
 
-//   return {
-//     ...innerContext,
-//     req: opts?.req,
-//   };
-// };
+  return {
+    ...innerContext,
+    req: opts?.req,
+  };
+};
