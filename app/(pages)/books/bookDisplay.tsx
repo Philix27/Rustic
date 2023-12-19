@@ -5,9 +5,6 @@ import { AppLinks, AppStyles, AppProjects } from "@/lib";
 import { trpc } from "@/_trpc";
 
 export default function BookDisplay() {
-  const sortedItems = AppProjects.filter((item) => {
-    return item.category == "web";
-  });
   const { isLoading, data: books } = trpc.books.get_all.useQuery();
 
   if (isLoading) return <Wrapper>Loading...</Wrapper>;

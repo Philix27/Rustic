@@ -5,6 +5,8 @@ import { AppProjects, ICustomStyles } from "@/lib";
 import { Fragment, useState } from "react";
 import { MdViewSidebar } from "react-icons/md";
 import Sidebar from "./sidebar";
+import { trpc } from "@/_trpc";
+import ActiveContent from "./activeContent";
 
 const s: ICustomStyles = {
   container: {
@@ -29,34 +31,28 @@ export default function BooksContentPage({
   params: { book_id: string };
 }) {
   const [showSidebar, setShowSidebar] = useState(true);
-  const activeContent = AppProjects.filter(
-    (v, index) => v.id === params.book_id
-  )[0];
+
+  const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
+    book_id: params.book_id,
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (book.id) return <div>No books available</div>;
 
   return (
     <div style={s.container}>
       <AppTopNavbar
-        title={activeContent.title}
+        title={book.title}
         icons={[
-          <MdViewSidebar key={1} onClick={() => setShowSidebar((prev) => !prev)} />,
+          <MdViewSidebar
+            key={1}
+            onClick={() => setShowSidebar((prev) => !prev)}
+          />,
         ]}
       />
       <div style={s.contentWrapper}>
         {showSidebar && <Sidebar />}
-
-        <div style={s.innerContentWrapper}>
-          <Landing
-            title={activeContent.title}
-            imgUrl={activeContent.cover_image}
-            subtitle={activeContent.subtitle}
-            opacity={1}
-          />
-          <div style={s.mdContentWrapper}>
-            <div style={s.mdWrapper}>
-              <MarkdownStyledComp>{activeContent.comp}</MarkdownStyledComp>
-            </div>
-          </div>
-        </div>
+        <ActiveContent />
       </div>
     </div>
   );

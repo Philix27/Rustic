@@ -4,9 +4,11 @@ import { AppTopNavbar, AppWrapper, ClientOnly } from "@/comps";
 import { MarkdownStyledComp } from "@/comps/markdown";
 import { Landing } from "../../books/banner";
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const activeContent = AppBlogs.filter((v, index) => v.id === params.slug)[0];
-  console.log(params.slug, "SLUGGY");
+export default function Page({ params }: { params: { blog_id: string } }) {
+  const activeContent = AppBlogs.filter(
+    (v, index) => v.id === params.blog_id
+  )[0];
+  console.log(params.blog_id, "SLUGGY");
   return (
     <ClientOnly>
       <AppTopNavbar title={activeContent.title} icons={[]} />
