@@ -1,4 +1,5 @@
 "use client";
+import { trpc } from "@/_trpc";
 import { AppTopNavbar } from "@/comps";
 import React, { useState } from "react";
 import { MdPreview, MdPublish } from "react-icons/md";
@@ -18,6 +19,7 @@ export default function WriteComp(props: {
   >;
 }) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");
+  // const bon = trpc.blog.create.useMutation({title:})
   return (
     <>
       <div

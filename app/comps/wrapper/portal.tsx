@@ -14,22 +14,35 @@ export function AppModal(props: {
     ref.current = document.querySelector<HTMLElement>("#modal-portal");
   }, []);
 
-  // return props.isMounted && ref.current ? (
-  //   createPortal(
-  //     <Container
-  //       style={{ backgroundColor: "#00080B88" }}
-  //       onClick={props.onBlankClick}
-  //     >
-  //       {props.children}
-  //     </Container>,
-  //     ref.current
-  //   )
-  // ) : (
-  //   <div></div>
-  // );
-  return <div></div>;
+  if (props.isMounted && ref.current) {
+    return createPortal(
+      getComp({ children: props.children, onBlankClick: props.onBlankClick }),
+
+      ref.current
+    );
+  } else return <div></div>;
+  // return <div></div>;
 }
 
+{
+  /* <Comp>{props.children} </Comp>; */
+}
+
+function getComp(props: {
+  children: JSX.Element;
+  onBlankClick: VoidFunction;
+}): ReactNode {
+  //  const ref = useRef<Element | null>(null);
+
+  return (
+    <Container
+      style={{ backgroundColor: "#00080BB9" }}
+      onClick={props.onBlankClick}
+    >
+      {props.children}
+    </Container>
+  );
+}
 const Container = styled.div`
   position: fixed;
   display: flex;

@@ -5,7 +5,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { navLinkList } from "./links";
 
-export default function NavLinksCard() {
+export function BookModal() {
   return (
     <Container>
       {navLinkList.map((v, i) => (
@@ -27,8 +27,8 @@ const Container = styled.div`
   background-color: ${AppStyles.colors.background3};
   border: solid 0.1px ${AppStyles.colors.grey2};
   padding: 10px 0;
-  position: absolute;
-  top: 30px;
+  /* position: absolute; */
+  /* top: 30px; */
   width: 350px;
   /* width: content; */
   border-radius: 5px;

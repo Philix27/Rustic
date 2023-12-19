@@ -1,4 +1,5 @@
 "use client";
+import { trpc } from "@/_trpc";
 import { AppTopNavbar } from "@/comps";
 import React, { useState } from "react";
 import { MdPreview, MdPublish } from "react-icons/md";
@@ -18,6 +19,7 @@ export default function WriteComp(props: {
   >;
 }) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");
+  const { data: books } = trpc.books.get_all.useQuery();
   return (
     <>
       <div
@@ -28,6 +30,9 @@ export default function WriteComp(props: {
           justifyContent: "center",
         }}
       >
+        {books.map((v, i) => (
+          <div>{v.title} </div>
+        ))}
         <div
           style={{
             width: "80%",

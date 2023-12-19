@@ -1,6 +1,6 @@
 "use client";
-import { AppTopNavbar, ClientOnly } from "@/comps";
-import ProjectsList from "./grid";
+import { ClientOnly } from "@/comps";
+import BooksListView from "./view";
 
 interface PropTypes {
   slug: string;
@@ -11,8 +11,7 @@ interface PropTypes {
 export default function ProjectsPage() {
   return (
     <ClientOnly>
-      <AppTopNavbar title={"Books"} icons={[]} />
-      <ProjectsList />
+      <BooksListView />
     </ClientOnly>
   );
 }
