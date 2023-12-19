@@ -2,7 +2,7 @@ import { appRouter, createTRPCContext } from "@/server";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
 const handler = (req: Request) => {
-  console.log("Requesting link", req.url);
+  console.log("Requesting link", req);
   return fetchRequestHandler({
     endpoint: "api/trpc",
     req,

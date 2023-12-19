@@ -11,6 +11,10 @@ export const appRouter = router({
   bookChaptersRouter: bookChaptersRouter,
   bookChapterTopicsRouter: bookChapterTopicsRouter,
   quiz: quizRouter,
+  test_all: publicProcedure.query(({ ctx }) => {
+    console.log("Tried to read book - testing");
+    return "Hello, are you for testing";
+  }),
 });
 
 export type AppRouter = typeof appRouter;

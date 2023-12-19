@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
 
-export function AddBookModal() {
-  const { data: books } = trpc.books.get_all.useQuery();
-
+export function AddBookModal(props: { onClose: VoidFunction }) {
+  const addBook = trpc.books.create.useMutation();
   const [docContent, setDocContent] = useState<{
     title: string;
     subtitle: string;
@@ -16,6 +15,15 @@ export function AddBookModal() {
     subtitle: "",
     content: "",
   });
+
+  const handleFormSubmission = () => {
+    addBook.mutate({
+      title: docContent.title,
+      desc: docContent.content,
+      img_url: docContent.subtitle,
+    });
+    console.log("docContent", docContent);
+  };
 
   return (
     <Container>
@@ -33,7 +41,7 @@ export function AddBookModal() {
         />
         <input
           type={"text"}
-          placeholder="Subtitle"
+          placeholder="Image Link"
           aria-rowspan={2}
           value={docContent.subtitle}
           onChange={(e) =>
@@ -53,7 +61,10 @@ export function AddBookModal() {
             })
           }
         ></textarea>
-        <button>Submit</button>
+        <ButtonGroup>
+          <button onClick={handleFormSubmission}>Submit</button>
+          <button onClick={props.onClose}>Cancel</button>
+        </ButtonGroup>
       </div>
     </Container>
   );
@@ -66,6 +77,7 @@ const Container = styled.div`
   width: 50%;
   height: 75%;
   border-radius: 10px;
+
   div {
     display: flex;
     flex-direction: column;
@@ -88,8 +100,8 @@ const Container = styled.div`
     textarea {
       max-width: 100%;
       min-width: 100%;
-      min-height: 300px;
-      max-height: 80%;
+      min-height: 45vh;
+      max-height: 48vh;
       border: none;
       background-color: transparent;
       outline: none;
@@ -102,11 +114,19 @@ const Container = styled.div`
       line-height: 25px;
       border-radius: 5px;
     }
-    button {
-      padding: 8px 20px;
-      background-color: ${AppStyles.colors.backgroundLight};
-      border-radius: 5px;
-      margin-top: 20px;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  button {
+    padding: 8px 20px;
+    background-color: ${AppStyles.colors.backgroundLight};
+    border-radius: 5px;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: ${AppStyles.colors.backgroundDark};
     }
   }
 `;

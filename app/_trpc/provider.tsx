@@ -24,5 +24,4 @@ export default function TrpcProvider(props: { children: React.ReactNode }) {
       </QueryClientProvider>
     </trpc.Provider>
   );
-  // return <> {props.children}</>;
 }
