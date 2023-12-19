@@ -33,8 +33,7 @@ export default function BooksListView() {
           <MdMoreHoriz onClick={() => setShowSheet((prev) => !prev)} />,
         ]}
       />
-      {showSheet}
-      <AppModal isMounted={showSheet} onBlankClick={() => setShowSheet(false)}>
+      <AppModal isMounted={showSheet}>
         <AddBookModal />
       </AppModal>
       <Wrapper>
