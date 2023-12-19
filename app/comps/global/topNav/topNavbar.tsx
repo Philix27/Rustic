@@ -39,6 +39,7 @@ const TopBar = styled.div`
 `;
 
 const IconsTray = styled.div`
+  display: flex;
   svg {
     margin: 0 10px;
     font-size: 16px;

@@ -1,12 +1,11 @@
 import { useRouter } from "next/navigation";
-import { TextBody, TextHeader, AppTopNavbar, AppModal } from "@/comps";
+import { TextBody, AppTopNavbar, AppModal } from "@/comps";
 import { styled } from "styled-components";
-import { AppProjects } from "../../lib/docs/registryProject";
 import Link from "next/link";
-import { AppLinks, AppStyles } from "@/lib";
-import { MdAdd } from "react-icons/md";
+import { AppLinks, AppStyles, AppProjects } from "@/lib";
+import { MdAdd, MdMoreHoriz } from "react-icons/md";
 import { useState } from "react";
-import { BookModal } from "./navLinksCard";
+import { AddBookModal } from "./addBookModal";
 
 interface PropTypes {
   slug: string;
@@ -27,11 +26,16 @@ export default function BooksListView() {
     <>
       <AppTopNavbar
         title={"Books"}
-        icons={[<MdAdd onClick={() => setShowSheet((prev) => !prev)} />]}
+        icons={[
+          <MdAdd onClick={() => setShowSheet((prev) => !prev)} />,
+          <MdMoreHoriz onClick={() => setShowSheet((prev) => !prev)} />,
+          <MdMoreHoriz onClick={() => setShowSheet((prev) => !prev)} />,
+          <MdMoreHoriz onClick={() => setShowSheet((prev) => !prev)} />,
+        ]}
       />
       {showSheet}
       <AppModal isMounted={showSheet} onBlankClick={() => setShowSheet(false)}>
-        <BookModal />
+        <AddBookModal />
       </AppModal>
       <Wrapper>
         <GridWrapper>
