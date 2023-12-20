@@ -1,8 +1,7 @@
 import { TextBody, AppTopNavbar, AppModal } from "@/comps";
 import { MdAdd, MdMoreHoriz } from "react-icons/md";
 import { useState } from "react";
-import { AddBookModal } from "./addBookModal";
-import BookDisplay from "./bookDisplay";
+import { AddBookModal, BookDisplay } from "./_comps";
 
 export default function BooksListView() {
   const [showSheet, setShowSheet] = useState(false);
@@ -14,7 +13,7 @@ export default function BooksListView() {
           <MdAdd key={1} onClick={() => setShowSheet((prev) => !prev)} />,
           <MdMoreHoriz key={2} onClick={() => setShowSheet((prev) => !prev)} />,
           <MdMoreHoriz key={3} onClick={() => setShowSheet((prev) => !prev)} />,
-          <MdMoreHoriz key={4}  onClick={() => setShowSheet((prev) => !prev)} />,
+          <MdMoreHoriz key={4} onClick={() => setShowSheet((prev) => !prev)} />,
         ]}
       />
       <AppModal isMounted={showSheet}>

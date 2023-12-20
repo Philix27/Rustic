@@ -1,9 +1,9 @@
 import { AppStyles, ICustomStyles } from "@/lib";
 import React, { useState } from "react";
-import ChapterCard from "./chapterCard";
-import { AddChapterModal } from "./addChapterModal";
+import { ChapterCard } from "./chapterCard";
 import { trpc } from "@/_trpc";
 import { AppModal } from "@/comps";
+import { AddChapterModal } from "../addChapterModal";
 
 const s: ICustomStyles = {
   wrapper: {
@@ -63,7 +63,9 @@ export function Sidebar(props: { book_id: string }) {
   return (
     <div style={s.wrapper}>
       {chaptersFormatted.length ? (
-        chaptersFormatted.map((v, i) => <ChapterCard chapter={v} key={i} />)
+        chaptersFormatted.map((v, i) => (
+          <ChapterCard chapter={v} key={i} book_id={props.book_id} />
+        ))
       ) : (
         <div style={s.addDiv}>
           <p style={s.text}>No chapter available</p>

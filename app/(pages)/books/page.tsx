@@ -1,6 +1,6 @@
 "use client";
 import { ClientOnly } from "@/comps";
-import BooksListView from "./view";
+import BooksListView from "./client";
 
 interface PropTypes {
   slug: string;

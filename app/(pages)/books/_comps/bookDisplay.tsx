@@ -1,10 +1,10 @@
 import { TextBody } from "@/comps";
 import { styled } from "styled-components";
 import Link from "next/link";
-import { AppLinks, AppStyles, AppProjects } from "@/lib";
+import { AppLinks, AppStyles } from "@/lib";
 import { trpc } from "@/_trpc";
 
-export default function BookDisplay() {
+export function BookDisplay() {
   const { isLoading, data: books } = trpc.books.get_all.useQuery();
 
   if (isLoading) return <Wrapper>Loading...</Wrapper>;

@@ -1,7 +1,8 @@
 import { AppStyles, ICustomStyles } from "@/lib";
-import { TextBody, TextHeader } from "@/comps";
+import { AppModal, TextBody } from "@/comps";
 import React, { useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
+import Link from "next/link";
 
 const s: ICustomStyles = {
   wrapper: {
@@ -22,12 +23,29 @@ const s: ICustomStyles = {
     padding: "10px",
     borderBottom: `solid 1px ${AppStyles.colors.grey1}`,
   },
+  addDiv: {
+    backgroundColor: AppStyles.colors.background3,
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  triggerText: {
+    fontSize: "12px",
+    padding: "10px",
+    textDecoration: "underline",
+    cursor: "pointer",
+  },
 };
 
-export default function ChapterCard(props: {
-  chapter: { title: string; topics: { title: string }[] };
+export function ChapterCard(props: {
+  book_id: string;
+  chapter: { title: string; id: string; topics: { title: string }[] };
 }) {
   const [openChapter, setOpenChapter] = useState(false);
+  const [showSheet, setShowSheet] = useState(false);
+  const handleAddTopic = () => {
+    setShowSheet(true);
+  };
   return (
     <div style={s.chapterCard}>
       <div
@@ -47,6 +65,13 @@ export default function ChapterCard(props: {
             <TextBody variant={"four"}>{v.title}</TextBody>
           </div>
         ))}
+      {openChapter && (
+        <div style={s.addDiv}>
+          <Link href={`books/${props.book_id}/create_topic`}>
+            <p style={s.triggerText}>Add Topic</p>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
