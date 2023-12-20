@@ -19,7 +19,7 @@ const s: ICustomStyles = {
   },
 };
 
-export default function ActiveContent(props: {
+export function ActiveContent(props: {
   isFirstPage: boolean;
   bannerTitle: string;
   subtitle: string;
