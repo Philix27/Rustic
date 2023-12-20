@@ -15,13 +15,13 @@ export function AppModal(props: {
   }, []);
 
   if (props.isMounted && ref.current) {
-    return createPortal(
-      getComp({ children: props.children, onBlankClick: props.onBlankClick }),
+    // return createPortal(
+    //   getComp({ children: props.children, onBlankClick: props.onBlankClick }),
 
-      ref.current
-    );
+    //   ref.current
+    // );
   } else return <div></div>;
-  // return <div></div>;
+  return <div></div>;
 }
 
 {

@@ -1,17 +1,15 @@
 import { AppStyles, ICustomStyles } from "@/lib";
 import React, { useState } from "react";
-import { CSSProperties } from "styled-components";
 import ChapterCard from "./chapterCard";
-import { ChapterList } from "./chapterList";
-import { trpc } from "@/_trpc";
 import { AddChapterModal } from "./addChapterModal";
+import { trpc } from "@/_trpc";
 import { AppModal } from "@/comps";
 
 const s: ICustomStyles = {
   wrapper: {
     minHeight: "100vh",
     maxHeight: "100vh",
-    width: "30%",
+    width: "400px",
     backgroundColor: AppStyles.colors.backgroundLight,
     borderTop: `solid 1px ${AppStyles.colors.grey1}`,
     overflowY: "auto",
@@ -55,9 +53,9 @@ export function Sidebar(props: { book_id: string }) {
       ),
     };
   });
-  if (isLoading) return <div>Loading...</div>;
-  if (chapters.length) {
-    return <div>No chapter available</div>;
+  if (isLoading) return <div style={s.wrapper}>Loading...</div>;
+  if (!chapters.length) {
+    return <div style={s.wrapper}>No chapter available</div>;
   }
   const addChapter = () => {
     setShowSheet(true);
@@ -74,6 +72,12 @@ export function Sidebar(props: { book_id: string }) {
           </p>
         </div>
       )}
+
+      <div style={s.addDiv}>
+        <p style={s.triggerText} onClick={addChapter}>
+          Add Chapter
+        </p>
+      </div>
 
       <AppModal isMounted={showSheet}>
         <AddChapterModal

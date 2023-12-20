@@ -1,8 +1,8 @@
 "use client";
 import { AppBlogs } from "@/lib/docs";
-import { AppTopNavbar, AppWrapper, ClientOnly } from "@/comps";
+import { AppTopNavbar, AppWrapper, ClientOnly, Landing } from "@/comps";
 import { MarkdownStyledComp } from "@/comps/markdown";
-import { Landing } from "../../books/banner";
+
 
 export default function Page({ params }: { params: { blog_id: string } }) {
   const activeContent = AppBlogs.filter(

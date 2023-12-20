@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
-import { AppBlogs } from "../../lib/docs";
-import { AppWrapper } from "../../comps";
-import { MarkdownStyledComp } from "../../comps/markdown";
-import { Landing } from "../books/banner";
+import { AppBlogs } from "@/lib";
+import { AppWrapper, Landing, MarkdownStyledComp } from "@/comps";
 
 export default function BlogContentPage() {
   const router = useRouter();

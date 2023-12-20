@@ -21,7 +21,7 @@ model Book {
 
 model BookChapter {
   id               String            @id @default(uuid())
-  title            String            @unique
+  title            String
   subtitle         String?
   book_id          String?           @unique
   created_at       DateTime?         @default(now())
@@ -48,7 +48,7 @@ model Blog {
   title      String
   subtitle   String?
   img_url    String?
-  video_url    String?
+  video_url  String?
   story      String
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt

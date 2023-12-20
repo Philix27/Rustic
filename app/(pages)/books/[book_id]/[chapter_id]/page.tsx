@@ -3,9 +3,9 @@ import { AppTopNavbar } from "@/comps";
 import { ICustomStyles } from "@/lib";
 import { useState } from "react";
 import { MdViewSidebar } from "react-icons/md";
-import Sidebar from "./sidebar";
 import { trpc } from "@/_trpc";
-import ActiveContent from "./activeContent";
+import ActiveContent from "../activeContent";
+import { Sidebar } from "../sidebar";
 
 const s: ICustomStyles = {
   container: {
@@ -56,7 +56,7 @@ export default function BooksContentPage({
         ]}
       />
       <div style={s.contentWrapper}>
-        {showSidebar && <Sidebar />}
+        {showSidebar && <Sidebar book_id={params.book_id} />}
         <ActiveContent
           isFirstPage={true}
           bannerTitle={book.title}

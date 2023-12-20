@@ -31,7 +31,7 @@ export default function WriteComp(props: {
         }}
       >
         {books.map((v, i) => (
-          <div>{v.title} </div>
+          <div key={i}>{v.title} </div>
         ))}
         <div
           style={{
