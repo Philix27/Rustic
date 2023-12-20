@@ -1,7 +1,6 @@
 "use client";
 import { AppLinks, AppStyles } from "@/lib";
 import React, { Fragment, useState } from "react";
-import { FaCloudflare } from "react-icons/fa";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import NavLinksCard from "./navLinksCard";
@@ -16,7 +15,7 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
         {showSheet && <NavLinksCard />}
       </Menu>
       <div>
-        <Text variant="BarTitle">{props.title}</Text>
+        <Text variant="B5">{props.title}</Text>
       </div>
       <IconsTray>
         {props.icons.map((v, i) => (

@@ -10,8 +10,8 @@ export function PreviewComp(props: {
 }) {
   return (
     <AppWrapper>
-      <div className="flex items-center justify-center w-full">
-        <Text variant={"BarTitle"} className="mt-3">{props.title}</Text>
+      <div className="flex items-center justify-center w-full py-6">
+        <Text variant={"B1"}>{props.title}</Text>
         <Text variant={"B3"}>{props.subtitle}</Text>
       </div>
       <div className="flex items-center justify-center w-full">

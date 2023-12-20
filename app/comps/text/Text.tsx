@@ -1,7 +1,7 @@
 "use client";
 import React, { ReactNode } from "react";
 
-type TVariants = "BarTitle" | "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
+type TVariants = "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
 
 export function Text(props: {
   variant: TVariants;
@@ -10,15 +10,9 @@ export function Text(props: {
   style?: React.CSSProperties;
 }) {
   switch (props.variant) {
-    case "BarTitle":
-      return (
-        <p className={`text-xl ${props.className}`} style={props.style}>
-          {props.children}
-        </p>
-      );
     case "B1":
       return (
-        <p className={`text-lg ${props.className}`} style={props.style}>
+        <p className={`text-4xl ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
