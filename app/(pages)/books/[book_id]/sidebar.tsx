@@ -1,9 +1,11 @@
 import { AppStyles, ICustomStyles } from "@/lib";
-import React from "react";
+import React, { useState } from "react";
 import { CSSProperties } from "styled-components";
 import ChapterCard from "./chapterCard";
 import { ChapterList } from "./chapterList";
 import { trpc } from "@/_trpc";
+import { AddChapterModal } from "./addChapterModal";
+import { AppModal } from "@/comps";
 
 const s: ICustomStyles = {
   wrapper: {
@@ -35,6 +37,7 @@ const s: ICustomStyles = {
 };
 
 export function Sidebar(props: { book_id: string }) {
+  const [showSheet, setShowSheet] = useState(false);
   const { isLoading, data: chapters } = trpc.book_chapter.get_all.useQuery({
     book_id: props.book_id,
   });
@@ -56,7 +59,9 @@ export function Sidebar(props: { book_id: string }) {
   if (chapters.length) {
     return <div>No chapter available</div>;
   }
-  const addChapter = () => {};
+  const addChapter = () => {
+    setShowSheet(true);
+  };
   return (
     <div style={s.wrapper}>
       {chaptersFormatted.length ? (
@@ -69,6 +74,13 @@ export function Sidebar(props: { book_id: string }) {
           </p>
         </div>
       )}
+
+      <AppModal isMounted={showSheet}>
+        <AddChapterModal
+          onClose={() => setShowSheet(false)}
+          book_id={props.book_id}
+        />
+      </AppModal>
     </div>
   );
 }

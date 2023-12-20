@@ -1,11 +1,6 @@
-"use client";
-import { ClientOnly } from "@/comps";
-import HomeView from "@/(home)/welcome";
+import React from "react";
+import QuizClient from "./client";
 
-export default function McqPage() {
-  return (
-    <ClientOnly>
-      <HomeView title={"Data Types"} />
-    </ClientOnly>
-  );
+export default function QuizPage() {
+  return <QuizClient />;
 }

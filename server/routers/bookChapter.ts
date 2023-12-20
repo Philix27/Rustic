@@ -33,11 +33,12 @@ export const bookChaptersRouter = router({
       });
     }),
   create: publicProcedure
-    .input(z.object({ title: z.string() }))
+    .input(z.object({ title: z.string(), book_id: z.string() }))
     .mutation(async ({ ctx, input }) => {
       return await ctx.prisma.bookChapter.create({
         data: {
           title: input.title,
+          book_id: input.book_id,
         },
       });
     }),
