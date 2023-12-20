@@ -40,6 +40,8 @@ export const AppInput = (props: {
         placeholder={props.placeholder}
         maxLength={props.maxLength}
         type={props.type === "password" && showPassword ? "text" : props.type}
+        value={props.value}
+        onChange={props.onChange}
         // {...props.register(props.name)}
       />
 

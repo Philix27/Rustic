@@ -1,6 +1,5 @@
 "use client";
 import React, { ReactNode } from "react";
-import { styled } from "styled-components";
 
 type TVariants = "BarTitle" | "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
 
@@ -12,51 +11,53 @@ export function Text(props: {
 }) {
   switch (props.variant) {
     case "BarTitle":
-      return <BarTitle style={props.style}>{props.children}</BarTitle>;
+      return (
+        <p className={`text-xl ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B1":
-      return <B1 style={props.style}>{props.children}</B1>;
+      return (
+        <p className={`text-lg ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B2":
-      return <B2 style={props.style}>{props.children}</B2>;
+      return (
+        <p className={`text-md ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B3":
-      return <B3 style={props.style}>{props.children}</B3>;
+      return (
+        <p className={`text-md ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B4":
-      return <B4 style={props.style}>{props.children}</B4>;
+      return (
+        <p className={`text-md ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B5":
-      return <B5 style={props.style}>{props.children}</B5>;
+      return (
+        <p className={`text-md ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
     case "B6":
-      return <B6 style={props.style}>{props.children}</B6>;
+      return (
+        <p className={`text-md ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
 
     default:
-      return <B3 style={props.style}>{props.children}</B3>;
+      return (
+        <p className={`text-sm ${props.className}`} style={props.style}>
+          {props.children}
+        </p>
+      );
   }
 }
-
-const BarTitle = styled.p`
-  color: #eff1f6bf;
-  font-size: 12px;
-`;
-
-const B1 = styled.p`
-  color: #eff1f6bf;
-  font-size: 20px;
-`;
-const B2 = styled.p`
-  color: #eff1f6bf;
-  font-size: 18px;
-`;
-const B3 = styled.p`
-  color: #eff1f6bf;
-  font-size: 16px;
-`;
-const B4 = styled.p`
-  color: #eff1f6bf;
-  font-size: 14px;
-`;
-const B5 = styled.p`
-  color: #eff1f6bf;
-  font-size: 12px;
-`;
-const B6 = styled.p`
-  color: #eff1f6bf;
-  font-size: 10px;
-`;

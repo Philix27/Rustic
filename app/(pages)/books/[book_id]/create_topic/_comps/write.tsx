@@ -41,8 +41,8 @@ export function WriteComp(props: {
 
             <CodeMirror
               value={props.docContent.content}
-              height="400px"
-              className="w-full mt-6"
+              minHeight="500px"
+              className="w-full mt-6 "
               theme={vscodeDark}
               extensions={[
                 markdown({ base: markdownLanguage, codeLanguages: languages }),
