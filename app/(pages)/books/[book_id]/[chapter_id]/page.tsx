@@ -3,7 +3,7 @@ import { AppTopNavbar } from "@/comps";
 import { ICustomStyles } from "@/lib";
 import { useState } from "react";
 import { MdViewSidebar } from "react-icons/md";
-import { Sidebar } from "./sidebar";
+import Sidebar from "./sidebar";
 import { trpc } from "@/_trpc";
 import ActiveContent from "./activeContent";
 
@@ -31,12 +31,18 @@ export default function BooksContentPage({
 }) {
   const [showSidebar, setShowSidebar] = useState(true);
 
-  const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
+  const { isLoading, data: chapters } = trpc.book_chapter.get_all.useQuery({
     book_id: params.book_id,
   });
 
+  const { isLoading: isBookLoading, data: book } =
+    trpc.books.get_by_id.useQuery({
+      book_id: params.book_id,
+    });
+
   if (isLoading) return <div>Loading...</div>;
-  if (!book.id) return <div>No books available</div>;
+  if (isBookLoading) return <div>Loading...</div>;
+  // if (!book.id) return <div>No books available</div>;
 
   return (
     <div style={s.container}>
@@ -50,7 +56,7 @@ export default function BooksContentPage({
         ]}
       />
       <div style={s.contentWrapper}>
-        {showSidebar && <Sidebar book_id={book.id} />}
+        {showSidebar && <Sidebar />}
         <ActiveContent
           isFirstPage={true}
           bannerTitle={book.title}

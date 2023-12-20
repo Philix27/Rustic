@@ -8,8 +8,8 @@ import { quizRouter } from "./quiz";
 export const appRouter = router({
   blog: blogRouter,
   books: booksRouter,
-  bookChaptersRouter: bookChaptersRouter,
-  bookChapterTopicsRouter: bookChapterTopicsRouter,
+  book_chapter: bookChaptersRouter,
+  book_chapter_topics: bookChapterTopicsRouter,
   quiz: quizRouter,
   test_all: publicProcedure.query(({ ctx }) => {
     console.log("Tried to read book - testing");

@@ -20,6 +20,16 @@ export const bookChapterTopicsRouter = router({
         },
       });
     }),
+  get_by_book_and_chapter: publicProcedure
+    .input(z.object({ book_id: z.string(), chapter_id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return await ctx.prisma.bookChapterTopic.findMany({
+        where: {
+          chapter_id: input.chapter_id,
+          book_id: input.book_id,
+        },
+      });
+    }),
 
   get_by_id: publicProcedure
     .input(z.object({ topic_id: z.string() }))

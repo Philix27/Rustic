@@ -9,7 +9,7 @@ export const booksRouter = router({
   get_by_id: publicProcedure
     .input(z.object({ book_id: z.string() }))
     .query(async ({ ctx, input }) => {
-      return await ctx.prisma.blog.findFirst({
+      return await ctx.prisma.book.findFirst({
         where: {
           id: input.book_id,
         },
