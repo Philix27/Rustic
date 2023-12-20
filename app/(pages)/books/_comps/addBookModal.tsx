@@ -22,7 +22,7 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
       desc: docContent.content,
       img_url: docContent.subtitle,
     });
-    console.log("docContent", docContent);
+    // console.log("docContent", docContent);
   };
 
   return (
@@ -61,7 +61,7 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
             })
           }
         ></textarea>
-        <ButtonGroup>
+        <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
           <button onClick={handleFormSubmission}>Submit</button>
           <button onClick={props.onClose}>Cancel</button>
         </ButtonGroup>

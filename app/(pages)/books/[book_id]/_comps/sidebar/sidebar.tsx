@@ -12,6 +12,7 @@ const s: ICustomStyles = {
     width: "400px",
     backgroundColor: AppStyles.colors.backgroundLight,
     borderTop: `solid 1px ${AppStyles.colors.grey1}`,
+    borderBottom: `solid 1px ${AppStyles.colors.grey1}`,
     overflowY: "auto",
     scrollBehavior: "smooth",
   },

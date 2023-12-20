@@ -3,6 +3,7 @@ import { AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
+import { AppButton } from "@/comps";
 
 export function AddChapterModal(props: {
   onClose: VoidFunction;
@@ -40,8 +41,8 @@ export function AddChapterModal(props: {
           />
         </div>
         <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
-          <button onClick={handleFormSubmission}>Submit</button>
-          <button onClick={props.onClose}>Cancel</button>
+          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
+          <AppButton onClick={props.onClose}>Cancel</AppButton>
         </ButtonGroup>
       </Container>
     </>
@@ -80,14 +81,4 @@ const Container = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: row;
-  button {
-    padding: 8px 20px;
-    background-color: ${AppStyles.colors.backgroundLight};
-    border-radius: 5px;
-    margin-top: 20px;
-
-    &:hover {
-      background-color: ${AppStyles.colors.backgroundDark};
-    }
-  }
 `;

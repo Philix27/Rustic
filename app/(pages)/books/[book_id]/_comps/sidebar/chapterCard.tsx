@@ -1,5 +1,5 @@
 import { AppStyles, ICustomStyles } from "@/lib";
-import { AppModal, TextBody } from "@/comps";
+import { TextBody } from "@/comps";
 import React, { useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 import Link from "next/link";
@@ -67,7 +67,7 @@ export function ChapterCard(props: {
         ))}
       {openChapter && (
         <div style={s.addDiv}>
-          <Link href={`books/${props.book_id}/create_topic`}>
+          <Link href={`${props.book_id}/create_topic`}>
             <p style={s.triggerText}>Add Topic</p>
           </Link>
         </div>
