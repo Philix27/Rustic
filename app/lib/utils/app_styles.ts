@@ -21,6 +21,7 @@ export class AppStyles {
     admin: "#027D8B",
     home: "#167B16",
     primary: "#FFAE00",
+    video: "#9500FF",
   };
   // Breakpoints for responsive design
   static breakpoints = {

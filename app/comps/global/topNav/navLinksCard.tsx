@@ -14,7 +14,7 @@ export default function NavLinksCard() {
             <Icon bgColor={v.color}>{v.icon}</Icon>
             <div>
               <TextBody variant={"three"}>{v.title}</TextBody>
-              <TextBody variant={"four"}>{v.desc}</TextBody>
+              <TextBody variant={"four"}>{v.subtitle}</TextBody>
             </div>
           </Item>
         </Link>

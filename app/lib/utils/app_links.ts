@@ -13,4 +13,5 @@ export class AppLinks {
   static blogs = "/blogs";
   static quiz = "/quiz";
   static admin = "/admin";
+  static videos = "/videos";
 }

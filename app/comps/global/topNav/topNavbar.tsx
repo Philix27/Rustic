@@ -9,7 +9,13 @@ import { AiOutlineMenu } from "react-icons/ai";
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   const [showSheet, setShowSheet] = useState(false);
   return (
-    <TopBar>
+    <div
+      className="h-[40px] w-full flex items-center justify-between px-[30px]"
+      style={{
+        backgroundColor: AppStyles.colors.backgroundLight,
+        color: AppStyles.colors.offWhite2,
+      }}
+    >
       <Menu onClick={() => setShowSheet(!showSheet)}>
         <AiOutlineMenu color={AppStyles.colors.offWhite2} fontSize={16} />
         {showSheet && <NavLinksCard />}
@@ -24,13 +30,12 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
           ))}
         </IconsTray>
         <div
-          className="ml-4 px-4 py-[2px] 
+          className="ml-4 px-4 py-[0px] 
           rounded-md bg-yellow-600 
           hover:text-white  
           hover:bg-yellow-400 
-          font-medium"
+          font-normal"
           style={{
-            // backgroundColor: AppStyles.colors.primary,
             color: AppStyles.colors.backgroundDark,
           }}
         >
@@ -39,20 +44,9 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
           </Text>
         </div>
       </div>
-    </TopBar>
+    </div>
   );
 }
-
-const TopBar = styled.div`
-  width: 100%;
-  height: 35px;
-  background-color: ${AppStyles.colors.backgroundLight};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #eff1f6bf;
-  padding: 0 20px;
-`;
 
 const IconsTray = styled.div`
   display: flex;
