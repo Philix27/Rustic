@@ -49,6 +49,7 @@ model QuizTopic {
   id          String             @id @default(uuid())
   created_at  DateTime?          @default(now())
   updated_at  DateTime?          @updatedAt
+  tags      Tags[]
   quizes      Quiz[]
   book_topics BookChapterTopic[]
 }
@@ -90,4 +91,5 @@ model Tags {
   updated_at  DateTime?          @updatedAt
   blogs       Blog[]
   book_topics BookChapterTopic[]
+  quiz_topics QuizTopic[]
 }

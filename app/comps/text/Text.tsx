@@ -36,7 +36,7 @@ export function Text(props: {
       );
     case "B5":
       return (
-        <p className={`text-md ${props.className}`} style={props.style}>
+        <p className={`text-[16px] ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
