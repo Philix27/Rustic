@@ -1,6 +1,5 @@
 "use client";
-import { AppTopNavbar, AppWrapper, Text } from "@/comps";
-import { MdPublish, MdPreview } from "react-icons/md";
+import { AppTopNavbar, Text } from "@/comps";
 import React from "react";
 import styled from "styled-components";
 import { quizList } from "./list";

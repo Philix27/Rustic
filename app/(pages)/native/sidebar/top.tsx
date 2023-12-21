@@ -17,7 +17,7 @@ export default function TopBar(props: {
           console.log("Article");
         }}
       >
-        <Text variant="BarTitle">Tutorials</Text>
+        <Text variant="B1">Tutorials</Text>
       </Item>
       <Item
         $isActive={props.activeTab === "ARTICLE"}
@@ -26,7 +26,7 @@ export default function TopBar(props: {
           console.log("Article");
         }}
       >
-        <Text variant="BarTitle">Articles</Text>
+        <Text variant="B1">Articles</Text>
       </Item>
       <Item
         $isActive={props.activeTab === "MCQ"}
@@ -35,7 +35,7 @@ export default function TopBar(props: {
           console.log("MCQ");
         }}
       >
-        <Text variant="BarTitle">MCQ</Text>
+        <Text variant="B1">MCQ</Text>
       </Item>
     </Wrapper>
   );

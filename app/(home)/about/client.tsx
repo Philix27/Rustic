@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { MarkdownStyledComp, AppWrapper, AppTopNavbar } from "@/comps";
 import MdFile from "@/lib/docs/primary/skills.mdx";
 
-export default function AboutUsView() {
+export function AboutUsClient() {
   return (
     <>
       <AppTopNavbar title={"About us"} icons={[]} />
@@ -14,7 +14,7 @@ export default function AboutUsView() {
             height={300}
             width={300}
             src="/fxc.jpg"
-            alt="Eligbue Felix"
+            alt="rustic guide"
             style={{ borderRadius: "10px" }}
           />
         </Wrapper>

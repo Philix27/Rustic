@@ -1,5 +1,5 @@
 import { Metadata } from "next/types";
-import AboutUsView from "./view";
+import { AboutUsClient } from "./client";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutUsPage() {
-  return <AboutUsView />;
+  return <AboutUsClient />;
 }

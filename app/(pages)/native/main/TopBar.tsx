@@ -17,7 +17,7 @@ export default function MainTopBar() {
         <FaCloudflare color="#8a8a8a" fontSize={16} />
       </div>
       <div>
-        <Text variant="BarTitle">Title</Text>
+        <Text variant="B1">Title</Text>
       </div>
       <IconsTray>
         <AiOutlineHome />

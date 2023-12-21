@@ -1,10 +1,9 @@
-"use client";
 import React from "react";
 import { styled } from "styled-components";
 import { AppStyles } from "@/lib";
 import { AppTopNavbar, AppFooter, Text } from "@/comps";
 
-export default function ExploreView() {
+export default function ExploreClient() {
   return (
     <Wrapper>
       <AppTopNavbar title={"Explore"} icons={[]} />

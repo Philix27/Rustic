@@ -21,7 +21,7 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
         {showSheet && <NavLinksCard />}
       </Menu>
       <div>
-        <Text variant="B5">{props.title}</Text>
+        <Text variant="B4">{props.title}</Text>
       </div>
       <div className="flex items-center">
         <IconsTray>
