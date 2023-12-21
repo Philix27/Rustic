@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { styled } from "styled-components";
-import { AppLinks, AppStyles } from "@/lib";
-import { AppTopNavbar, AppFooter, Text, AppModal, navLinkList } from "@/comps";
-import Link from "next/link";
-import { FaBookOpen, FaHamburger } from "react-icons/fa";
+import React from "react";
+import { AppStyles } from "@/lib";
+import { Text } from "@/comps";
 
 export function HeroSection() {
   return (
-    <div className="w-[50%] flex flex-col items-center justify-center text-center min-h-[80vh]">
+    <div
+      className={` w-[50%] flex flex-col items-center justify-center text-center min-h-[80vh]`}
+    >
       <Text
         className="text-7xl mb-5 text-yellow-500"
         variant={"B1"}

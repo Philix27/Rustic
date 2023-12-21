@@ -31,16 +31,42 @@ model BookChapter {
 }
 
 model BookChapterTopic {
-  id         String       @id @default(uuid())
-  title      String
-  content    String?
-  video_url  String?
-  created_at DateTime?    @default(now())
-  updated_at DateTime?    @updatedAt
-  book_id    String?      @unique
-  Book       Book?        @relation(fields: [book_id], references: [id])
-  chapter_id String?      @unique
-  chapter    BookChapter? @relation(fields: [chapter_id], references: [id])
+  id          String       @id @default(uuid())
+  title       String
+  content     String?
+  video_url   String?
+  created_at  DateTime?    @default(now())
+  updated_at  DateTime?    @updatedAt
+  book_id     String?      @unique
+  Book        Book?        @relation(fields: [book_id], references: [id])
+  chapter_id  String?      @unique
+  chapter     BookChapter? @relation(fields: [chapter_id], references: [id])
+  tags        Tags[]
+  quiz_topics QuizTopic[]
+}
+
+model QuizTopic {
+  id          String             @id @default(uuid())
+  created_at  DateTime?          @default(now())
+  updated_at  DateTime?          @updatedAt
+  quizes      Quiz[]
+  book_topics BookChapterTopic[]
+}
+
+model Quiz {
+  id           String      @id @default(uuid())
+  question     String
+  option1      String
+  option2      String
+  option3      String?
+  option4      String?
+  option5      String?
+  option6      String?
+  answer_index Int
+  answer       String?
+  created_at   DateTime?   @default(now())
+  updated_at   DateTime?   @updatedAt
+  quiz_topics  QuizTopic[]
 }
 
 model Blog {
@@ -52,19 +78,16 @@ model Blog {
   story      String
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
+  tags       Tags[]
 }
 
-model Quiz {
-  id           String    @id @default(uuid())
-  question     String
-  option1      String
-  option2      String
-  option3      String?
-  option4      String?
-  option5      String?
-  option6      String?
-  answer_index Int
-  answer       String?
-  created_at   DateTime? @default(now())
-  updated_at   DateTime? @updatedAt
+model Tags {
+  id          String             @id @default(uuid())
+  title       String
+  subtitle    String?
+  img_url     String?
+  created_at  DateTime?          @default(now())
+  updated_at  DateTime?          @updatedAt
+  blogs       Blog[]
+  book_topics BookChapterTopic[]
 }

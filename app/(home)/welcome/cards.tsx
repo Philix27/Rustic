@@ -7,7 +7,11 @@ import Link from "next/link";
 export function CardsSection() {
   return (
     <WrapperContent>
-      <div className={"grid grid-cols-4 w-full my-12 gap-x-8 gap-y-8"}>
+      <div
+        className={
+          "grid grid-cols-4 w-full my-12 gap-x-8 gap-y-8 "
+        }
+      >
         {navLinkList.map((v, i) => (
           <Link href={v.link} key={i}>
             <div
