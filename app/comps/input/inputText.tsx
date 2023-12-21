@@ -23,6 +23,8 @@ export const AppInput = (props: {
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
+  // const yourBg = AppStyles.colors.backgroundDark;
+  const yourBg = "#C2C20B";
   return (
     <div
       className={`flex flex-col space-y-2 w-full relative ${props.className}`}
@@ -34,7 +36,7 @@ export const AppInput = (props: {
       </label>
 
       <input
-        className={`border rounded-md py-3 px-4  
+        className={`border rounded-md py-3 px-4 min-w-full border-none outline-none font-medium text-white bg-grey
         ${props.errorMsg ? "border-red-600" : "border-grey-dark-30"} `}
         aria-label={props.label}
         placeholder={props.placeholder}

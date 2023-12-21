@@ -3,6 +3,7 @@ import { AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
+import { AppButton, AppInput } from "@/comps";
 
 export function AddBookModal(props: { onClose: VoidFunction }) {
   const addBook = trpc.books.create.useMutation();
@@ -28,22 +29,25 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
   return (
     <Container>
       <div>
-        <input
-          type={"text"}
-          placeholder="Write the title of the book"
+        <AppInput
+          label={"Book title"}
+          name={"title"}
+          placeholder={"Write the title of the book"}
+          value={docContent.title}
           onChange={(e) =>
             setDocContent({
               ...docContent,
               title: e.target.value,
             })
           }
-          value={docContent.title}
+          className="mb-5"
         />
-        <input
-          type={"text"}
-          placeholder="Image Link"
-          aria-rowspan={2}
+        <AppInput
+          label={"Image url"}
+          name={"img"}
+          placeholder={"Image Link"}
           value={docContent.subtitle}
+          className="mb-5"
           onChange={(e) =>
             setDocContent({
               ...docContent,
@@ -51,6 +55,7 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
             })
           }
         />
+
         <textarea
           placeholder="Story"
           value={docContent.content}
@@ -61,10 +66,10 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
             })
           }
         ></textarea>
-        <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
-          <button onClick={handleFormSubmission}>Submit</button>
-          <button onClick={props.onClose}>Cancel</button>
-        </ButtonGroup>
+        <div className="flex flex-row" style={{ flexDirection: "row" }}>
+          <AppButton onClick={props.onClose}>Cancel</AppButton>
+          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
+        </div>
       </div>
     </Container>
   );
@@ -75,7 +80,7 @@ const Container = styled.div`
   border: solid 0.1px ${AppStyles.colors.grey2};
   padding: 20px;
   width: 50%;
-  height: 75%;
+  max-height: 75%;
   border-radius: 10px;
 
   div {
@@ -85,22 +90,9 @@ const Container = styled.div`
     justify-content: space-around;
     width: 100%;
 
-    input {
-      min-width: 100%;
-      border: none;
-      outline: none;
-      margin-bottom: 20px;
-      color: ${AppStyles.colors.offWhite1};
-      background-color: ${AppStyles.colors.backgroundDark};
-      font-size: 16px;
-      font-weight: 600;
-      padding: 10px;
-      border-radius: 5px;
-    }
     textarea {
       max-width: 100%;
       min-width: 100%;
-      min-height: 45vh;
       max-height: 48vh;
       border: none;
       background-color: transparent;
@@ -113,20 +105,6 @@ const Container = styled.div`
       font-family: sans-serif;
       line-height: 25px;
       border-radius: 5px;
-    }
-  }
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  button {
-    padding: 8px 20px;
-    background-color: ${AppStyles.colors.backgroundLight};
-    border-radius: 5px;
-    margin-top: 20px;
-
-    &:hover {
-      background-color: ${AppStyles.colors.backgroundDark};
     }
   }
 `;

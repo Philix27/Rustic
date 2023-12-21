@@ -12,25 +12,25 @@ export function Text(props: {
   switch (props.variant) {
     case "B1":
       return (
-        <p className={`text-4xl ${props.className}`} style={props.style}>
+        <p className={`text-3xl ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
     case "B2":
       return (
-        <p className={`text-md ${props.className}`} style={props.style}>
+        <p className={`text-2xl ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
     case "B3":
       return (
-        <p className={`text-md ${props.className}`} style={props.style}>
+        <p className={`text-xl ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
     case "B4":
       return (
-        <p className={`text-md ${props.className}`} style={props.style}>
+        <p className={`text-lg ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );
@@ -42,7 +42,7 @@ export function Text(props: {
       );
     case "B6":
       return (
-        <p className={`text-md ${props.className}`} style={props.style}>
+        <p className={`text-sm ${props.className}`} style={props.style}>
           {props.children}
         </p>
       );

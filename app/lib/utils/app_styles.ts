@@ -15,6 +15,12 @@ export class AppStyles {
     offWhite2: "#DADBDEBF",
     grey1: "#555656B1",
     grey2: "#363737F2",
+    book: "#BE9C06",
+    blogs: "#A505B7",
+    quiz: "#BC5E06",
+    admin: "#027D8B",
+    home: "#167B16",
+    primary: "#FFAE00",
   };
   // Breakpoints for responsive design
   static breakpoints = {

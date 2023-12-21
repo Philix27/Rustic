@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { AppLinks, AppStyles } from "@/lib";
-import { AppTopNavbar, AppFooter, Text, AppModal } from "@/comps";
+import { AppTopNavbar, AppFooter, Text, AppModal, navLinkList } from "@/comps";
 import Link from "next/link";
-import { FaHamburger } from "react-icons/fa";
+import { FaBookOpen, FaHamburger } from "react-icons/fa";
 
 export default function WelcomeView(props: { title: string }) {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -15,20 +15,23 @@ export default function WelcomeView(props: { title: string }) {
       />
       <WrapperContent>
         <Text variant={"B1"}>Welcome to the Rustic Guide</Text>
-        <CardGrid>
-          <Link href={AppLinks.books}>
-            <div>Books</div>
-          </Link>
-          <Link href={AppLinks.blogs}>
-            <div>Blogs</div>
-          </Link>
-          <Link href={AppLinks.quiz}>
-            <div>Quiz</div>
-          </Link>
-          <Link href={AppLinks.admin}>
-            <div>Admin</div>
-          </Link>
-        </CardGrid>
+        <div className={"grid grid-cols-4 w-full my-12 gap-x-8 gap-y-5"}>
+          {navLinkList.map((v, i) => (
+            <Link href={v.link} key={i}>
+              <div style={{ backgroundColor: AppStyles.colors.backgroundDark }}>
+                <div
+                  style={{ backgroundColor: v.color }}
+                  className={`text-white text-[50px] bg-green-600 flex items-center justify-center rounded-md py-5 px-5 min-h-[150px]`}
+                >
+                  {v.icon}
+                </div>
+                <div className={`p-3 flex items-center justify-center`}>
+                  <Text variant={"B4"}>{v.title}</Text>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
         <Link href={AppLinks.explore}>
           <Text variant={"B4"}>Explore</Text>
         </Link>
@@ -62,26 +65,4 @@ const WrapperContent = styled.div`
   align-items: center;
   /* justify-content: center; */
   padding: 50px 0;
-`;
-
-const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  /* background-color: #07232b; */
-  width: 100%;
-  margin: 50px 0;
-  a {
-    background-color: ${AppStyles.colors.backgroundDark};
-    color: ${AppStyles.colors.offWhite2};
-    padding: 15px;
-    border-radius: 10px;
-
-    &:hover {
-      border: solid 0.2px ${AppStyles.colors.grey2};
-    }
-    div {
-      min-height: 200px;
-    }
-  }
 `;

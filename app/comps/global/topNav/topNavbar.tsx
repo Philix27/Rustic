@@ -1,5 +1,5 @@
 "use client";
-import { AppLinks, AppStyles } from "@/lib";
+import { AppStyles } from "@/lib";
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { Text } from "@/comps";
@@ -17,11 +17,28 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
       <div>
         <Text variant="B5">{props.title}</Text>
       </div>
-      <IconsTray>
-        {props.icons.map((v, i) => (
-          <Fragment key={i}>{v}</Fragment>
-        ))}
-      </IconsTray>
+      <div className="flex items-center">
+        <IconsTray>
+          {props.icons.map((v, i) => (
+            <Fragment key={i}>{v}</Fragment>
+          ))}
+        </IconsTray>
+        <div
+          className="ml-4 px-4 py-[2px] 
+          rounded-md bg-yellow-600 
+          hover:text-white  
+          hover:bg-yellow-400 
+          font-medium"
+          style={{
+            // backgroundColor: AppStyles.colors.primary,
+            color: AppStyles.colors.backgroundDark,
+          }}
+        >
+          <Text variant="B5" className="">
+            Login
+          </Text>
+        </div>
+      </div>
     </TopBar>
   );
 }
