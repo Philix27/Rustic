@@ -5,7 +5,7 @@ import { Text } from "@/comps";
 export function HeroSection() {
   return (
     <div
-      className={` w-[50%] flex flex-col items-center justify-center text-center min-h-[80vh]`}
+      className={`w-[50%] flex flex-col items-center justify-center text-center min-h-[80vh]`}
     >
       <Text
         className="text-7xl mb-5 text-yellow-500"
