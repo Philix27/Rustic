@@ -15,18 +15,18 @@ export function AppModal(props: {
   }, []);
 
   if (props.isMounted && ref.current) {
-    // return createPortal(
-    //   (
-    //     <Container
-    //       style={{ backgroundColor: "#00080BB9" }}
-    //       onClick={props.onBlankClick}
-    //     >
-    //       {props.children}
-    //     </Container>
-    //   ) as ReactNode,
-    //   ref.current
-    // );
-    return <div>Hello</div>;
+    return createPortal(
+      (
+        <Container
+          style={{ backgroundColor: "#00080BB9" }}
+          onClick={props.onBlankClick}
+        >
+          {props.children}
+        </Container>
+      ) as ReactNode,
+      ref.current
+    );
+    // return <div>Hello</div>;
   } else return <div></div>;
 }
 

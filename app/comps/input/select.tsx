@@ -26,7 +26,7 @@ export const InputSelect = ({
         </Text>
       </label>
       <select
-        className="border border-grey-dark-30 rounded-md py-3 px-4"
+        className="border border-grey-dark-30 rounded-md py-3 px-4 bg-grey border-none outline-none"
         aria-label={label}
         name={label}
         style={{ paddingRight: "3px" }}

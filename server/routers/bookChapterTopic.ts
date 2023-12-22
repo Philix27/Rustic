@@ -50,11 +50,23 @@ export const bookChapterTopicsRouter = router({
       });
     }),
   create: publicProcedure
-    .input(z.object({ title: z.string() }))
+    .input(
+      z.object({
+        title: z.string(),
+        book_id: z.string(),
+        chapter_id: z.string(),
+        content: z.string(),
+        video_url: z.string().optional(),
+      })
+    )
     .mutation(async ({ ctx, input }) => {
       return await ctx.prisma.bookChapterTopic.create({
         data: {
           title: input.title,
+          content: input.content,
+          video_url: input.video_url,
+          book_id: input.book_id,
+          chapter_id: input.chapter_id,
         },
       });
     }),

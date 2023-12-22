@@ -12,7 +12,7 @@ const s: ICustomStyles = {
     width: "400px",
     backgroundColor: AppStyles.colors.backgroundLight,
     borderTop: `solid 1px ${AppStyles.colors.grey1}`,
-    borderBottom: `solid 1px ${AppStyles.colors.grey1}`,
+    // borderBottom: `solid 1px ${AppStyles.colors.grey1}`,
     overflowY: "auto",
     scrollBehavior: "smooth",
   },
@@ -44,7 +44,9 @@ export function Sidebar(props: { book_id: string }) {
     trpc.book_chapter_topics.get_by_book.useQuery({
       book_id: props.book_id,
     });
-
+  const openAddChapterModal = () => {
+    setShowSheet(true);
+  };
   if (isLoadingChapter) return <div>Loading...</div>;
   const chaptersFormatted = chapters.map((chapter, i) => {
     return {
@@ -55,29 +57,27 @@ export function Sidebar(props: { book_id: string }) {
     };
   });
   if (isLoading) return <div style={s.wrapper}>Loading...</div>;
-  if (!chapters.length) {
-    return <div style={s.wrapper}>No chapter available</div>;
-  }
-  const addChapter = () => {
-    setShowSheet(true);
-  };
+  // if (!chapters.length) {
+  //   return (
+  //     <div style={s.wrapper}>
+  //       <div style={s.addDiv}>
+  //         <p style={s.triggerText} onClick={openAddChapterModal}>
+  //           Add Chapter
+  //         </p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
   return (
     <div style={s.wrapper}>
-      {chaptersFormatted.length ? (
+      {chaptersFormatted.length &&
         chaptersFormatted.map((v, i) => (
           <ChapterCard chapter={v} key={i} book_id={props.book_id} />
-        ))
-      ) : (
-        <div style={s.addDiv}>
-          <p style={s.text}>No chapter available</p>
-          <p style={s.triggerText} onClick={addChapter}>
-            Add Chapter
-          </p>
-        </div>
-      )}
+        ))}
 
       <div style={s.addDiv}>
-        <p style={s.triggerText} onClick={addChapter}>
+        <p style={s.triggerText} onClick={openAddChapterModal}>
           Add Chapter
         </p>
       </div>

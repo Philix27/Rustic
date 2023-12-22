@@ -46,7 +46,11 @@ export function AddTopicClient(props: { book_id: string }) {
           markdown={docContent?.content}
         />
       ) : (
-        <WriteComp docContent={docContent} setDocContent={setDocContent} />
+        <WriteComp
+          docContent={docContent}
+          setDocContent={setDocContent}
+          book_id={props.book_id}
+        />
       )}
     </>
   );

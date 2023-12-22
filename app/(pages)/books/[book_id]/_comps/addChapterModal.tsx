@@ -25,33 +25,31 @@ export function AddChapterModal(props: {
   };
 
   return (
-    <>
-      <Container>
-        <div>
-          <input
-            type={"text"}
-            placeholder="Chapter title"
-            onChange={(e) =>
-              setDocContent({
-                ...docContent,
-                title: e.target.value,
-              })
-            }
-            value={docContent.title}
-          />
-        </div>
-        <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
-          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
-          <AppButton onClick={props.onClose}>Cancel</AppButton>
-        </ButtonGroup>
-      </Container>
-    </>
+    <Container>
+      <div>
+        <input
+          type={"text"}
+          placeholder="Chapter title"
+          onChange={(e) =>
+            setDocContent({
+              ...docContent,
+              title: e.target.value,
+            })
+          }
+          value={docContent.title}
+        />
+      </div>
+      <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
+        <AppButton onClick={props.onClose}>Cancel</AppButton>
+        <AppButton onClick={handleFormSubmission}>Submit</AppButton>
+      </ButtonGroup>
+    </Container>
   );
 }
 
 const Container = styled.div`
   background-color: ${AppStyles.colors.background3};
-  border: solid 0.1px ${AppStyles.colors.grey2};
+  border: solid 0.1px ${AppStyles.colors.grey1};
   padding: 20px;
   width: 50%;
   border-radius: 10px;

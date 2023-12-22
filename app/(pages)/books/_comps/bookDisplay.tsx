@@ -79,16 +79,16 @@ const InLink = styled(Link)`
   align-items: center;
   justify-items: center;
   text-align: center;
-  cursor: pointer;
+  height: fit-content;
 `;
 
 const Img = styled.img`
   width: 100%;
-  /* height: 100px; */
   aspect-ratio: 25/9;
   max-height: 400px;
   object-fit: cover;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const CardTitle = styled.div`
