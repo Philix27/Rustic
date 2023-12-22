@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles, device } from "@/lib";
+import { AppStyles } from "@/lib";
 import { Text, navLinkList } from "@/comps";
 import Link from "next/link";
 
@@ -60,7 +60,7 @@ const WrapperContent = styled.div`
     width: 100%;
     margin: 0 30px;
 
-    @media ${device.sm} {
+    @media ${AppStyles.breakpoints.sm} {
       grid-template-columns: 1fr;
       width: 80%;
     }
