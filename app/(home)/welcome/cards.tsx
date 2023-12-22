@@ -49,7 +49,7 @@ const WrapperContent = styled.div`
   width: 80%;
   align-items: center;
   padding: 50px 0;
-  @media ${device.sm} {
+  @media ${AppStyles.breakpoints.sm} {
     width: 90%;
   }
 
