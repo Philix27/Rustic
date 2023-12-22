@@ -1,17 +1,14 @@
+"use client";
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+import { AppStyles, device } from "@/lib";
 import { Text, navLinkList } from "@/comps";
 import Link from "next/link";
 
 export function CardsSection() {
   return (
     <WrapperContent>
-      <div
-        className={
-          "grid grid-cols-4 w-full my-12 gap-x-8 gap-y-8 "
-        }
-      >
+      <div className={"grid grid-cols-4 w-full my-12 gap-x-8 gap-y-8 "}>
         {navLinkList.map((v, i) => (
           <Link href={v.link} key={i}>
             <div
@@ -66,4 +63,7 @@ const WrapperContent = styled.div`
   align-items: center;
   /* justify-content: center; */
   padding: 50px 0;
+  @media ${device.sm} {
+    background-color: #2b1e07;
+  }
 `;

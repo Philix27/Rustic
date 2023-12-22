@@ -1,7 +1,7 @@
 import { TextBody } from "@/comps";
 import { styled } from "styled-components";
 import Link from "next/link";
-import { AppLinks, AppStyles } from "@/lib";
+import { AppLinks, AppStyles, device } from "@/lib";
 import { trpc } from "@/_trpc";
 
 export function BookDisplay() {

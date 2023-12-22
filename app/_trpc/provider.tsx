@@ -5,7 +5,7 @@ import superjson from "superjson";
 import { trpc } from ".";
 import { httpBatchLink } from "@trpc/react-query";
 
-export default function TrpcProvider(props: { children: React.ReactNode }) {
+export function TrpcProvider(props: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient({}));
   const [trpcClient] = useState(() =>
     trpc.createClient({

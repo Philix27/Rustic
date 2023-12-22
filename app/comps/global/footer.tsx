@@ -16,7 +16,7 @@ import { AppLinks, AppStyles } from "@/lib";
 export function AppFooter() {
   return (
     <Wrapper>
-      <InnerWrapper>
+      <div className="inner">
         <div style={{ display: "flex" }}>
           <Link passHref href={AppLinks.home.index}>
             <TextBody variant="four">Home</TextBody>
@@ -60,7 +60,7 @@ export function AppFooter() {
             <AiFillTwitterSquare />
           </Link>
         </div>
-      </InnerWrapper>
+      </div>
     </Wrapper>
   );
 }
@@ -71,20 +71,18 @@ const Wrapper = styled.div`
   background-color: ${AppStyles.colors.backgroundLight};
   color: ${AppStyles.colors.offWhite2};
   padding: 10px;
-`;
-
-const InnerWrapper = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 10px;
-
-  div {
-    a {
-      color: ${AppStyles.colors.offWhite1};
-      margin-left: 10px;
-      margin-right: 10px;
+  .inner {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    div {
+      a {
+        color: ${AppStyles.colors.offWhite1};
+        margin-left: 10px;
+        margin-right: 10px;
+      }
     }
   }
 `;
