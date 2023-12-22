@@ -3,9 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
-  // url      = env("DATABASE_URL")
+  provider = "postgresql"
+  // url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
 
 model Book {
@@ -15,19 +15,19 @@ model Book {
   img_url          String?
   created_at       DateTime?         @default(now())
   updated_at       DateTime?         @updatedAt
-  Profile          BookChapter?
-  BookChapterTopic BookChapterTopic?
+  chapters          BookChapter[]
+  topic BookChapterTopic[]
 }
 
 model BookChapter {
   id               String            @id @default(uuid())
   title            String
   subtitle         String?
-  book_id          String?           @unique
+  book_id          String?          
   created_at       DateTime?         @default(now())
   updated_at       DateTime?         @updatedAt
-  Book             Book?             @relation(fields: [book_id], references: [id])
-  BookChapterTopic BookChapterTopic?
+  book             Book?             @relation(fields: [book_id], references: [id])
+  topics BookChapterTopic[]
 }
 
 model BookChapterTopic {
@@ -37,9 +37,9 @@ model BookChapterTopic {
   video_url   String?
   created_at  DateTime?    @default(now())
   updated_at  DateTime?    @updatedAt
-  book_id     String?      @unique
-  Book        Book?        @relation(fields: [book_id], references: [id])
-  chapter_id  String?      @unique
+  book_id     String?      
+  book        Book?        @relation(fields: [book_id], references: [id])
+  chapter_id  String?      
   chapter     BookChapter? @relation(fields: [chapter_id], references: [id])
   tags        Tags[]
   quiz_topics QuizTopic[]

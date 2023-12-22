@@ -19,7 +19,7 @@ export const bookChaptersRouter = router({
           book_id: input.book_id,
         },
         select: {
-          BookChapterTopic: true,
+          topics: true,
         },
       });
     }),
