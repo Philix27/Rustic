@@ -10,7 +10,7 @@ import {
 } from "./comps";
 
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { TextBody, TextHeader } from "../../comps/text";
+import { Text, TextHeader } from "../../comps/text";
 import { AppBlogs } from "@/lib/docs";
 
 export default function BlogComp() {
@@ -26,9 +26,9 @@ export default function BlogComp() {
                 <TextHeader variant="five">{val.title}</TextHeader>
                 <SecondContent>
                   <AiOutlineClockCircle />
-                  <TextBody variant="four">{val.start_date}</TextBody>
+                  <Text variant="B4">{val.start_date}</Text>
                 </SecondContent>
-                <TextBody variant="four">{val.subtitle}</TextBody>
+                <Text variant="B4">{val.subtitle}</Text>
               </div>
             </FirstContent>
             <Img src={val.cover_image} alt="cover" />

@@ -35,7 +35,7 @@ export function ChapterCard(props: {
       </div>
       {openChapter &&
         props.chapter.topics.map((v, i) => (
-          <Link href={`${props.book_id}/${v.id}`}>
+          <Link href={`${props.book_id}/${v.id}`} key={i}>
             <div className="topic_title" key={i}>
               <Text variant={"B5"} className="title">
                 {v.title}
