@@ -7,6 +7,8 @@ import styled from "styled-components";
 
 export function ChapterCard(props: {
   book_id: string;
+  chapter_id: string;
+  topic_id: string;
   chapter: {
     title: string;
     id: string;

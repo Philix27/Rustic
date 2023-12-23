@@ -6,7 +6,11 @@ import { trpc } from "@/_trpc";
 import styled from "styled-components";
 import { Sidebar, ActiveContent } from "../_comps";
 
-export default function BookClient(props: { book_id: string }) {
+export default function BookClient(props: {
+  book_id: string;
+  chapter_id: string;
+  topic_id: string;
+}) {
   const [showSidebar, setShowSidebar] = useState(true);
 
   const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
@@ -27,7 +31,13 @@ export default function BookClient(props: { book_id: string }) {
         ]}
       />
       <div className={"content_wrapper"}>
-        {showSidebar && <Sidebar book_id={book.id} />}
+        {showSidebar && (
+          <Sidebar
+            book_id={book.id}
+            chapter_id={props.chapter_id}
+            topic_id={props.topic_id}
+          />
+        )}
         <ActiveContent
           isFirstPage={true}
           bannerTitle={book.title}

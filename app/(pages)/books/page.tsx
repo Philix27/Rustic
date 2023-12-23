@@ -8,7 +8,7 @@ interface PropTypes {
     [key: string]: string;
   };
 }
-export default function ProjectsPage() {
+export default function BooksPage() {
   return (
     <ClientOnly>
       <BooksListView />

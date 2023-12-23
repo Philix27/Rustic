@@ -8,6 +8,7 @@ import { ActiveContent, Sidebar } from "../../_comps";
 
 export default function TopicsClient(props: {
   book_id: string;
+  chapter_id: string;
   topic_id: string;
 }) {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -34,7 +35,13 @@ export default function TopicsClient(props: {
         ]}
       />
       <div className={"content_wrapper"}>
-        {showSidebar && <Sidebar book_id={book.id} />}
+        {showSidebar && (
+          <Sidebar
+            book_id={book.id}
+            chapter_id={props.chapter_id}
+            topic_id={props.topic_id}
+          />
+        )}
         <ActiveContent
           isFirstPage={true}
           bannerTitle={topicsData.title}

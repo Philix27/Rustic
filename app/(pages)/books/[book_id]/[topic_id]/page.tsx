@@ -11,6 +11,7 @@ export default function TopicsPage(props: {
     <TopicsClient
       book_id={props.params.book_id}
       topic_id={props.params.topic_id}
+      chapter_id={""}
     />
   );
 }
