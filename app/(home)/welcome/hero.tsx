@@ -34,7 +34,8 @@ const Wrapper = styled.div`
   text-align: center;
   min-height: 80vh;
   @media ${AppStyles.breakpoints.sm} {
-    width: 80%;
+    width: 90%;
+    min-height: 70vh;
   }
   .first_title {
     font-size: 50px;
@@ -49,6 +50,10 @@ const Wrapper = styled.div`
     color: white;
     font-size: 45px;
     margin-bottom: 30px;
+
+    @media ${AppStyles.breakpoints.sm} {
+      line-height: 40px;
+    }
   }
   .subtitle {
     width: 75%;

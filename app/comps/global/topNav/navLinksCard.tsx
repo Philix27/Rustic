@@ -1,5 +1,5 @@
-import { TextBody } from "@/comps";
 import { AppStyles } from "@/lib";
+import { Text } from "@/comps";
 import Link from "next/link";
 import React from "react";
 import { styled } from "styled-components";
@@ -13,8 +13,8 @@ export default function NavLinksCard() {
           <Item key={i}>
             <Icon bgColor={v.color}>{v.icon}</Icon>
             <div>
-              <TextBody variant={"three"}>{v.title}</TextBody>
-              <TextBody variant={"four"}>{v.subtitle}</TextBody>
+              <Text variant={"B5"}>{v.title}</Text>
+              <Text variant={"B5"}>{v.subtitle}</Text>
             </div>
           </Item>
         </Link>

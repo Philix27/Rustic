@@ -57,12 +57,12 @@ const WrapperContent = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 15px;
-    width: 100%;
+    width: 90%;
     margin: 0 30px;
 
     @media ${AppStyles.breakpoints.sm} {
       grid-template-columns: 1fr;
-      width: 80%;
+      width: 100%;
     }
 
     .item {

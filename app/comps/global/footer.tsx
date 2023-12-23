@@ -1,5 +1,4 @@
 "use client";
-import { TextBody } from "../text";
 import Link from "next/link";
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -12,32 +11,33 @@ import {
 } from "react-icons/ai";
 import { styled } from "styled-components";
 import { AppLinks, AppStyles } from "@/lib";
+import { Text } from "@/comps";
 
 export function AppFooter() {
   return (
     <Wrapper>
       <div className="inner">
-        <div style={{ display: "flex" }}>
+        <div className="links">
           <Link passHref href={AppLinks.home.index}>
-            <TextBody variant="four">Home</TextBody>
+            <Text variant="B5">Home</Text>
           </Link>
           <Link passHref href={AppLinks.home.about}>
-            <TextBody variant="four">About us</TextBody>
+            <Text variant="B5">About us</Text>
           </Link>
           <Link passHref href={AppLinks.home.faq}>
-            <TextBody variant="four">FAQ</TextBody>
+            <Text variant="B5">FAQ</Text>
           </Link>
           <Link passHref href={AppLinks.home.terms}>
-            <TextBody variant="four">Terms</TextBody>
+            <Text variant="B5">Terms</Text>
           </Link>
           <Link passHref href={AppLinks.home.privacy}>
-            <TextBody variant="four">Privacy</TextBody>
+            <Text variant="B5">Privacy</Text>
           </Link>
         </div>
-        <TextBody variant="four">
+        <Text variant="B5" className="copyright">
           © 2023 Copyright &copy; All Rights Reserved.
-        </TextBody>
-        <div style={{ display: "flex" }}>
+        </Text>
+        <div className="icons_list">
           <Link passHref href="mailto:philixbob@gmail.com">
             <AiOutlineMail size={15} />
           </Link>
@@ -66,21 +66,42 @@ export function AppFooter() {
 }
 
 const Wrapper = styled.div`
-  height: 50px;
   width: 100%;
   background-color: ${AppStyles.colors.backgroundLight};
   color: ${AppStyles.colors.offWhite2};
-  padding: 10px;
+  padding: 20px 10px;
+  @media ${AppStyles.breakpoints.sm} {
+  }
   .inner {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: space-around;
     padding: 0 10px;
-    div {
+    @media ${AppStyles.breakpoints.sm} {
+      flex-direction: column;
+    }
+
+    .links {
+      display: flex;
+      @media ${AppStyles.breakpoints.sm} {
+        padding-bottom: 20px;
+      }
       a {
         color: ${AppStyles.colors.offWhite1};
         margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    .copyright {
+      @media ${AppStyles.breakpoints.sm} {
+        padding-bottom: 20px;
+      }
+    }
+    .icons_list {
+      display: flex;
+
+      a {
         margin-right: 10px;
       }
     }
