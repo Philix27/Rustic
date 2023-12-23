@@ -32,6 +32,7 @@ const Container = styled.div`
   width: 350px;
   /* width: content; */
   border-radius: 5px;
+  z-index: 3;
 `;
 
 const Item = styled.div`

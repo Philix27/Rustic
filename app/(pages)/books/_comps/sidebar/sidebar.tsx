@@ -4,33 +4,12 @@ import { ChapterCard } from "./chapterCard";
 import { trpc } from "@/_trpc";
 import { AppModal } from "@/comps";
 import { AddChapterModal } from "../addChapterModal";
+import styled from "styled-components";
 
 const s: ICustomStyles = {
-  wrapper: {
-    minHeight: "100vh",
-    maxHeight: "100vh",
-    width: "400px",
-    backgroundColor: AppStyles.colors.backgroundLight,
-    borderTop: `solid 1px ${AppStyles.colors.grey1}`,
-    // borderBottom: `solid 1px ${AppStyles.colors.grey1}`,
-    overflowY: "auto",
-    scrollBehavior: "smooth",
-  },
-  addDiv: {
-    backgroundColor: AppStyles.colors.background3,
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-  },
   text: {
     fontSize: "12px",
     padding: "10px",
-    cursor: "pointer",
-  },
-  triggerText: {
-    fontSize: "12px",
-    padding: "10px",
-    textDecoration: "underline",
     cursor: "pointer",
   },
 };
@@ -70,13 +49,13 @@ export function Sidebar(props: { book_id: string }) {
   // }
 
   return (
-    <div style={s.wrapper}>
+    <Wrapper>
       {chaptersFormatted.length &&
         chaptersFormatted.map((v, i) => (
           <ChapterCard chapter={v} key={i} book_id={props.book_id} />
         ))}
 
-      <div style={s.addDiv}>
+      <div className={"add_sec"}>
         <p style={s.triggerText} onClick={openAddChapterModal}>
           Add Chapter
         </p>
@@ -88,6 +67,29 @@ export function Sidebar(props: { book_id: string }) {
           book_id={props.book_id}
         />
       </AppModal>
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 400px;
+  background-color: ${AppStyles.colors.backgroundLight};
+  border-top: solid 1px ${AppStyles.colors.grey1};
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  .add_sec {
+    background-color: ${AppStyles.colors.background3};
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p {
+      font-size: 12px;
+      padding: 10px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+`;

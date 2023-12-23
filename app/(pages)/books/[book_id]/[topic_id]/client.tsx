@@ -4,17 +4,24 @@ import { useState } from "react";
 import { MdViewSidebar } from "react-icons/md";
 import { trpc } from "@/_trpc";
 import styled from "styled-components";
-import { Sidebar, ActiveContent } from "../_comps";
+import { ActiveContent, Sidebar } from "../../_comps";
 
-export default function BookClient(props: { book_id: string }) {
+export default function TopicsClient(props: {
+  book_id: string;
+  topic_id: string;
+}) {
   const [showSidebar, setShowSidebar] = useState(true);
 
   const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
     book_id: props.book_id,
   });
+  const { isLoading: isTopicLoading, data: topicsData } =
+    trpc.book_chapter_topics.get_by_id.useQuery({ topic_id: props.topic_id });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isTopicLoading) return <div>Topic Loading...</div>;
+  if (isLoading) return <div>Book Loading...</div>;
   if (!book) return <div>No books available</div>;
+  if (!topicsData.id) return <div>No Topic available</div>;
   return (
     <Wrapper>
       <AppTopNavbar
@@ -30,10 +37,10 @@ export default function BookClient(props: { book_id: string }) {
         {showSidebar && <Sidebar book_id={book.id} />}
         <ActiveContent
           isFirstPage={true}
-          bannerTitle={book.title}
+          bannerTitle={topicsData.title}
           subtitle={""}
-          cover_image={book.img_url}
-          content={book.desc}
+          cover_image={topicsData.video_url}
+          content={topicsData.content}
         />
       </div>
     </Wrapper>

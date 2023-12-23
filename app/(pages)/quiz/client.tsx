@@ -44,6 +44,11 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
   width: 80%;
+  margin-bottom: 20px;
+
+  @media ${AppStyles.breakpoints.sm} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const GridItem = styled.div`

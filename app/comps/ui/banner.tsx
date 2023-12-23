@@ -1,5 +1,5 @@
 // "use client"
-import { TextBody, TextHeader } from "@/comps";
+import { Text, TextHeader } from "@/comps";
 import { styled } from "styled-components";
 
 export const Landing = (props: {
@@ -12,6 +12,7 @@ export const Landing = (props: {
     <Wrapper
       id="home"
       style={{
+        zIndex: "-1",
         backgroundImage: `linear-gradient(rgba(31, 44, 90, 0.2), rgba(4, 9, 30, ${
           props.opacity ? props.opacity : 0.1
         })), url(${props.imgUrl})`,
@@ -19,7 +20,7 @@ export const Landing = (props: {
     >
       <Content>
         <TextHeader variant="three">{props.title}</TextHeader>
-        <TextBody variant="three">{props.subtitle}</TextBody>
+        <Text variant="B3">{props.subtitle}</Text>
       </Content>
     </Wrapper>
   );

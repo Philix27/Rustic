@@ -1,9 +1,7 @@
 import BookClient from "./client";
 
-export default function BooksContentPage({
-  params,
-}: {
+export default function BooksContentPage(props: {
   params: { book_id: string };
 }) {
-  return <BookClient book_id={params.book_id} />;
+  return <BookClient book_id={props.params.book_id} />;
 }

@@ -1,14 +1,14 @@
-import { TextBody } from "@/comps";
+import { Text } from "@/comps";
 import { styled } from "styled-components";
 import Link from "next/link";
-import { AppLinks, AppStyles, device } from "@/lib";
+import { AppLinks, AppStyles } from "@/lib";
 import { trpc } from "@/_trpc";
 
 export function BookDisplay() {
   const { isLoading, data: books } = trpc.books.get_all.useQuery();
 
   if (isLoading) return <Wrapper>Loading...</Wrapper>;
-  if (books.length < 1) return <Wrapper>No books available</Wrapper>;
+  if (!books) return <Wrapper>No books available</Wrapper>;
   console.log("books54", books);
   return (
     <Wrapper>
@@ -22,28 +22,28 @@ export function BookDisplay() {
             <Img src={val.img_url} />
             <div style={{ width: "100%" }}>
               <CardTitle>
-                <TextBody variant="two" style={{ paddingBottom: "10px" }}>
+                <Text variant="B2" style={{ paddingBottom: "10px" }}>
                   {val.title}
-                </TextBody>
-                <TextBody variant="four">{val.desc}</TextBody>
+                </Text>
+                <Text variant="B4">{val.desc}</Text>
               </CardTitle>
               <ChapterTitle>
-                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                <Text variant="B3" style={{ paddingBottom: "10px" }}>
                   {val.title}
-                </TextBody>
-                <TextBody variant="four">{val.desc}</TextBody>
+                </Text>
+                <Text variant="B4">{val.desc}</Text>
               </ChapterTitle>
               <ChapterTitle>
-                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                <Text variant="B3" style={{ paddingBottom: "10px" }}>
                   {val.title}
-                </TextBody>
-                <TextBody variant="four">{val.desc}</TextBody>
+                </Text>
+                <Text variant="B4">{val.desc}</Text>
               </ChapterTitle>
               <ChapterTitle>
-                <TextBody variant="three" style={{ paddingBottom: "10px" }}>
+                <Text variant="B3" style={{ paddingBottom: "10px" }}>
                   {val.title}
-                </TextBody>
-                <TextBody variant="four">{val.desc}</TextBody>
+                </Text>
+                <Text variant="B4">{val.desc}</Text>
               </ChapterTitle>
             </div>
           </InLink>
@@ -67,6 +67,11 @@ const GridWrapper = styled.div`
   padding: 3rem;
   column-gap: 2rem;
   row-gap: 3rem;
+
+  @media ${AppStyles.breakpoints.sm} {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 
 const InLink = styled(Link)`
