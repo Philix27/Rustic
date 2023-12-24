@@ -1,7 +1,7 @@
 "use client";
 import { MetaHeader } from "../../comps/global/meta";
 
-import { ClientOnly } from "../../comps/cleint";
+import { ClientOnly } from "../../comps/wrapper/client";
 import BlogComp from ".";
 import { AppTopNavbar } from "@/comps";
 
