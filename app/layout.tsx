@@ -1,4 +1,4 @@
-import "./lib/styles/index.scss";
+import "./lib/styles/index.css";
 import type { Metadata } from "next";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
