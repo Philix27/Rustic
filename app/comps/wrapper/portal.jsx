@@ -2,13 +2,13 @@
 import React, { useRef, useEffect, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { styled } from "styled-components";
-import PropTypes from "prop-types";
 
 export function AppModal(children, isMounted, onBlankClick) {
-  const ref = (useRef < Element) | (null > null);
+  const ref = useRef(null);
 
   useEffect(() => {
-    ref.current = document.querySelector < HTMLElement > "#modal-portal";
+    // ref.current = document.querySelector < HTMLElement > "#modal-portal";
+    ref.current = document.querySelector("#modal-portal");
   }, []);
 
   if (props.isMounted && ref.current) {

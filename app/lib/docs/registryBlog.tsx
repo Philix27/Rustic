@@ -1,5 +1,5 @@
 import UltimateRust from "./blogs/ultimate_backend.mdx";
-import Harmony1 from "./series/harmony/1.mdx";
+import Harmony1 from "./blogs/notify1.mdx";
 import { IBlogPost } from "./types";
 
 export const AppBlogs: Array<IBlogPost> = [
