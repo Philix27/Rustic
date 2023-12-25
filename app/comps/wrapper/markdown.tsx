@@ -5,7 +5,8 @@ export const MarkdownStyledComp = styled.div`
   padding: 10px 15px;
   margin: 20px;
   color: ${AppStyles.colors.offWhite1};
-  width: 100%;
+  width: fit-content;
+
   h1 {
     font-size: 2.8rem;
     font-weight: 300;

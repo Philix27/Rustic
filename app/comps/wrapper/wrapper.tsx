@@ -7,7 +7,7 @@ export function AppWrapper(props: { children: ReactNode }) {
   return (
     <Container>
       <Inner>
-        <Content>{props.children}</Content>
+        <div className="content">{props.children}</div>
       </Inner>
     </Container>
   );
@@ -26,7 +26,15 @@ const Inner = styled.div`
   background-color: ${AppStyles.colors.backgroundLight};
   margin: 40px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-`;
-const Content = styled.div`
-  min-height: 100vh;
+
+  @media ${AppStyles.breakpoints.sm} {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .content {
+    min-height: 100vh;
+    @media ${AppStyles.breakpoints.sm} {
+    }
+  }
 `;

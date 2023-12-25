@@ -9,12 +9,12 @@ export default function NavLinksCard() {
   return (
     <Container>
       {navLinkList.map((v, i) => (
-        <Link href={v.link} key={i}>
+        <Link href={v.link} key={i} className="link">
           <Item key={i}>
             <Icon bgColor={v.color}>{v.icon}</Icon>
             <div>
               <Text variant={"B5"}>{v.title}</Text>
-              <Text variant={"B5"}>{v.subtitle}</Text>
+              <Text variant={"B6"}>{v.subtitle}</Text>
             </div>
           </Item>
         </Link>
@@ -33,6 +33,11 @@ const Container = styled.div`
   /* width: content; */
   border-radius: 5px;
   z-index: 3;
+
+  .link {
+    color: ${AppStyles.colors.offWhite1};
+
+  }
 `;
 
 const Item = styled.div`

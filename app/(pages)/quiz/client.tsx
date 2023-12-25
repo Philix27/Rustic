@@ -7,18 +7,18 @@ import { AppStyles } from "@/lib";
 
 export default function QuizClient() {
   return (
-    <div className="min-h-full">
+    <Wrapper>
       <AppTopNavbar title={"Quiz"} icons={[]} />
       <GridWrapper>
         <Grid>
           {quizList.map((val, i) => (
             <GridItem key={i}>
-              <Text variant={"B2"} className="text-white mb-2 px-[20px] mt-5">
+              <Text variant={"B4"} className="title">
                 {val.topic}
               </Text>
               <hr style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }} />
-              <div className="px-[20px] py-5">
-                <Text variant={"B3"}>{val.subtitle}</Text>
+              <div className="subtitle">
+                <Text variant={"B5"}>{val.subtitle}</Text>
               </div>
               <Footer>
                 <Text variant={"B4"}>Questions: {val.questionCount}</Text>
@@ -28,10 +28,13 @@ export default function QuizClient() {
           ))}
         </Grid>
       </GridWrapper>
-    </div>
+    </Wrapper>
   );
 }
 
+const Wrapper = styled.div`
+  min-height: 100vh;
+`;
 const GridWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -60,6 +63,17 @@ const GridItem = styled.div`
   border-bottom: solid 1px ${AppStyles.colors.background};
   &:hover {
     border-bottom: solid 1px ${AppStyles.colors.grey1};
+  }
+  .title {
+    color: white;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    margin-top: 15px;
+  }
+  .subtitle {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
   }
 `;
 

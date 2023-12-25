@@ -103,6 +103,10 @@ const Wrapper = styled.div`
 
       a {
         margin-right: 10px;
+        color: ${AppStyles.colors.offWhite1};
+        svg {
+          color: ${AppStyles.colors.offWhite1};
+        }
       }
     }
   }

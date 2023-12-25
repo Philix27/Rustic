@@ -11,10 +11,7 @@ export function CardsSection() {
       <div className={"grid_container"}>
         {navLinkList.map((v, i) => (
           <Link href={v.link} key={i}>
-            <div
-              style={{ backgroundColor: AppStyles.colors.backgroundDark }}
-              className="item"
-            >
+            <div className="item">
               <div className="icon_wrapper">
                 <div style={{ backgroundColor: v.color }} className="icon">
                   {v.icon}
@@ -22,17 +19,14 @@ export function CardsSection() {
               </div>
 
               <div className="text_wrapper">
-                <Text variant={"B3"} className="title">
+                <Text variant={"B5"} className="title">
                   {v.subtitle}
                 </Text>
-                <Text variant={"B4"}>{v.story}</Text>
+                <Text variant={"B5"}>{v.story}</Text>
               </div>
 
-              <div
-                className={"footer"}
-                style={{ backgroundColor: AppStyles.colors.backgroundLight }}
-              >
-                <Text variant={"B4"}>{v.title}</Text>
+              <div className={"footer"}>
+                <Text variant={"B5"}>{v.title}</Text>
               </div>
             </div>
           </Link>
@@ -70,6 +64,7 @@ const WrapperContent = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background-color: ${AppStyles.colors.backgroundDark};
       .icon_wrapper {
         display: flex;
         align-items: center;
@@ -77,6 +72,7 @@ const WrapperContent = styled.div`
         width: 100%;
         padding-top: 32px;
         padding-bottom: 16px;
+
         .icon {
           color: white;
           font-size: 20px;
@@ -91,6 +87,7 @@ const WrapperContent = styled.div`
       .text_wrapper {
         padding: 10px 20px;
         .title {
+          color: ${AppStyles.colors.offWhite1};
           margin-bottom: 12px;
           font-weight: 600;
           color: white;
@@ -101,6 +98,7 @@ const WrapperContent = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: ${AppStyles.colors.backgroundLight};
       }
     }
   }

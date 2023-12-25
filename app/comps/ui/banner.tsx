@@ -18,10 +18,10 @@ export const Landing = (props: {
         })), url(${props.imgUrl})`,
       }}
     >
-      <Content>
+      <div className="content">
         <TextHeader variant="three">{props.title}</TextHeader>
         <Text variant="B3">{props.subtitle}</Text>
-      </Content>
+      </div>
     </Wrapper>
   );
 };
@@ -35,11 +35,11 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   position: relative;
-`;
 
-const Content = styled.div`
-  align-items: center;
-  justify-content: center;
-  padding-left: 50px;
-  color: #fff;
+  .content {
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+    color: #fff;
+  }
 `;
