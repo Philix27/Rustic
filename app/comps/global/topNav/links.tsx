@@ -42,20 +42,4 @@ export const navLinkList: {
     color: AppStyles.colors.quiz,
     link: AppLinks.quiz,
   },
-  {
-    title: "Video",
-    subtitle: "All rust related videos",
-    story: "Easily write custom code without deploying or scaling servers.",
-    icon: <FaVideo />,
-    color: AppStyles.colors.video,
-    link: AppLinks.videos,
-  },
-  {
-    title: "Admin",
-    subtitle: "Content management system",
-    story: "Easily write custom code without deploying or scaling servers.",
-    icon: <MdAdminPanelSettings />,
-    color: AppStyles.colors.admin,
-    link: AppLinks.admin,
-  },
 ];

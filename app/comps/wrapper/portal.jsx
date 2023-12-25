@@ -11,14 +11,9 @@ export function AppModal(children, isMounted, onBlankClick) {
     ref.current = document.querySelector("#modal-portal");
   }, []);
 
-  if (props.isMounted && ref.current) {
+  if (isMounted && ref.current) {
     return createPortal(
-      <Container
-        style={{ backgroundColor: "#00080BB9" }}
-        onClick={props.onBlankClick}
-      >
-        {props.children}
-      </Container>,
+      <Container onClick={onBlankClick}>{children}</Container>,
       ref.current
     );
     // return <div>Hello</div>;
@@ -26,6 +21,7 @@ export function AppModal(children, isMounted, onBlankClick) {
 }
 
 const Container = styled.div`
+  background-color: #00080bb9;
   position: fixed;
   display: flex;
   align-items: center;

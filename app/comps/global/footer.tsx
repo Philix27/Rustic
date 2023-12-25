@@ -34,9 +34,12 @@ export function AppFooter() {
             <Text variant="B5">Privacy</Text>
           </Link>
         </div>
-        <Text variant="B5" className="copyright">
-          © 2023 Copyright &copy; All Rights Reserved.
-        </Text>
+        <div className="copyright">
+          <Text variant="B6" className="top">
+            © 2023
+          </Text>
+          <Text variant="B6">All Rights Reserved.</Text>
+        </div>
         <div className="icons_list">
           <Link passHref href="mailto:philixbob@gmail.com">
             <AiOutlineMail size={15} />
@@ -69,7 +72,7 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: ${AppStyles.colors.backgroundLight};
   color: ${AppStyles.colors.offWhite2};
-  padding: 20px 10px;
+  padding: 15px 10px;
   @media ${AppStyles.breakpoints.sm} {
   }
   .inner {
@@ -94,8 +97,15 @@ const Wrapper = styled.div`
       }
     }
     .copyright {
+      display: flex;
+      /* flex-direction: column; */
+      align-items: center;
       @media ${AppStyles.breakpoints.sm} {
         padding-bottom: 20px;
+      }
+
+      .top {
+        margin-right: 10px;
       }
     }
     .icons_list {

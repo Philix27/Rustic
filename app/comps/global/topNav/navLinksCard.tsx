@@ -25,12 +25,11 @@ export default function NavLinksCard() {
 
 const Container = styled.div`
   background-color: ${AppStyles.colors.background3};
-  border: solid 0.1px ${AppStyles.colors.grey2};
+  border: solid 0.5px ${AppStyles.colors.grey2};
   padding: 10px 0;
   position: absolute;
-  top: 30px;
-  width: 350px;
-  /* width: content; */
+  top: 22px;
+  width: 300px;
   border-radius: 5px;
   z-index: 3;
 
