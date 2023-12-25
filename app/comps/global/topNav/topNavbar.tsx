@@ -51,7 +51,7 @@ const Wrapper = styled.div`
       margin-left: 16px;
       border-radius: 4px;
       padding: 2.5px 16px;
-      color: ${AppStyles.colors.backgroundDark};
+      color: ${AppStyles.colors.offWhite1};
       background-color: ${AppStyles.colors.primary};
       &:hover {
         color: white;
@@ -73,7 +73,6 @@ const Wrapper = styled.div`
     }
   }
 `;
-
 
 const Menu = styled.div`
   position: relative;
