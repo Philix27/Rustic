@@ -11,13 +11,13 @@ export function AppModal(children, isMounted, onBlankClick) {
     ref.current = document.querySelector("#modal-portal");
   }, []);
 
-  if (isMounted && ref.current) {
-    return createPortal(
-      <Container onClick={onBlankClick}>{children}</Container>,
-      ref.current
-    );
-    // return <div>Hello</div>;
-  } else return <div></div>;
+  // if (isMounted && ref.current) {
+  //   return createPortal(
+  //     <Container onClick={onBlankClick}>{children}</Container>,
+  //     ref.current
+  //   );
+  // } else return <div></div>;
+  return <div>Hello from Modal</div>;
 }
 
 const Container = styled.div`

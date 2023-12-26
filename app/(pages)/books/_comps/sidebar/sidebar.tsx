@@ -5,17 +5,12 @@ import { AppModal } from "@/comps";
 import { AddChapterModal } from "../addChapterModal";
 import styled from "styled-components";
 
-export function Sidebar(props: {
-  book_id: string;
-  chapter_id: string;
-  topic_id: string;
-}) {
+export function Sidebar(props: { book_id: string }) {
   const [showSheet, setShowSheet] = useState(false);
 
   return (
     <Wrapper>
       <ChapterCard book_id={props.book_id} setShowSheet={setShowSheet} />
-
       <AppModal isMounted={showSheet}>
         <AddChapterModal
           onClose={() => setShowSheet(false)}
@@ -29,9 +24,9 @@ export function Sidebar(props: {
 const Wrapper = styled.div`
   min-height: 100vh;
   max-height: 100vh;
-  width: 400px;
+  width: 100%;
   background-color: ${AppStyles.colors.backgroundLight};
-  border-top: solid 1px ${AppStyles.colors.grey1};
+  /* border-top: solid 1px ${AppStyles.colors.grey1}; */
   overflow-y: auto;
   scroll-behavior: smooth;
 

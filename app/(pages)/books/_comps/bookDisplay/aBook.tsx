@@ -36,6 +36,7 @@ const InLink = styled(Link)`
   display: flex;
   flex-direction: column;
   height: fit-content;
+  width: 100%;
   /* align-items: center; */
   /* justify-items: center; */
   /* text-align: center; */

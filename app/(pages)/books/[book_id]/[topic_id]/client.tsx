@@ -1,7 +1,6 @@
 "use client";
 import { AppTopNavbar } from "@/comps";
 import { useState } from "react";
-import { MdViewSidebar } from "react-icons/md";
 import { trpc } from "@/_trpc";
 import styled from "styled-components";
 import { ActiveContent, Sidebar } from "../../_comps";
@@ -25,23 +24,11 @@ export default function TopicsClient(props: {
   if (!topicsData.id) return <div>No Topic available</div>;
   return (
     <Wrapper>
-      <AppTopNavbar
-        title={book.title}
-        icons={[
-          <MdViewSidebar
-            key={1}
-            onClick={() => setShowSidebar((prev) => !prev)}
-          />,
-        ]}
-      />
+      <div className={"sidebar"}>
+        <Sidebar book_id={book.id} />
+      </div>
       <div className={"content_wrapper"}>
-        {showSidebar && (
-          <Sidebar
-            book_id={book.id}
-            chapter_id={props.chapter_id}
-            topic_id={props.topic_id}
-          />
-        )}
+        <AppTopNavbar title={book.title} icons={[]} />
         <ActiveContent
           isFirstPage={true}
           bannerTitle={topicsData.title}
@@ -56,9 +43,16 @@ export default function TopicsClient(props: {
 
 const Wrapper = styled.div`
   max-height: 100vh;
-  min-height: calc(100vh - 40px);
+  height: 100vh;
+  display: flex;
+  .sidebar {
+    width: 300px;
+    max-height: 100vh;
+    min-height: calc(100vh - 40px);
+  }
   .content_wrapper {
-    display: flex;
+    width: calc(100% - 300px);
+    flex-direction: column;
     max-height: 100vh;
     overflow-y: auto;
   }
