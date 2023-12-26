@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { Text } from "@/comps";
+import { AppTopNavbar, Text } from "@/comps";
 import { AppStyles, AppBlogs } from "@/lib";
 import styled from "styled-components";
 
@@ -9,25 +9,28 @@ export default function BlogComp() {
   const router = useRouter();
 
   return (
-    <Wrapper>
-      <div className="content_wrapper">
-        {AppBlogs.map((val, index) => (
-          <Card key={index} onClick={() => router.push(`/blogs/${val.id}`)}>
-            <div className="content">
-              <div>
-                <Text variant="B4">{val.title}</Text>
-                <SecondContent>
-                  <AiOutlineClockCircle />
-                  <Text variant="B4">{val.start_date}</Text>
-                </SecondContent>
-                <Text variant="B4">{val.subtitle}</Text>
+    <>
+      <AppTopNavbar title={"Blogs"} icons={[]} />
+      <Wrapper>
+        <div className="content_wrapper">
+          {AppBlogs.map((val, index) => (
+            <Card key={index} onClick={() => router.push(`/blogs/${val.id}`)}>
+              <div className="content">
+                <div>
+                  <Text variant="B4">{val.title}</Text>
+                  <SecondContent>
+                    <AiOutlineClockCircle />
+                    <Text variant="B4">{val.start_date}</Text>
+                  </SecondContent>
+                  <Text variant="B4">{val.subtitle}</Text>
+                </div>
               </div>
-            </div>
-            <Img src={val.cover_image} alt="cover" />
-          </Card>
-        ))}
-      </div>
-    </Wrapper>
+              <Img src={val.cover_image} alt="cover" />
+            </Card>
+          ))}
+        </div>
+      </Wrapper>
+    </>
   );
 }
 
