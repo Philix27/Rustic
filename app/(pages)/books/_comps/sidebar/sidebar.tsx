@@ -34,8 +34,8 @@ export function Sidebar(props: {
     };
   });
 
-  if (isLoadingChapter) return <Wrapper>Loading...</Wrapper>;
-  if (chapters) return <div>Loading...</div>;
+  if (isLoadingChapter) return <Wrapper>Chapter Loading...</Wrapper>;
+  if (!chapters) return <div>No chapters</div>;
   if (isLoading) return <Wrapper>Loading...</Wrapper>;
 
   return (
