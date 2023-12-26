@@ -16,7 +16,7 @@ export default function Chapters(props: {
     book_id: props.data.id,
   });
   if (isLoading) return <CardTitle>Loading...</CardTitle>;
-  if (!chapters) return <div>No chapters...</div>;
+  if (!chapters) return <CardTitle>No chapters</CardTitle>;
 
   const first3Chapters = chapters.slice(0, 4);
   return (
