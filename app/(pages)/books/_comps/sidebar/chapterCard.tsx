@@ -1,56 +1,57 @@
 import { AppStyles } from "@/lib";
+import styled from "styled-components";
+import Link from "next/link";
 import { Text } from "@/comps";
 import React, { useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
-import Link from "next/link";
-import styled from "styled-components";
+import { trpc } from "@/_trpc";
+import { TopicCard } from "./topicCard";
 
 export function ChapterCard(props: {
   book_id: string;
-  chapter_id: string;
-  topic_id: string;
-  chapter: {
-    title: string;
-    id: string;
-    topics: { title: string; id: string }[];
-  };
+  setShowSheet: (value: React.SetStateAction<boolean>) => void;
 }) {
   const [openChapter, setOpenChapter] = useState(false);
   const [showSheet, setShowSheet] = useState(false);
-  const handleAddTopic = () => {
-    setShowSheet(true);
-  };
+
+  const { isLoading, data: chapters } = trpc.book_chapter.get_all.useQuery({
+    book_id: props.book_id,
+  });
+
+  if (!chapters) return <div>No chapters</div>;
+  if (isLoading) return <Wrapper>Loading...</Wrapper>;
   return (
-    <Wrapper>
-      <div
-        className="chapter_title"
-        onClick={() => setOpenChapter((prev) => !prev)}
-      >
-        <Text variant={"B3"}>{props.chapter.title}</Text>
-        {openChapter ? (
-          <MdArrowDropDown size={25} />
-        ) : (
-          <MdArrowDropUp size={25} />
-        )}
-      </div>
-      {openChapter &&
-        props.chapter.topics.map((v, i) => (
-          <Link href={`${props.book_id}/${v.id}`} key={i}>
-            <div className="topic_title" key={i}>
-              <Text variant={"B5"} className="title">
-                {v.title}
-              </Text>
+    <>
+      {chapters.map((val, i) => (
+        <Wrapper>
+          <div
+            className="chapter_title"
+            onClick={() => setOpenChapter((prev) => !prev)}
+          >
+            <Text variant={"B3"}>{val.title}</Text>
+            {openChapter ? (
+              <MdArrowDropDown size={25} />
+            ) : (
+              <MdArrowDropUp size={25} />
+            )}
+          </div>
+          {openChapter && <TopicCard book_id={""} />}
+
+          {openChapter && (
+            <div className="add_div">
+              <Link href={`${props.book_id}/create_topic`}>
+                <p className="trigger_text">Add Topic</p>
+              </Link>
             </div>
-          </Link>
-        ))}
-      {openChapter && (
-        <div className="add_div">
-          <Link href={`${props.book_id}/create_topic`}>
-            <p className="trigger_text">Add Topic</p>
-          </Link>
-        </div>
-      )}
-    </Wrapper>
+          )}
+        </Wrapper>
+      ))}
+      <div className={"add_sec"}>
+        <p className="trigger_text" onClick={() => props.setShowSheet(true)}>
+          Add Chapter
+        </p>
+      </div>
+    </>
   );
 }
 
