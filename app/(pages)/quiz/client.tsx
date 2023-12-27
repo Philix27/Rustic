@@ -2,29 +2,34 @@
 import { AppTopNavbar, Text } from "@/comps";
 import React from "react";
 import styled from "styled-components";
-import { quizList } from "./list";
+import { quizList } from "./_comps/list";
 import { AppStyles } from "@/lib";
+import Link from "next/link";
 
-export default function QuizClient() {
+export function QuizClient() {
   return (
     <Wrapper>
       <AppTopNavbar title={"Quiz"} icons={[]} />
       <GridWrapper>
         <Grid>
           {quizList.map((val, i) => (
-            <GridItem key={i}>
-              <Text variant={"B4"} className="title">
-                {val.topic}
-              </Text>
-              <hr style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }} />
-              <div className="subtitle">
-                <Text variant={"B5"}>{val.subtitle}</Text>
-              </div>
-              <Footer>
-                <Text variant={"B4"}>Questions: {val.questionCount}</Text>
-                <Text variant={"B4"}>Views: {val.viewsCount}</Text>
-              </Footer>
-            </GridItem>
+            <Link href={`/quiz/${val.id}`} key={i}>
+              <GridItem>
+                <Text variant={"B4"} className="title">
+                  {val.topic}
+                </Text>
+                <hr
+                  style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }}
+                />
+                <div className="subtitle">
+                  <Text variant={"B5"}>{val.subtitle}</Text>
+                </div>
+                <Footer>
+                  <Text variant={"B4"}>Questions: {val.questionCount}</Text>
+                  <Text variant={"B4"}>Views: {val.viewsCount}</Text>
+                </Footer>
+              </GridItem>
+            </Link>
           ))}
         </Grid>
       </GridWrapper>
@@ -51,6 +56,7 @@ const Grid = styled.div`
 
   @media ${AppStyles.breakpoints.sm} {
     grid-template-columns: 1fr;
+    width: 90%;
   }
 `;
 
