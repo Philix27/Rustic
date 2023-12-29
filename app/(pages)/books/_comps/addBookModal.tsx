@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
-import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
+import {
+  AppButton,
+  AppInput,
+  ModalContentWrapper,
+  AppToaster,
+  AppToasterController,
+} from "@/comps";
 
 export function AddBookModal(props: { onClose: VoidFunction }) {
   const addBook = trpc.books.create.useMutation();
@@ -29,7 +35,10 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
         desc: docContent.desc,
         img_url: docContent.img_url,
       })
-      .then((msg) => resetFormData());
+      .then((msg) => {
+        AppToasterController("Added successfully");
+        resetFormData();
+      });
   };
 
   return (
@@ -79,6 +88,7 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
           <div className="spacer" />
           <AppButton onClick={handleFormSubmission}>Submit</AppButton>
         </div>
+        <AppToaster />
       </Container>
     </ModalContentWrapper>
   );

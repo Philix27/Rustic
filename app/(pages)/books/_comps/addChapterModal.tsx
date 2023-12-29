@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
-import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
+import {
+  AppButton,
+  AppInput,
+  AppToaster,
+  AppToasterController,
+  ModalContentWrapper,
+} from "@/comps";
 
 export function AddChapterModal(props: {
   onClose: VoidFunction;
@@ -26,6 +32,7 @@ export function AddChapterModal(props: {
         book_id: props.book_id,
       })
       .then((msg) => {
+        AppToasterController("Added successfully");
         resetFormData();
       });
   };
@@ -49,8 +56,9 @@ export function AddChapterModal(props: {
         <div className="buttons">
           <AppButton onClick={props.onClose}>Cancel</AppButton>
           <div className="spacer" />
-          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
+          <AppButton status="Loading" onClick={handleFormSubmission}>Submit</AppButton>
         </div>
+        <AppToaster />
       </Container>
     </ModalContentWrapper>
   );

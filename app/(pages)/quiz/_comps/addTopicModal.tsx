@@ -1,5 +1,11 @@
 import { trpc } from "@/_trpc";
-import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
+import {
+  AppButton,
+  AppInput,
+  AppToaster,
+  AppToasterController,
+  ModalContentWrapper,
+} from "@/comps";
 import { AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
@@ -26,7 +32,10 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
           title: formData.title,
           desc: formData.desc,
         })
-        .then((msg) => resetFormData());
+        .then((msg) => {
+          AppToasterController("Added successfully");
+          resetFormData();
+        });
     }
   };
   return (
@@ -52,6 +61,7 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
           <AppButton onClick={handleFormSubmission}>Submit</AppButton>
         </div>
       </Content>
+      <AppToaster />
     </ModalContentWrapper>
   );
 }
