@@ -36,7 +36,7 @@ const Wrapper = styled.div`
     height: fit-content;
     @media ${AppStyles.breakpoints.sm} {
       grid-template-columns: 1fr;
-      width: 100%;
+      width: 90%;
     }
   }
 `;
