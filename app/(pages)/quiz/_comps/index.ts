@@ -1,2 +1,2 @@
 export * from "./searchBar";
-export * from "./addTopic";
+export * from "./addTopicModal";
