@@ -1,9 +1,27 @@
+import { trpc } from "@/_trpc";
 import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
 import { AppStyles } from "@/lib";
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
+import { FormDataType, initialValue } from "./dataType";
 
 export function AddQuestionModal(props: { onCancel: VoidFunction }) {
+  const addBook = trpc.quiz_topics.create.useMutation();
+  const [formData, setFormData] = useState<FormDataType>(initialValue);
+  const resetFormData = () => {
+    setFormData(initialValue);
+  };
+  const handleFormSubmission = () => {
+    if (formData.question && formData.option1) {
+      addBook
+        .mutateAsync({
+          title: formData.question,
+          desc: formData.option1,
+        })
+        .then((msg) => resetFormData());
+    }
+  };
+  
   return (
     <ModalContentWrapper>
       <Content>

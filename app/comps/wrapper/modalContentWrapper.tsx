@@ -10,4 +10,8 @@ export const ModalContentWrapper = styled.div`
   max-height: fit-content;
   /* max-height: 75%; */
   border-radius: 5px;
+
+  @media ${AppStyles.breakpoints.sm} {
+    width: 90%;
+  }
 `;

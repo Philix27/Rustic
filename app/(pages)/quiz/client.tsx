@@ -2,10 +2,9 @@
 import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { quizList } from "./_comps/list";
 import { AppStyles } from "@/lib";
 import Link from "next/link";
-import { AddTopicModal } from "./_comps";
+import { AddTopicModal, quizList } from "./_comps";
 
 export function QuizClient() {
   const [showModal, setShowModal] = useState(false);
@@ -52,6 +51,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
   }
 `;
 const GridWrapper = styled.div`

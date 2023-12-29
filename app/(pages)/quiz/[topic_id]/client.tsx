@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AppStyles } from "@/lib";
 import { questionsList } from "./questions";
-import { AddQuestionModal, AddTopicModal } from "../_comps";
+import { AddQuestionModal } from "../_comps";
 
 
 export function QuestionsPageClient(props: { topic_id: string }) {
@@ -15,7 +15,7 @@ export function QuestionsPageClient(props: { topic_id: string }) {
       <GridWrapper>
         <div className="grid">
           {questionsList.map((val, i) => (
-            <GridItem>
+            <GridItem key={i}>
               <Text variant={"B4"} className="title">
                 {i + 1}. {val.question}
               </Text>

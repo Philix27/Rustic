@@ -13,13 +13,20 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
     title: "",
     desc: "",
   });
-
+  const resetFormData = () => {
+    setFormData({
+      title: "",
+      desc: "",
+    });
+  };
   const handleFormSubmission = () => {
     if (formData.title && formData.desc) {
-      addBook.mutate({
-        title: formData.title,
-        desc: formData.desc,
-      });
+      addBook
+        .mutateAsync({
+          title: formData.title,
+          desc: formData.desc,
+        })
+        .then((msg) => resetFormData());
     }
   };
   return (
@@ -30,14 +37,14 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
           name={"title"}
           placeholder={"Which topic will these questions address"}
           value={formData.title}
-          onChange={() => setFormData({ ...formData, title: formData.title })}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <AppInput
           label={"Description"}
           name={"desc"}
           placeholder={"Short note about quiz questions"}
           value={formData.desc}
-          onChange={() => setFormData({ ...formData, desc: formData.desc })}
+          onChange={(e) => setFormData({ ...formData, desc: e.target.value })}
         />
         <div className="buttons">
           <AppButton onClick={props.onCancel}>Cancel</AppButton>

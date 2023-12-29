@@ -14,13 +14,20 @@ export function AddChapterModal(props: {
   }>({
     title: "",
   });
-
-  const handleFormSubmission = () => {
-    addChapter.mutate({
-      title: docContent.title,
-      book_id: props.book_id,
+  const resetFormData = () => {
+    setDocContent({
+      title: "",
     });
-    console.log("docContent", docContent);
+  };
+  const handleFormSubmission = () => {
+    addChapter
+      .mutateAsync({
+        title: docContent.title,
+        book_id: props.book_id,
+      })
+      .then((msg) => {
+        resetFormData();
+      });
   };
 
   return (

@@ -8,19 +8,28 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
   const addBook = trpc.books.create.useMutation();
   const [docContent, setDocContent] = useState<{
     title: string;
-    subtitle: string;
+    desc: string;
+    img_url: string;
   }>({
     title: "",
-    subtitle: "",
+    desc: "",
+    img_url: "",
   });
-
-  const handleFormSubmission = () => {
-    addBook.mutate({
-      title: docContent.title,
-      desc: docContent.subtitle,
-      img_url: docContent.subtitle,
+  const resetFormData = () => {
+    setDocContent({
+      title: "",
+      desc: "",
+      img_url: "",
     });
-    // console.log("docContent", docContent);
+  };
+  const handleFormSubmission = () => {
+    addBook
+      .mutateAsync({
+        title: docContent.title,
+        desc: docContent.desc,
+        img_url: docContent.img_url,
+      })
+      .then((msg) => resetFormData());
   };
 
   return (
@@ -40,15 +49,28 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
           className="mb-5"
         />
         <AppInput
+          label={"Short description"}
+          name={"title"}
+          placeholder={"Describe the book"}
+          value={docContent.desc}
+          onChange={(e) =>
+            setDocContent({
+              ...docContent,
+              desc: e.target.value,
+            })
+          }
+          className="mb-5"
+        />
+        <AppInput
           label={"Image url"}
           name={"img"}
           placeholder={"Image Link"}
-          value={docContent.subtitle}
+          value={docContent.img_url}
           className="mb-5"
           onChange={(e) =>
             setDocContent({
               ...docContent,
-              subtitle: e.target.value,
+              img_url: e.target.value,
             })
           }
         />
