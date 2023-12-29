@@ -1,5 +1,6 @@
 "use client";
 import { AppTopNavbar } from "@/comps";
+import { AppStyles } from "@/lib";
 import { SignUp } from "@clerk/nextjs";
 import React from "react";
 import { styled } from "styled-components";
@@ -22,6 +23,9 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     min-height: calc(100% - 40px);
-    /* height: calc(100% - 40px); */
+    transform: scale(1.75);
+    @media ${AppStyles.breakpoints.sm} {
+      transform: scale(1.2);
+    }
   }
 `;

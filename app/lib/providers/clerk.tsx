@@ -20,6 +20,7 @@ export default function ClerkAppProvider(props: { children: React.ReactNode }) {
           colorTextSecondary: AppStyles.colors.offWhite2,
           colorTextOnPrimaryBackground: AppStyles.colors.offWhite2,
           colorBackground: AppStyles.colors.background,
+          colorAlphaShade: "white",
         },
       }}
     >
