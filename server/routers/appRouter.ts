@@ -4,6 +4,7 @@ import { booksRouter } from "./book";
 import { bookChaptersRouter } from "./bookChapter";
 import { bookChapterTopicsRouter } from "./bookChapterTopic";
 import { quizRouter } from "./quiz";
+import { quizTopicsRouter } from "./quizTopics";
 
 export const appRouter = router({
   blog: blogRouter,
@@ -11,6 +12,7 @@ export const appRouter = router({
   book_chapter: bookChaptersRouter,
   book_chapter_topics: bookChapterTopicsRouter,
   quiz: quizRouter,
+  quiz_topics: quizTopicsRouter,
   test_all: publicProcedure.query(({ ctx }) => {
     console.log("Tried to read book - testing");
     return "Hello, are you for testing";

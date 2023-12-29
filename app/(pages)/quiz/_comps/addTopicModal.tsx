@@ -1,26 +1,48 @@
+import { trpc } from "@/_trpc";
 import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
 import { AppStyles } from "@/lib";
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 
 export function AddTopicModal(props: { onCancel: VoidFunction }) {
+  const addBook = trpc.quiz_topics.create.useMutation();
+  const [formData, setFormData] = useState<{
+    title: string;
+    desc: string;
+  }>({
+    title: "",
+    desc: "",
+  });
+
+  const handleFormSubmission = () => {
+    if (formData.title && formData.desc) {
+      addBook.mutate({
+        title: formData.title,
+        desc: formData.desc,
+      });
+    }
+  };
   return (
     <ModalContentWrapper>
       <Content>
         <AppInput
           label={"Title"}
           name={"title"}
-          placeholder={"title of input"}
+          placeholder={"Which topic will these questions address"}
+          value={formData.title}
+          onChange={() => setFormData({ ...formData, title: formData.title })}
         />
         <AppInput
-          label={"Title"}
-          name={"title"}
-          placeholder={"title of input"}
+          label={"Description"}
+          name={"desc"}
+          placeholder={"Short note about quiz questions"}
+          value={formData.desc}
+          onChange={() => setFormData({ ...formData, desc: formData.desc })}
         />
         <div className="buttons">
           <AppButton onClick={props.onCancel}>Cancel</AppButton>
           <div className="spacer" />
-          <AppButton onClick={function (): void {}}>Submit</AppButton>
+          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
         </div>
       </Content>
     </ModalContentWrapper>

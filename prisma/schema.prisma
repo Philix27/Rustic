@@ -9,25 +9,25 @@ datasource db {
 }
 
 model Book {
-  id               String            @id @default(uuid())
-  title            String
-  desc             String?
-  img_url          String?
-  created_at       DateTime?         @default(now())
-  updated_at       DateTime?         @updatedAt
-  chapters          BookChapter[]
-  topic BookChapterTopic[]
+  id         String             @id @default(uuid())
+  title      String
+  desc       String?
+  img_url    String?
+  created_at DateTime?          @default(now())
+  updated_at DateTime?          @updatedAt
+  chapters   BookChapter[]
+  topic      BookChapterTopic[]
 }
 
 model BookChapter {
-  id               String            @id @default(uuid())
-  title            String
-  subtitle         String?
-  book_id          String?          
-  created_at       DateTime?         @default(now())
-  updated_at       DateTime?         @updatedAt
-  book             Book?             @relation(fields: [book_id], references: [id])
-  topics BookChapterTopic[]
+  id         String             @id @default(uuid())
+  title      String
+  subtitle   String?
+  book_id    String?
+  created_at DateTime?          @default(now())
+  updated_at DateTime?          @updatedAt
+  book       Book?              @relation(fields: [book_id], references: [id])
+  topics     BookChapterTopic[]
 }
 
 model BookChapterTopic {
@@ -37,9 +37,9 @@ model BookChapterTopic {
   video_url   String?
   created_at  DateTime?    @default(now())
   updated_at  DateTime?    @updatedAt
-  book_id     String?      
+  book_id     String?
   book        Book?        @relation(fields: [book_id], references: [id])
-  chapter_id  String?      
+  chapter_id  String?
   chapter     BookChapter? @relation(fields: [chapter_id], references: [id])
   tags        Tags[]
   quiz_topics QuizTopic[]
@@ -49,7 +49,9 @@ model QuizTopic {
   id          String             @id @default(uuid())
   created_at  DateTime?          @default(now())
   updated_at  DateTime?          @updatedAt
-  tags      Tags[]
+  title       String
+  desc        String
+  tags        Tags[]
   quizes      Quiz[]
   book_topics BookChapterTopic[]
 }
