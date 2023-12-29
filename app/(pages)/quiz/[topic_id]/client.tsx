@@ -1,11 +1,14 @@
 "use client";
-import { AppTopNavbar, Text } from "@/comps";
-import React from "react";
+import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AppStyles } from "@/lib";
 import { questionsList } from "./questions";
+import { AddQuestionModal, AddTopicModal } from "../_comps";
+
 
 export function QuestionsPageClient(props: { topic_id: string }) {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Wrapper>
       <AppTopNavbar title={"Quiz"} icons={[]} />
@@ -32,12 +35,24 @@ export function QuestionsPageClient(props: { topic_id: string }) {
           ))}
         </div>
       </GridWrapper>
+      <AppModal isMounted={showModal}>
+        <AddQuestionModal onCancel={() => setShowModal(false)} />
+      </AppModal>
+      <div className="button_container">
+        <AppButton onClick={() => setShowModal(true)}> Add topic</AppButton>
+      </div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  .button_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 const GridWrapper = styled.div`
   width: 100%;

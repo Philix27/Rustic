@@ -7,6 +7,7 @@ export const ModalContentWrapper = styled.div`
   border: solid 0.1px ${AppStyles.colors.grey2};
   padding: 20px;
   width: 50%;
-  max-height: 75%;
-  border-radius: 10px;
+  max-height: fit-content;
+  /* max-height: 75%; */
+  border-radius: 5px;
 `;
