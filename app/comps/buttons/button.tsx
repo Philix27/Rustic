@@ -12,6 +12,7 @@ const Button = styled.button`
   border: solid 1px ${AppStyles.colors.backgroundLight};
   border-radius: 5px;
   margin-top: 20px;
+  color: ${AppStyles.colors.offWhite1};
 
   &:hover {
     background-color: ${AppStyles.colors.backgroundDark};

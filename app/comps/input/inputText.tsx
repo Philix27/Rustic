@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Text } from "@/comps";
 import { ChangeEvent, useState } from "react";
 import { AppImages, AppStyles } from "@/lib";
+import { styled } from "styled-components";
 
 export const AppInput = (props: {
   label: Path<any>;
@@ -22,22 +23,16 @@ export const AppInput = (props: {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-
-  // const yourBg = AppStyles.colors.backgroundDark;
-  const yourBg = "#C2C20B";
   return (
-    <div
-      className={`flex flex-col space-y-2 w-full relative ${props.className}`}
-    >
+    <Wrapper>
       <label htmlFor={props.name}>
-        <Text variant="B4" className="text-[16px]">
-          {props.label}
-        </Text>
+        <Text variant="B4">{props.label}</Text>
       </label>
 
       <input
-        className={`border rounded-md py-3 px-4 min-w-full border-none outline-none font-medium text-white bg-grey
-        ${props.errorMsg ? "border-red-600" : "border-grey-dark-30"} `}
+        className={`${
+          props.errorMsg ? "border-red-600" : "border-grey-dark-30"
+        } `}
         aria-label={props.label}
         placeholder={props.placeholder}
         maxLength={props.maxLength}
@@ -52,11 +47,7 @@ export const AppInput = (props: {
         <span className="text-centurian-red text-xs">{props.errorMsg}</span>
       )}
       {props.isPassword ? (
-        <div
-          className={`absolute inset-y-0 right-0 flex items-center pr-3 ${
-            props.errorMsg && "pb-6"
-          }`}
-        >
+        <div className={`error_msg ${props.errorMsg && "pb-6"}`}>
           <Image
             onClick={() => setShowPassword(!showPassword)}
             src={showPassword ? AppImages.name : AppImages.name}
@@ -67,6 +58,44 @@ export const AppInput = (props: {
           />
         </div>
       ) : null}
-    </div>
+    </Wrapper>
   );
 };
+
+/* className={`flex flex-col space - y - 2 w - full relative ${ props.className }`} */
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 10px 0;
+
+  label > p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    justify-self: flex-start;
+  }
+
+  input {
+    /* border rounded-md py-3 px-4 min-w-full border-none outline-none font-medium text-white bg-grey */
+    border-radius: 5px;
+    padding: 12px 10px;
+    min-width: 100%;
+    color: white;
+    background-color: ${AppStyles.colors.backgroundLight};
+    font-size: 14px;
+    outline: none;
+    border: none;
+    border: solid 0.5px ${AppStyles.colors.grey1};
+  }
+  .error_msg {
+    /* absolute inset-y-0 right-0 flex items-center pr-3  */
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding-right: 14px;
+  }
+`;

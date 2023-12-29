@@ -3,7 +3,11 @@ import React, { useRef, useEffect, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { styled } from "styled-components";
 
-export function AppModal(children, isMounted, onBlankClick) {
+export function AppModal(props: {
+  children: ReactNode;
+  isMounted: boolean;
+  onBlankClick?: VoidFunction;
+}) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -11,9 +15,9 @@ export function AppModal(children, isMounted, onBlankClick) {
     ref.current = document.querySelector("#modal-portal");
   }, []);
 
-  if (isMounted && ref.current) {
+  if (props.isMounted && ref.current) {
     return createPortal(
-      <Container onClick={onBlankClick}>{children}</Container>,
+      <Container onClick={props.onBlankClick}>{props.children}</Container>,
       ref.current
     );
   } else return <div></div>;
