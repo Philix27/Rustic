@@ -20,7 +20,7 @@ export class AppStyles {
     quiz: "#BC5E06",
     admin: "#027D8B",
     home: "#167B16",
-    primary: "#FFAE00",
+    primary: "#E79B03",
     secondary: "#E6A926",
     video: "#9500FF",
   };

@@ -1,12 +1,8 @@
 import "./lib/styles/index.css";
 // import type { Metadata } from "next";
-// import { PersistGate } from "redux-persist/integration/react";
-// import { persistStore } from "redux-persist";
-// import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./lib/redux/store";
 import { TrpcProvider } from "./_trpc";
-import { StylesProvider } from "./lib";
-import { ClerkProvider } from "@clerk/nextjs";
+import { AppStyles, AppProviders } from "@/lib";
 
 export const metadata = {
   title: "Rustic Guide",
@@ -20,19 +16,13 @@ export default function RootLayout({
 }) {
   // const persistor = persistStore(store);
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
-          {/* <ReduxProvider store={store}> */}
-          {/* <PersistGate loading={null} persistor={persistor}> */}
-          <TrpcProvider>
-            <StylesProvider>{children}</StylesProvider>
-          </TrpcProvider>
-          {/* </PersistGate> */}
-          {/* </ReduxProvider> */}
-          <div id="modal-portal" />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body>
+        <AppProviders>
+          <TrpcProvider>{children}</TrpcProvider>
+        </AppProviders>
+        <div id="modal-portal" />
+      </body>
+    </html>
   );
 }

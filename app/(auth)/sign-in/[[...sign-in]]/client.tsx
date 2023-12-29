@@ -1,0 +1,27 @@
+"use client";
+import { AppTopNavbar } from "@/comps";
+import { SignIn } from "@clerk/nextjs";
+import React from "react";
+import { styled } from "styled-components";
+
+export default function Client() {
+  return (
+    <Wrapper>
+      <AppTopNavbar title={"Sign in"} icons={[]} />
+      <div className="content">
+        <SignIn />
+      </div>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.div`
+  height: 100%;
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100% - 40px);
+    /* height: calc(100% - 40px); */
+  }
+`;
