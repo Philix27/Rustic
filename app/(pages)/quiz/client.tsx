@@ -5,29 +5,35 @@ import styled from "styled-components";
 import { AppStyles } from "@/lib";
 import Link from "next/link";
 import { AddTopicModal, quizList } from "./_comps";
+import { trpc } from "@/_trpc";
 
 export function QuizClient() {
   const [showModal, setShowModal] = useState(false);
+  const { isLoading, data: quiz_topics } = trpc.quiz_topics.get_all.useQuery();
+
+  if (isLoading) return <Wrapper>Loading...</Wrapper>;
+  if (!quiz_topics) return <Wrapper>No books available</Wrapper>;
+
   return (
     <Wrapper>
       <AppTopNavbar title={"Quiz"} icons={[]} />
       <GridWrapper>
         <Grid>
-          {quizList.map((val, i) => (
+          {quiz_topics.map((val, i) => (
             <Link href={`/quiz/${val.id}`} key={i}>
               <GridItem>
                 <Text variant={"B4"} className="title">
-                  {val.topic}
+                  {val.title}
                 </Text>
                 <hr
                   style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }}
                 />
                 <div className="subtitle">
-                  <Text variant={"B5"}>{val.subtitle}</Text>
+                  <Text variant={"B5"}>{val.desc}</Text>
                 </div>
                 <Footer>
-                  <Text variant={"B4"}>Questions: {val.questionCount}</Text>
-                  <Text variant={"B4"}>Views: {val.viewsCount}</Text>
+                  <Text variant={"B5"}>Questions: 234</Text>
+                  <Text variant={"B5"}>Views: 34</Text>
                 </Footer>
               </GridItem>
             </Link>

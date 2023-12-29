@@ -47,6 +47,9 @@ const Wrapper = styled.div`
     padding: 10px;
     padding-right: 20px;
     border-bottom: solid 1px ${AppStyles.colors.grey1};
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
       opacity: 0.5;
       cursor: pointer;

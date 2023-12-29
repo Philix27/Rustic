@@ -64,14 +64,14 @@ export const ChapterCard = memo(function ChapterCard(props: {
               )}
             </Wrapper>
           ))}
-          <div
+          <Footer
             className={"trigger_text"}
             onClick={() => props.setShowSheet(true)}
           >
             <Text variant={"B5"} className="title">
               Add Chapter
             </Text>
-          </div>
+          </Footer>
         </>
       );
     } else {
@@ -83,12 +83,11 @@ export const ChapterCard = memo(function ChapterCard(props: {
 });
 const Wrapper = styled.div`
   border-bottom: solid 1px ${AppStyles.colors.grey1};
-
   .chapter_title {
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
     height: 40px;
   }
 
@@ -97,11 +96,16 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    .trigger_text {
-      padding: 10px;
-      text-decoration: underline;
-      cursor: pointer;
-    }
   }
+`;
+
+const Footer = styled.div`
+  padding: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: ${AppStyles.colors.background3};
 `;
