@@ -1,9 +1,8 @@
 "use client";
-import { AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { trpc } from "@/_trpc";
-import { AppButton } from "@/comps";
+import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
 
 export function AddChapterModal(props: {
   onClose: VoidFunction;
@@ -25,9 +24,9 @@ export function AddChapterModal(props: {
   };
 
   return (
-    <Container>
-      <div>
-        <input
+    <ModalContentWrapper>
+      <Container>
+        <AppInput
           type={"text"}
           placeholder="Chapter title"
           onChange={(e) =>
@@ -37,46 +36,32 @@ export function AddChapterModal(props: {
             })
           }
           value={docContent.title}
+          label={"Chapter title"}
+          name={"chapter"}
         />
-      </div>
-      <ButtonGroup style={{ display: "flex", flexDirection: "row" }}>
-        <AppButton onClick={props.onClose}>Cancel</AppButton>
-        <AppButton onClick={handleFormSubmission}>Submit</AppButton>
-      </ButtonGroup>
-    </Container>
+        <div className="buttons">
+          <AppButton onClick={props.onClose}>Cancel</AppButton>
+          <div className="spacer" />
+          <AppButton onClick={handleFormSubmission}>Submit</AppButton>
+        </div>
+      </Container>
+    </ModalContentWrapper>
   );
 }
 
 const Container = styled.div`
-  background-color: ${AppStyles.colors.background3};
-  border: solid 0.1px ${AppStyles.colors.grey1};
-  padding: 20px;
-  width: 50%;
-  border-radius: 10px;
-
-  div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  .buttons {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
-
-    input {
-      min-width: 100%;
-      border: none;
-      outline: none;
-      margin-bottom: 20px;
-      color: ${AppStyles.colors.offWhite1};
-      background-color: ${AppStyles.colors.backgroundDark};
-      font-size: 16px;
-      font-weight: 600;
-      padding: 10px;
-      border-radius: 5px;
+    .spacer {
+      width: 50px;
     }
   }
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: row;
 `;
