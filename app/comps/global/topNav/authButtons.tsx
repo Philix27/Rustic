@@ -3,6 +3,8 @@ import React from "react";
 import {
   SignInButton,
   SignOutButton,
+  SignedIn,
+  SignedOut,
   UserButton,
   auth,
   useAuth,
