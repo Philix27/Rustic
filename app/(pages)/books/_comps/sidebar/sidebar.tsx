@@ -1,22 +1,27 @@
-import { AppStyles } from "@/lib";
+import { AppClerk, AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { ChapterCard } from "./chapterCard";
 import { AppModal } from "@/comps";
 import { AddChapterModal } from "../addChapterModal";
 import styled from "styled-components";
+import { useSession } from "@clerk/nextjs";
 
 export function Sidebar(props: { book_id: string }) {
   const [showSheet, setShowSheet] = useState(false);
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
 
   return (
     <Wrapper>
       <ChapterCard book_id={props.book_id} setShowSheet={setShowSheet} />
-      <AppModal isMounted={showSheet}>
-        <AddChapterModal
-          onClose={() => setShowSheet(false)}
-          book_id={props.book_id}
-        />
-      </AppModal>
+      {userRole === "ADMIN" && (
+        <AppModal isMounted={showSheet}>
+          <AddChapterModal
+            onClose={() => setShowSheet(false)}
+            book_id={props.book_id}
+          />
+        </AppModal>
+      )}
     </Wrapper>
   );
 }

@@ -1,23 +1,25 @@
 "use client";
-import React, { useRef, useEffect, ReactNode } from "react";
+import React, { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
+import * as DomTypes from "react-dom/node_modules/@types/react/ts5.0/index";
 import { styled } from "styled-components";
 
 export function AppModal(props: {
-  children: ReactNode;
+  children: React.ReactNode;
   isMounted: boolean;
   onBlankClick?: VoidFunction;
 }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    // ref.current = document.querySelector < HTMLElement > "#modal-portal";
     ref.current = document.querySelector("#modal-portal");
   }, []);
 
   if (props.isMounted && ref.current) {
     return createPortal(
-      <Container onClick={props.onBlankClick}>{props.children}</Container>,
+      (
+        <Container onClick={props.onBlankClick}>{props.children}</Container>
+      ) as DomTypes.ReactNode,
       ref.current
     );
   } else return <div></div>;

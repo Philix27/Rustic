@@ -1,8 +1,8 @@
 import { ActiveSessionResource } from "@clerk/types";
 
-// type Roles = "Admin" | "member";
+type Roles = "ADMIN" | "MEMBER";
 export class AppClerk {
-  static checkUserRole(session: ActiveSessionResource) {
+  static getUserRole(session: ActiveSessionResource): Roles {
     if (
       !session ||
       !session.user ||
@@ -17,7 +17,14 @@ export class AppClerk {
     // Loop through all organization memberships
     for (const membership of organizationMemberships) {
       if (membership.role) {
-        return membership.role.toLowerCase(); // Return the role in lowercase if it exists
+        switch (membership.role.toLowerCase()) {
+          case "org:admin":
+            return "ADMIN";
+          case "org:member":
+            return "MEMBER";
+          default:
+            return "MEMBER";
+        }
       }
     }
 

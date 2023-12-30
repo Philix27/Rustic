@@ -1,15 +1,18 @@
-import { AppStyles } from "@/lib";
+import { AppClerk, AppStyles } from "@/lib";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import React, { memo, useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 import { trpc } from "@/_trpc";
 import { TopicCard } from "./topicCard";
+import { useSession } from "@clerk/nextjs";
 
 export const ChapterCard = memo(function ChapterCard(props: {
   book_id: string;
   setShowSheet: (value: React.SetStateAction<boolean>) => void;
 }) {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [showSheet, setShowSheet] = useState(false);
 
@@ -64,14 +67,17 @@ export const ChapterCard = memo(function ChapterCard(props: {
               )}
             </Wrapper>
           ))}
-          <Footer
-            className={"trigger_text"}
-            onClick={() => props.setShowSheet(true)}
-          >
-            <Text variant={"B5"} className="title">
-              Add Chapter
-            </Text>
-          </Footer>
+
+          {userRole === "ADMIN" && (
+            <Footer
+              className={"trigger_text"}
+              onClick={() => props.setShowSheet(true)}
+            >
+              <Text variant={"B5"} className="title">
+                Add Chapter
+              </Text>
+            </Footer>
+          )}
         </>
       );
     } else {

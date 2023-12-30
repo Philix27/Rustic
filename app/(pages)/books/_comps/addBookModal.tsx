@@ -9,8 +9,12 @@ import {
   AppToaster,
   AppToasterController,
 } from "@/comps";
+import { useSession } from "@clerk/nextjs";
+import { AppClerk } from "@/lib";
 
 export function AddBookModal(props: { onClose: VoidFunction }) {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   const addBook = trpc.books.create.useMutation();
   const [docContent, setDocContent] = useState<{
     title: string;
@@ -29,16 +33,20 @@ export function AddBookModal(props: { onClose: VoidFunction }) {
     });
   };
   const handleFormSubmission = () => {
-    addBook
-      .mutateAsync({
-        title: docContent.title,
-        desc: docContent.desc,
-        img_url: docContent.img_url,
-      })
-      .then((msg) => {
-        AppToasterController("Added successfully");
-        resetFormData();
-      });
+    if (userRole === "ADMIN") {
+      addBook
+        .mutateAsync({
+          title: docContent.title,
+          desc: docContent.desc,
+          img_url: docContent.img_url,
+        })
+        .then((msg) => {
+          AppToasterController("Added successfully");
+          resetFormData();
+        });
+    } else {
+      AppToasterController("You are not an admin");
+    }
   };
 
   return (

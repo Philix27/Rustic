@@ -6,11 +6,14 @@ import {
   AppToasterController,
   ModalContentWrapper,
 } from "@/comps";
-import { AppStyles } from "@/lib";
+import { AppClerk, AppStyles } from "@/lib";
+import { useSession } from "@clerk/nextjs";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
 export function AddTopicModal(props: { onCancel: VoidFunction }) {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   const addBook = trpc.quiz_topics.create.useMutation();
   const [formData, setFormData] = useState<{
     title: string;
@@ -27,15 +30,21 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
   };
   const handleFormSubmission = () => {
     if (formData.title && formData.desc) {
-      addBook
-        .mutateAsync({
-          title: formData.title,
-          desc: formData.desc,
-        })
-        .then((msg) => {
-          AppToasterController("Added successfully");
-          resetFormData();
-        });
+      if (userRole === "ADMIN") {
+        addBook
+          .mutateAsync({
+            title: formData.title,
+            desc: formData.desc,
+          })
+          .then((msg) => {
+            AppToasterController("Added successfully");
+            resetFormData();
+          });
+      } else {
+        AppToasterController("Sorry, you are not an admin.");
+      }
+    } else {
+      AppToasterController.error("Some fields are empty");
     }
   };
   return (

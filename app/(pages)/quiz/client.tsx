@@ -2,12 +2,15 @@
 import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AppStyles } from "@/lib";
+import { AppClerk, AppStyles } from "@/lib";
 import Link from "next/link";
-import { AddTopicModal, quizList } from "./_comps";
+import { AddTopicModal } from "./_comps";
 import { trpc } from "@/_trpc";
+import { useSession } from "@clerk/nextjs";
 
 export function QuizClient() {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   const [showModal, setShowModal] = useState(false);
   const { isLoading, data: quiz_topics } = trpc.quiz_topics.get_all.useQuery();
 
@@ -40,12 +43,16 @@ export function QuizClient() {
           ))}
         </Grid>
       </GridWrapper>
-      <AppModal isMounted={showModal}>
-        <AddTopicModal onCancel={() => setShowModal(false)} />
-      </AppModal>
-      <div className="button_container">
-        <AppButton onClick={() => setShowModal(true)}> Add topic</AppButton>
-      </div>
+      {userRole === "ADMIN" && (
+        <>
+          <AppModal isMounted={showModal}>
+            <AddTopicModal onCancel={() => setShowModal(false)} />
+          </AppModal>
+          <div className="button_container">
+            <AppButton onClick={() => setShowModal(true)}> Add topic</AppButton>
+          </div>
+        </>
+      )}
     </Wrapper>
   );
 }

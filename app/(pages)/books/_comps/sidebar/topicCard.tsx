@@ -1,8 +1,9 @@
 import React from "react";
-import { AppStyles } from "@/lib";
+import { AppClerk, AppStyles } from "@/lib";
 import { Text } from "@/comps";
 import Link from "next/link";
 import { styled } from "styled-components";
+import { useSession } from "@clerk/nextjs";
 
 export function TopicCard(props: {
   chapter_id: string;
@@ -18,6 +19,8 @@ export function TopicCard(props: {
     chapter_id: string;
   }[];
 }) {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   return (
     <Wrapper>
       {props.topics.map((val, index) => (
@@ -29,13 +32,15 @@ export function TopicCard(props: {
           </div>
         </Link>
       ))}
-      <Link href={`/books/${props.book_id}/create_topic`}>
-        <div className="topic_title">
-          <Text variant={"B5"} className="title">
-            Add Topic
-          </Text>
-        </div>
-      </Link>
+      {userRole === "ADMIN" && (
+        <Link href={`/books/${props.book_id}/create_topic`}>
+          <div className="topic_title">
+            <Text variant={"B5"} className="title">
+              Add Topic
+            </Text>
+          </div>
+        </Link>
+      )}
     </Wrapper>
   );
 }

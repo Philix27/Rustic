@@ -8,16 +8,13 @@ import { AppClerk } from "@/lib";
 export default function BooksListView() {
   const [showSheet, setShowSheet] = useState(false);
   const { session } = useSession();
-  const userRole = AppClerk.checkUserRole(session);
-  console.log("Session", session);
-  // console.log("Session org mem", session.user.organizationMemberships)
-  console.log("UserRole", userRole);
+  const userRole = AppClerk.getUserRole(session);
   return (
     <>
       <AppTopNavbar
         title={"Books"}
         icons={[
-          userRole === "org:admin" && (
+          userRole === "ADMIN" && (
             <MdAdd key={1} onClick={() => setShowSheet((prev) => !prev)} />
           ),
         ]}

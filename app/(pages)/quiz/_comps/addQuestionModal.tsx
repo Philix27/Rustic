@@ -1,11 +1,20 @@
 import { trpc } from "@/_trpc";
-import { AppButton, AppInput, ModalContentWrapper } from "@/comps";
-import { AppStyles } from "@/lib";
+import {
+  AppButton,
+  AppInput,
+  AppToaster,
+  AppToasterController,
+  ModalContentWrapper,
+} from "@/comps";
+import { AppClerk, AppStyles } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { FormDataType, initialValue } from "./dataType";
+import { useSession } from "@clerk/nextjs";
 
 export function AddQuestionModal(props: { onCancel: VoidFunction }) {
+  const { session } = useSession();
+  const userRole = AppClerk.getUserRole(session);
   const addBook = trpc.quiz_topics.create.useMutation();
   const [formData, setFormData] = useState<FormDataType>(initialValue);
   const resetFormData = () => {
@@ -13,15 +22,24 @@ export function AddQuestionModal(props: { onCancel: VoidFunction }) {
   };
   const handleFormSubmission = () => {
     if (formData.question && formData.option1) {
-      addBook
-        .mutateAsync({
-          title: formData.question,
-          desc: formData.option1,
-        })
-        .then((msg) => resetFormData());
+      if (userRole === "ADMIN") {
+        addBook
+          .mutateAsync({
+            title: formData.question,
+            desc: formData.option1,
+          })
+          .then((msg) => {
+            AppToasterController("Added successfully");
+            resetFormData();
+          });
+      } else {
+        AppToasterController.error("You are not an admin");
+      }
+    } else {
+      AppToasterController.error("Some fields are missing");
     }
   };
-  
+
   return (
     <ModalContentWrapper>
       <Content>
@@ -46,6 +64,7 @@ export function AddQuestionModal(props: { onCancel: VoidFunction }) {
           <div className="spacer" />
           <AppButton onClick={function (): void {}}>Submit</AppButton>
         </div>
+        <AppToaster />
       </Content>
     </ModalContentWrapper>
   );
