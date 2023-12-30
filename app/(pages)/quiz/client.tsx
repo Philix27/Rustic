@@ -2,10 +2,9 @@
 import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AppClerk, AppStyles } from "@/lib";
+import { AppClerk, AppStyles, trpc } from "@/lib";
 import Link from "next/link";
 import { AddTopicModal } from "./_comps";
-import { trpc } from "@/_trpc";
 import { useSession } from "@clerk/nextjs";
 
 export function QuizClient() {

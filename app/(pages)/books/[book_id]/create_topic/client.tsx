@@ -3,7 +3,7 @@ import { AppTopNavbar } from "@/comps";
 import React, { useState } from "react";
 import { MdPreview, MdPublish, MdSwitchLeft } from "react-icons/md";
 import { PreviewComp, WriteComp, ToggleButton } from "./_comps";
-import { trpc } from "@/_trpc";
+import { trpc } from "@/lib";
 
 export function AddTopicClient(props: { book_id: string }) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");

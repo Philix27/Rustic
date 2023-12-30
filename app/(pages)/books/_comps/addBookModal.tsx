@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { styled } from "styled-components";
-import { trpc } from "@/_trpc";
 import {
   AppButton,
   AppInput,
@@ -10,7 +9,7 @@ import {
   AppToasterController,
 } from "@/comps";
 import { useSession } from "@clerk/nextjs";
-import { AppClerk } from "@/lib";
+import { AppClerk, trpc } from "@/lib";
 
 export function AddBookModal(props: { onClose: VoidFunction }) {
   const { session } = useSession();

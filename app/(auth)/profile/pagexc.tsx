@@ -2,7 +2,7 @@ import React from "react";
 import { Client } from "./client";
 import { ClientOnly } from "@/comps";
 
-export default function Page() {
+export default function ProfilePage() {
   return (
     <ClientOnly>
       <Client />

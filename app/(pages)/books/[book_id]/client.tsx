@@ -2,7 +2,7 @@
 import { AppTopNavbar } from "@/comps";
 import { useState } from "react";
 import { MdViewSidebar } from "react-icons/md";
-import { trpc } from "@/_trpc";
+import { trpc } from "@/lib";
 import styled from "styled-components";
 import { Sidebar, ActiveContent } from "../_comps";
 

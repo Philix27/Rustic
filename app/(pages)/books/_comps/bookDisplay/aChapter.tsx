@@ -1,8 +1,8 @@
 import React from "react";
 import { Text } from "@/comps";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
-import { trpc } from "@/_trpc";
+import { AppStyles, trpc } from "@/lib";
+
 
 export default function Chapters(props: {
   data: {

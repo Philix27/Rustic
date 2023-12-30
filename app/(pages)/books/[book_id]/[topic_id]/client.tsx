@@ -1,7 +1,7 @@
 "use client";
 import { AppTopNavbar } from "@/comps";
 import { useState } from "react";
-import { trpc } from "@/_trpc";
+import { trpc } from "@/lib";
 import styled from "styled-components";
 import { ActiveContent, Sidebar } from "../../_comps";
 

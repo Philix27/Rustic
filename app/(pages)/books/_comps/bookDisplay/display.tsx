@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
-import { trpc } from "@/_trpc";
+import { AppStyles, trpc } from "@/lib";
 import ABook from "./aBook";
 
 export function BookDisplay() {

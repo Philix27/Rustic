@@ -1,4 +1,3 @@
-import { trpc } from "@/_trpc";
 import {
   AppButton,
   AppInput,
@@ -6,7 +5,7 @@ import {
   AppToasterController,
   ModalContentWrapper,
 } from "@/comps";
-import { AppClerk, AppStyles } from "@/lib";
+import { AppClerk, AppStyles, trpc } from "@/lib";
 import { useSession } from "@clerk/nextjs";
 import React, { useState } from "react";
 import { styled } from "styled-components";

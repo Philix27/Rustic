@@ -1,9 +1,8 @@
-import { AppClerk, AppStyles } from "@/lib";
+import { AppClerk, AppStyles, trpc } from "@/lib";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import React, { memo, useState } from "react";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
-import { trpc } from "@/_trpc";
 import { TopicCard } from "./topicCard";
 import { useSession } from "@clerk/nextjs";
 
