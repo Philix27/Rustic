@@ -1,10 +1,8 @@
 import "./lib/styles/index.css";
-// import type { Metadata } from "next";
-import { store } from "./lib/redux/store";
-import { TrpcProvider } from "./_trpc";
-import { AppStyles, AppProviders } from "@/lib";
+import type { Metadata } from "next";
+import { AppProviders, store } from "@/lib";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Rustic Guide",
   description: "Software Engineering",
 };
@@ -18,9 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppProviders>
-          <TrpcProvider>{children}</TrpcProvider>
-        </AppProviders>
+        <AppProviders>{children}</AppProviders>
         <div id="modal-portal" />
       </body>
     </html>

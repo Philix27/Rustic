@@ -2,7 +2,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useState } from "react";
 import superjson from "superjson";
-import { trpc } from "../../_trpc";
+import { trpc } from "@/lib";
 import { httpBatchLink } from "@trpc/react-query";
 
 export function TrpcProvider(props: { children: React.ReactNode }) {
