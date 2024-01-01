@@ -8,7 +8,7 @@ export function AppButton(props: {
   onClick: () => void;
 }) {
   if (props.status === "Loading") {
-    return <Button isDisabled>{props.children}</Button>;
+    return <Button isDisabled onClick={props.onClick}>{props.children}</Button>;
   }
   return (
     <Button isDisabled={false} onClick={props.onClick}>

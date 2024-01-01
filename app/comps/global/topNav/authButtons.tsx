@@ -21,7 +21,7 @@ export function AuthButtons() {
           <Container isSignOut>Sign out</Container>
         </SignOutButton>
       ) : (
-        <SignInButton mode="modal">
+        <SignInButton>
           <Container isSignOut={false}>Login</Container>
         </SignInButton>
       )}

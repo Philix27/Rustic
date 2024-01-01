@@ -56,7 +56,6 @@ export function WriteComp(props: {
               label={"Chapters"}
               onChange={(e) => {
                 setChapterId(e.target.value);
-                console.log("Onchange select23", e.target.value);
               }}
               required={false}
               options={chapters.map((v, i) => {

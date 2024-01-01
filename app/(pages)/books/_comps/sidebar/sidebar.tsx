@@ -14,14 +14,14 @@ export function Sidebar(props: { book_id: string }) {
   return (
     <Wrapper>
       <ChapterCard book_id={props.book_id} setShowSheet={setShowSheet} />
-      {userRole === "ADMIN" && (
-        <AppModal isMounted={showSheet}>
-          <AddChapterModal
-            onClose={() => setShowSheet(false)}
-            book_id={props.book_id}
-          />
-        </AppModal>
-      )}
+      {/* {userRole === "ADMIN" && ( */}
+      <AppModal isMounted={showSheet}>
+        <AddChapterModal
+          onClose={() => setShowSheet(false)}
+          book_id={props.book_id}
+        />
+      </AppModal>
+      {/* )} */}
     </Wrapper>
   );
 }

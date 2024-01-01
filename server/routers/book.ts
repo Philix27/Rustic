@@ -3,7 +3,6 @@ import { z } from "zod";
 
 export const booksRouter = router({
   get_all: publicProcedure.query(async ({ ctx }) => {
-    console.log("Tried to read book");
     return await ctx.prisma.book.findMany();
   }),
   get_by_id: publicProcedure
@@ -24,7 +23,6 @@ export const booksRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      console.log("Was at book mutation");
       return await ctx.prisma.book.create({
         data: {
           title: input.title,

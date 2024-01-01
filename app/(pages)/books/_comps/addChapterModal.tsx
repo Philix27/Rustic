@@ -29,19 +29,15 @@ export function AddChapterModal(props: {
     });
   };
   const handleFormSubmission = () => {
-    if (userRole === "ADMIN") {
-      addChapter
-        .mutateAsync({
-          title: docContent.title,
-          book_id: props.book_id,
-        })
-        .then((msg) => {
-          AppToasterController("Added successfully");
-          resetFormData();
-        });
-    } else {
-      AppToasterController("You are not an admin");
-    }
+    addChapter
+      .mutateAsync({
+        title: docContent.title,
+        book_id: props.book_id,
+      })
+      .then((msg) => {
+        AppToasterController("Added successfully");
+        resetFormData();
+      });
   };
 
   return (
@@ -63,7 +59,7 @@ export function AddChapterModal(props: {
         <div className="buttons">
           <AppButton onClick={props.onClose}>Cancel</AppButton>
           <div className="spacer" />
-          <AppButton status="Loading" onClick={handleFormSubmission}>
+          <AppButton status="Loading" onClick={() => handleFormSubmission()}>
             Submit
           </AppButton>
         </div>

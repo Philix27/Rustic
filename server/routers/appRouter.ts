@@ -14,7 +14,6 @@ export const appRouter = router({
   quiz: quizRouter,
   quiz_topics: quizTopicsRouter,
   test_all: publicProcedure.query(({ ctx }) => {
-    console.log("Tried to read book - testing");
     return "Hello, are you for testing";
   }),
 });
