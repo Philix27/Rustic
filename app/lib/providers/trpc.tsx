@@ -11,7 +11,7 @@ export function TrpcProvider(props: { children: React.ReactNode }) {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: "http://localhost:3010/api/trpc",
+          url: `${process.env.NEXT_PUBLIC_TRPC_REQUEST_URL}/api/trpc`,
         }),
       ],
       transformer: superjson,
