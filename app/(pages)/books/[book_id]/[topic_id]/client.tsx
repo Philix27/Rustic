@@ -10,8 +10,6 @@ export default function TopicsClient(props: {
   chapter_id: string;
   topic_id: string;
 }) {
-  const [showSidebar, setShowSidebar] = useState(true);
-
   const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
     book_id: props.book_id,
   });
@@ -25,7 +23,11 @@ export default function TopicsClient(props: {
   return (
     <Wrapper>
       <div className={"sidebar"}>
-        <Sidebar book_id={book.id} />
+        <Sidebar
+          book_id={book.id}
+          activeTopicId={props.topic_id}
+          activeChapterId={props.chapter_id}
+        />
       </div>
       <div className={"content_wrapper"}>
         <AppTopNavbar title={book.title} icons={[]} />

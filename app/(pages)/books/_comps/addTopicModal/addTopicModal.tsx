@@ -41,7 +41,6 @@ export function AddBookTopicModal(props: {
             chapter_id={props.chapter_id}
           />
         )}
-        <AppToaster />
       </Container>
     </ModalContentWrapper>
   );

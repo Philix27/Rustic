@@ -4,35 +4,39 @@ import { styled } from "styled-components";
 import {
   AppButton,
   AppInput,
+  ModalContentWrapper,
   AppToaster,
   AppToasterController,
-  ModalContentWrapper,
 } from "@/comps";
 import { useSession } from "@clerk/nextjs";
 import { AppClerk, trpc } from "@/lib";
 
-export function AddChapterModal(props: {
-  onClose: VoidFunction;
-  book_id: string;
-}) {
+export function DeleteModal(props: { onClose: VoidFunction }) {
   const { session } = useSession();
   const userRole = AppClerk.getUserRole(session);
-  const addChapter = trpc.book_chapter.create.useMutation();
+  const addBook = trpc.books.create.useMutation();
   const [docContent, setDocContent] = useState<{
     title: string;
+    desc: string;
+    img_url: string;
   }>({
     title: "",
+    desc: "",
+    img_url: "",
   });
   const resetFormData = () => {
     setDocContent({
       title: "",
+      desc: "",
+      img_url: "",
     });
   };
   const handleFormSubmission = () => {
-    addChapter
+    addBook
       .mutateAsync({
         title: docContent.title,
-        book_id: props.book_id,
+        desc: docContent.desc,
+        img_url: docContent.img_url,
       })
       .then((msg) => {
         AppToasterController("Added successfully");
@@ -43,25 +47,10 @@ export function AddChapterModal(props: {
   return (
     <ModalContentWrapper>
       <Container>
-        <AppInput
-          type={"text"}
-          placeholder="Chapter title"
-          onChange={(e) =>
-            setDocContent({
-              ...docContent,
-              title: e.target.value,
-            })
-          }
-          value={docContent.title}
-          label={"Chapter title"}
-          name={"chapter"}
-        />
         <div className="buttons">
           <AppButton onClick={props.onClose}>Cancel</AppButton>
           <div className="spacer" />
-          <AppButton status="Loading" onClick={() => handleFormSubmission()}>
-            Submit
-          </AppButton>
+          <AppButton onClick={() => handleFormSubmission()}>Submit</AppButton>
         </div>
       </Container>
     </ModalContentWrapper>
@@ -74,11 +63,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
+
   .buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
     .spacer {
       width: 50px;
     }

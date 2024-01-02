@@ -10,9 +10,13 @@ export const Wrapper = styled.div`
   border: solid 0.1px ${AppStyles.colors.grey2};
   padding: 20px;
   width: 50%;
-  max-height: fit-content;
-  /* max-height: 75%; */
+  height: fit-content;
+  max-height: 100vh;
   border-radius: 5px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+ 
 
   @media ${AppStyles.breakpoints.sm} {
     width: 90%;

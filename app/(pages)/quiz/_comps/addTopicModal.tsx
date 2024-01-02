@@ -69,7 +69,6 @@ export function AddTopicModal(props: { onCancel: VoidFunction }) {
           <AppButton onClick={handleFormSubmission}>Submit</AppButton>
         </div>
       </Content>
-      <AppToaster />
     </ModalContentWrapper>
   );
 }

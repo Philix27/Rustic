@@ -5,7 +5,7 @@ import {
   AppToasterController,
   ModalContentWrapper,
 } from "@/comps";
-import { AppClerk, AppStyles,trpc } from "@/lib";
+import { AppClerk, AppStyles, trpc } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { FormDataType, initialValue } from "./dataType";
@@ -63,7 +63,6 @@ export function AddQuestionModal(props: { onCancel: VoidFunction }) {
           <div className="spacer" />
           <AppButton onClick={function (): void {}}>Submit</AppButton>
         </div>
-        <AppToaster />
       </Content>
     </ModalContentWrapper>
   );

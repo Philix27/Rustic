@@ -1,6 +1,6 @@
 import "./lib/styles/index.css";
 import type { Metadata } from "next";
-import { AppProviders, store } from "@/lib";
+import { AppProviders } from "@/lib";
 
 export const metadata: Metadata = {
   title: "Rustic Guide",

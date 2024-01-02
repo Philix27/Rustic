@@ -1,6 +1,6 @@
 "use client";
-import { AppButton, AppInput, AppWrapper, InputSelect } from "@/comps";
-import React, { useState } from "react";
+import { AppButton, AppInput, AppToasterController } from "@/comps";
+import React from "react";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
@@ -33,9 +33,10 @@ export function WriteComp(props: {
       book_id: props.book_id,
       chapter_id: props.chapter_id,
       content: props.docContent.content,
-    })
-      .then((e) => {})
-      .catch(() => {});
+    }).then((e) => {
+      AppToasterController.success("Topic added successfully");
+      props.setDocContent({ title: "", subtitle: "", content: "" });
+    });
   };
 
   return (

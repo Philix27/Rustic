@@ -2,23 +2,6 @@ import { MarkdownStyledComp, Landing } from "@/comps";
 import { ICustomStyles } from "@/lib";
 import React from "react";
 
-const s: ICustomStyles = {
-  container: {
-    maxHeight: "100vh",
-    minHeight: "calc(100vh - 40px)",
-  },
-  contentWrapper: { display: "flex", maxHeight: "100vh", overflowY: "auto" },
-  innerContentWrapper: { width: "100%", maxHeight: "100vh", overflowY: "auto" },
-  mdWrapper: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-  },
-  mdContentWrapper: {
-    width: "100%",
-  },
-};
-
 export function ActiveContent(props: {
   isFirstPage: boolean;
   bannerTitle: string;
@@ -42,3 +25,20 @@ export function ActiveContent(props: {
     </div>
   );
 }
+
+const s: ICustomStyles = {
+  container: {
+    maxHeight: "100vh",
+    minHeight: "calc(100vh - 40px)",
+  },
+  contentWrapper: { display: "flex", maxHeight: "100vh", overflowY: "auto" },
+  innerContentWrapper: { width: "100%", maxHeight: "100vh", overflowY: "auto" },
+  mdWrapper: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+  },
+  mdContentWrapper: {
+    width: "100%",
+  },
+};

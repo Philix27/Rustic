@@ -34,14 +34,13 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 24px;
 
   .content {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    border-radius: 15px;
+    padding: 2px;
+    border-radius: 8px;
     background-color: ${AppStyles.colors.backgroundLight};
     border: solid 1px ${AppStyles.colors.backgroundLight};
 
