@@ -30,9 +30,10 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* padding: 3rem; */
-    column-gap: 15px;
-    row-gap: 15px;
+    column-gap: 20px;
+    row-gap: 20px;
     height: fit-content;
+    margin: 20px 0;
     @media ${AppStyles.breakpoints.sm} {
       grid-template-columns: 1fr;
       width: 90%;

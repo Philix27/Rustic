@@ -2,7 +2,11 @@
 import { AppTopNavbar } from "@/comps";
 import React, { useState } from "react";
 import { MdPreview, MdPublish, MdSwitchLeft } from "react-icons/md";
-import { PreviewComp, WriteComp, ToggleButton } from "./_comps";
+import {
+  PreviewComp,
+  WriteComp,
+  ToggleButton,
+} from "../../_comps/addTopicModal";
 import { trpc } from "@/lib";
 
 export function AddTopicClient(props: { book_id: string }) {
@@ -21,37 +25,21 @@ export function AddTopicClient(props: { book_id: string }) {
     book_id: props.book_id,
   });
 
+  // <MdSwitchLeft
+  //   key={3}
+  //   onClick={() => {
+  //     showDoc === "PREVIEW"
+  //       ? setShowDoc("WRITE")
+  //       : setShowDoc("PREVIEW");
+  //   }}
+  // />,
+
   return (
     <>
       <AppTopNavbar
         title={isLoading ? "Write an article " : data.title}
-        icons={[
-          <MdPublish key={1} />,
-          <MdPreview key={2} />,
-          <MdSwitchLeft
-            key={3}
-            onClick={() => {
-              showDoc === "PREVIEW"
-                ? setShowDoc("WRITE")
-                : setShowDoc("PREVIEW");
-            }}
-          />,
-        ]}
+        icons={[]}
       />
-      <ToggleButton showDoc={showDoc} setShowDoc={setShowDoc} />
-      {showDoc === "PREVIEW" ? (
-        <PreviewComp
-          title={docContent?.title}
-          subtitle={docContent?.subtitle}
-          markdown={docContent?.content}
-        />
-      ) : (
-        <WriteComp
-          docContent={docContent}
-          setDocContent={setDocContent}
-          book_id={props.book_id}
-        />
-      )}
     </>
   );
 }

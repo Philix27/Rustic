@@ -1,8 +1,11 @@
 import { AppStyles } from "@/lib";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { styled } from "styled-components";
 
-export const ModalContentWrapper = styled.div`
+export function ModalContentWrapper(props: PropsWithChildren) {
+  return <Wrapper>{props.children}</Wrapper>;
+}
+export const Wrapper = styled.div`
   background-color: ${AppStyles.colors.background3};
   border: solid 0.1px ${AppStyles.colors.grey2};
   padding: 20px;

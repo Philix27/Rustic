@@ -34,7 +34,9 @@ const Wrapper = styled.div`
   /* border-top: solid 1px ${AppStyles.colors.grey1}; */
   overflow-y: auto;
   scroll-behavior: smooth;
-
+  @media ${AppStyles.breakpoints.sm} {
+    display: none;
+  }
   .add_sec {
     background-color: ${AppStyles.colors.background3};
     display: flex;

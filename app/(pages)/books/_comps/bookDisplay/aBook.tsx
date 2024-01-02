@@ -23,7 +23,7 @@ export default function ABook(props: {
           {AppHelperFn.truncate_string({ input: props.data.desc, length: 50 })}
         </Text>
       </CardTitle>
-      <Chapters data={props.data} />
+      {/* <Chapters data={props.data} /> */}
     </InLink>
   );
 }

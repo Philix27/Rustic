@@ -9,7 +9,7 @@ export function PreviewComp(props: {
   markdown: string;
 }) {
   return (
-    <AppWrapper>
+    <div>
       <div className="flex items-center justify-center w-full py-6">
         <Text variant={"B1"}>{props.title}</Text>
         <Text variant={"B3"}>{props.subtitle}</Text>
@@ -19,6 +19,6 @@ export function PreviewComp(props: {
           <ReactMarkdown>{props.markdown}</ReactMarkdown>
         </MarkdownStyledComp>
       </div>
-    </AppWrapper>
+    </div>
   );
 }

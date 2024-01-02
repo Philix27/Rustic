@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppClerk, AppStyles } from "@/lib";
-import { Text } from "@/comps";
+import { AppModal, Text } from "@/comps";
 import Link from "next/link";
 import { styled } from "styled-components";
 import { useSession } from "@clerk/nextjs";
+import { AddTopicModal } from "@/(pages)/quiz/_comps";
+import { AddBookTopicModal } from "../addTopicModal";
 
 export function TopicCard(props: {
   chapter_id: string;
@@ -21,6 +23,7 @@ export function TopicCard(props: {
 }) {
   const { session } = useSession();
   const userRole = AppClerk.getUserRole(session);
+  const [showSheet, setShowSheet] = useState(false);
   return (
     <Wrapper>
       {props.topics.map((val, index) => (
@@ -33,14 +36,19 @@ export function TopicCard(props: {
         </Link>
       ))}
       {userRole === "ADMIN" && (
-        <Link href={`/books/${props.book_id}/create_topic`}>
-          <div className="topic_title">
-            <Text variant={"B5"} className="title">
-              Add Topic
-            </Text>
-          </div>
-        </Link>
+        <div className="topic_title" onClick={() => setShowSheet(true)}>
+          <Text variant={"B5"} className="title">
+            Add Topic
+          </Text>
+        </div>
       )}
+      <AppModal isMounted={showSheet}>
+        <AddBookTopicModal
+          onClose={() => setShowSheet(false)}
+          book_id={props.book_id}
+          chapter_id={props.chapter_id}
+        />
+      </AppModal>
     </Wrapper>
   );
 }
