@@ -35,6 +35,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   position: relative;
+  width: 100%;
 
   .content {
     align-items: center;

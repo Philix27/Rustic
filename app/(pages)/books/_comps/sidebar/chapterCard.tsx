@@ -51,7 +51,7 @@ export const ChapterCard = memo(function ChapterCard(props: {
                   className="chapter_title"
                   onClick={() => setActiveChapterId(val.id)}
                 >
-                  <Text variant={"B4"}>{val.title}</Text>
+                  <Text variant={"B4"}>{index + 1}. {val.title}</Text>
                   {activeChapterId === val.id ? (
                     <MdArrowDropDown size={25} />
                   ) : (
