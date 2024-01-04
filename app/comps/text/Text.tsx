@@ -16,7 +16,7 @@ export function Text(props: {
         <p
           className={props.className}
           style={{
-            fontSize: "2.4rem",
+            fontSize: "2rem",
             color: AppStyles.colors.offWhite2,
             ...props.style,
           }}
@@ -28,7 +28,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "2rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1.5rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -37,7 +37,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1.75rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -46,7 +46,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1.5rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.9rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -55,7 +55,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1.3rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.8rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -64,7 +64,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.7rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -74,7 +74,7 @@ export function Text(props: {
       return (
         <p
           className={`text-sm ${props.className}`}
-          style={{ fontSize: "1.2rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1rem", color: AppStyles.colors.offWhite2 }}
         >
           {props.children}
         </p>

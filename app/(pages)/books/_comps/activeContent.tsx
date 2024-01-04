@@ -9,7 +9,6 @@ import React, { useState } from "react";
 import { MdEdit, MdFavorite } from "react-icons/md";
 import styled from "styled-components";
 import { AddBookTopicModal } from "./addTopicModal";
-import { AppStyles } from "@/lib";
 import { FaBookmark, FaComment } from "react-icons/fa";
 
 export function ActiveContent(props: {
@@ -51,7 +50,7 @@ export function ActiveContent(props: {
       </div>
       <div className={"mdContentWrapper"}>
         <div className="mdWrapper">
-          <MarkdownStyledComp>{props.content}</MarkdownStyledComp>
+          <MarkdownStyledComp markdown={props.content} />
         </div>
       </div>
       <AppModal isMounted={showEditModal}>

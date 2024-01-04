@@ -87,7 +87,7 @@ const TopicTitle = styled.div<{ is_active?: boolean }>`
   justify-content: space-between;
   svg {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
   }
   .title {

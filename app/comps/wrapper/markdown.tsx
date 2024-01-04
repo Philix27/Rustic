@@ -1,85 +1,240 @@
-import { AppStyles } from "@/lib";
+import ReactMarkdown from "react-markdown";
 import { styled } from "styled-components";
 
-export const MarkdownStyledComp = styled.div`
-  padding: 10px 15px;
-  margin: 20px;
-  color: ${AppStyles.colors.offWhite1};
-  width: fit-content;
+export function MarkdownStyledComp(props: { markdown: string }) {
+  return (
+    <Wrapper>
+      <ReactMarkdown>{props.markdown}</ReactMarkdown>
+    </Wrapper>
+  );
+}
 
-  h1 {
-    font-size: 2.8rem;
-    font-weight: 300;
-    padding-top: 20px;
-    color: ${AppStyles.colors.offWhite1};
+const Wrapper = styled.div`
+  @media print {
+    *,
+    *:before,
+    *:after {
+      background: transparent !important;
+      /* color: #000 !important; */
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+    a[href^="#"]:after,
+    a[href^="rust:"]:after {
+      content: "";
+    }
+
+    pre,
+    blockquote {
+      border: 1px solid ${(props) => props.theme.colors.backgroundLight};
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
   }
 
-  h3 {
-    padding: 10px 0;
-    color: ${AppStyles.colors.offWhite1};
+  pre,
+  code {
+    font-family: Menlo, Monaco, "Courier New", monospace;
   }
 
-  p {
-    text-align: justify;
-    text-justify: inter-word;
-    margin: 10px 0;
-    color: ${AppStyles.colors.offWhite1};
-    line-height: 1.3;
-    font-weight: 400;
+  pre {
+    padding: 0.5rem;
+    line-height: 1.25;
+    overflow-x: scroll;
   }
-  img {
-    padding: 10 auto;
-    width: fit-content;
-    border-radius: 8px;
+
+  a,
+  a:visited {
+    color: #db9834;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: #db9834;
+  }
+
+  .modest-no-decoration {
+    text-decoration: none;
+  }
+
+  html {
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 32rem) and (max-width: 48rem) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (min-width: 48rem) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    line-height: 1.85;
+  }
+
+  p,
+  .modest-p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+    margin-top: 1rem;
+  }
+
+  h1,
+  .modest-h1,
+  h2,
+  .modest-h2,
+  h3,
+  .modest-h3,
+  h4,
+  .modest-h4 {
+    margin: 1.414rem 0 0.5rem;
+    font-weight: inherit;
+    line-height: 1.42;
+  }
+
+  h1,
+  .modest-h1 {
+    margin-top: 0;
+    font-size: 3.998rem;
+  }
+
+  h2,
+  .modest-h2 {
+    font-size: 2.827rem;
+  }
+
+  h3,
+  .modest-h3 {
+    font-size: 1.999rem;
+  }
+
+  h4,
+  .modest-h4 {
+    font-size: 1.414rem;
+  }
+
+  h5,
+  .modest-h5 {
+    font-size: 1.121rem;
+  }
+
+  h6,
+  .modest-h6 {
+    font-size: 0.88rem;
+  }
+
+  small,
+  .modest-small {
+    font-size: 0.707em;
+  }
+
+  /* https://github.com/mrmrs/fluidity */
+
+  img,
+  canvas,
+  iframe,
+  video,
+  svg,
+  select,
+  textarea {
     max-width: 100%;
-    height: auto;
   }
 
-  ul {
-    // list-style: lower-alpha;
-    color: ${AppStyles.colors.offWhite2};
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+  @import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
+
+  html {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  body {
+    color: ${(props) => props.theme.colors.offWhite1};
+    font-family: "Open Sans Condensed", sans-serif;
     font-weight: 300;
-    padding: 5px;
-    li {
-      list-style: disc;
-      padding: 5px;
-      // line-height: 1.8;
-      margin-left: 20px;
-    }
+    margin: 0 auto;
+    max-width: 48rem;
+    line-height: 1.45;
+    padding: 0.25rem;
   }
 
-  ol {
-    color: ${AppStyles.colors.offWhite2};
-    font-weight: 200;
-    li {
-      list-style: decimal;
-      padding: 5px;
-      margin-left: 20px;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Arimo, Helvetica, sans-serif;
   }
 
-  table {
-    color: ${AppStyles.colors.offWhite1};
-    font-weight: 200;
-
-    th,
-    td {
-      padding: 10px;
-      text-align: left;
-    }
-
-    tr:nth-child(even) {
-      background-color: ${AppStyles.colors.backgroundDark};
-    }
-
-    th {
-      background-color: ${AppStyles.colors.backgroundDark};
-      color: white;
-      font-weight: 300;
-    }
+  h1,
+  h2,
+  h3 {
+    border-bottom: 2px solid ${(props) => props.theme.colors.primary};
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
   }
 
-  hr {
-    margin-bottom: 10px;
+  blockquote {
+    border-left: 8px solid ${(props) => props.theme.colors.primary};
+    padding: 1rem;
+  }
+
+  pre,
+  code {
+    background-color: ${(props) => props.theme.colors.backgroundLight};
+  }
+  pre {
+    border: solid 0.1px ${(props) => props.theme.colors.grey1};
   }
 `;

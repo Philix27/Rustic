@@ -13,7 +13,7 @@ export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   return (
     <Wrapper>
       <Menu onClick={() => setShowSheet(!showSheet)}>
-        <AiOutlineMenu color={AppStyles.colors.offWhite2} fontSize={16} />
+        <AiOutlineMenu color={AppStyles.colors.offWhite2} fontSize={14} />
         {showSheet && <NavLinksCard />}
       </Menu>
       <div>

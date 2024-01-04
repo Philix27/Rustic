@@ -10,10 +10,10 @@ export function AddBookTopicModal(props: {
   onClose: VoidFunction;
   book_id?: string;
   chapter_id?: string;
-  isEdit: boolean;
-  editTopicId: string;
-  topicTitle: string;
-  topicContent: string;
+  isEdit?: boolean;
+  editTopicId?: string;
+  topicTitle?: string;
+  topicContent?: string;
 }) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");
   const [docContent, setDocContent] = useState<{
