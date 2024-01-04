@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppClerk, AppStyles, trpc } from "@/lib";
-import { AppModal, AppToaster, AppToasterController, Text } from "@/comps";
+import { AppModal, AppToasterController, Text } from "@/comps";
 import Link from "next/link";
 import { styled } from "styled-components";
 import { useSession } from "@clerk/nextjs";
@@ -47,7 +47,11 @@ export function TopicCard(props: {
               {val.title}
             </Text>
           </Link>
-          <MdDelete onClick={() => handleDelete(val.id)} />
+          {userRole === "ADMIN" ? (
+            <MdDelete onClick={() => handleDelete(val.id)} />
+          ) : (
+            <div></div>
+          )}
         </TopicTitle>
       ))}
       {userRole === "ADMIN" && (

@@ -35,8 +35,9 @@ export default function TopicsClient(props: {
           isFirstPage={true}
           bannerTitle={topicsData.title}
           subtitle={""}
-          cover_image={topicsData.video_url}
+          coverImage={topicsData.video_url}
           content={topicsData.content}
+          editTopicId={props.topic_id}
         />
       </div>
     </Wrapper>

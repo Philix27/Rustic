@@ -1,12 +1,13 @@
 "use client";
 import { AppTopNavbar } from "@/comps";
-import { useState } from "react";
-import { MdViewSidebar } from "react-icons/md";
 import { trpc } from "@/lib";
 import styled from "styled-components";
 import { Sidebar, ActiveContent } from "../_comps";
 
-export default function BookClient(props: { book_id: string }) {
+export default function BookClient(props: {
+  topic_id: string;
+  book_id: string;
+}) {
   const { isLoading, data: book } = trpc.books.get_by_id.useQuery({
     book_id: props.book_id,
   });
@@ -24,8 +25,9 @@ export default function BookClient(props: { book_id: string }) {
           isFirstPage={true}
           bannerTitle={book.title}
           subtitle={""}
-          cover_image={book.img_url}
+          coverImage={book.img_url}
           content={book.desc}
+          editTopicId={""}
         />
       </div>
     </Wrapper>

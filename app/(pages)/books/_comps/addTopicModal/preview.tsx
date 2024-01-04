@@ -5,14 +5,12 @@ import ReactMarkdown from "react-markdown";
 
 export function PreviewComp(props: {
   title: string;
-  subtitle: string;
   markdown: string;
 }) {
   return (
     <div>
       <div className="flex items-center justify-center w-full py-6">
         <Text variant={"B1"}>{props.title}</Text>
-        <Text variant={"B3"}>{props.subtitle}</Text>
       </div>
       <div className="flex items-center justify-center w-full">
         <MarkdownStyledComp>

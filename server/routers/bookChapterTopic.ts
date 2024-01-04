@@ -70,4 +70,23 @@ export const bookChapterTopicsRouter = router({
         },
       });
     }),
+  update: publicProcedure
+    .input(
+      z.object({
+        id: z.string().min(0, { message: "Required" }),
+        title: z.string().min(0, { message: "Required" }),
+        content: z.string().min(0, { message: "Required" }),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.prisma.bookChapterTopic.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          title: input.title,
+          content: input.content,
+        },
+      });
+    }),
 });

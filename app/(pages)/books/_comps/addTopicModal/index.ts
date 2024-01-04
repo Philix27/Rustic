@@ -1,1 +1,1 @@
-export * from "./addTopicModal";
+export * from "./modal";

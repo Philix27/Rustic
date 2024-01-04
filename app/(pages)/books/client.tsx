@@ -19,10 +19,10 @@ export default function BooksListView() {
           ),
         ]}
       />
+      <BookDisplay />
       <AppModal isMounted={showSheet}>
         <AddBookModal onClose={() => setShowSheet(false)} />
       </AppModal>
-      <BookDisplay />
     </>
   );
 }

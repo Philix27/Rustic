@@ -12,31 +12,44 @@ export function WriteComp(props: {
   book_id: string;
   chapter_id: string;
   onClose: VoidFunction;
+  isEdit: boolean;
+  editTopicId: string;
   docContent: {
     title: string;
-    subtitle: string;
     content: string;
   };
   setDocContent: React.Dispatch<
     React.SetStateAction<{
       title: string;
-      subtitle: string;
       content: string;
     }>
   >;
 }) {
   const { mutateAsync } = trpc.book_chapter_topics.create.useMutation();
+  const { mutateAsync: updateAsync } =
+    trpc.book_chapter_topics.update.useMutation();
 
   const handleFormSubmission = () => {
-    mutateAsync({
-      title: props.docContent.title,
-      book_id: props.book_id,
-      chapter_id: props.chapter_id,
-      content: props.docContent.content,
-    }).then((e) => {
-      AppToasterController.success("Topic added successfully");
-      props.setDocContent({ title: "", subtitle: "", content: "" });
-    });
+    if (props.isEdit) {
+      updateAsync({
+        id: props.editTopicId,
+        title: props.docContent.title,
+        content: props.docContent.content,
+      }).then((e) => {
+        AppToasterController.success("Topic added successfully");
+        props.setDocContent({ title: "", content: "" });
+      });
+    } else {
+      mutateAsync({
+        title: props.docContent.title,
+        book_id: props.book_id,
+        chapter_id: props.chapter_id,
+        content: props.docContent.content,
+      }).then((e) => {
+        AppToasterController.success("Topic added successfully");
+        props.setDocContent({ title: "", content: "" });
+      });
+    }
   };
 
   return (

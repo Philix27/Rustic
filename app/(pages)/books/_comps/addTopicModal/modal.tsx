@@ -8,18 +8,20 @@ import { PreviewComp } from "./preview";
 
 export function AddBookTopicModal(props: {
   onClose: VoidFunction;
-  book_id: string;
-  chapter_id: string;
+  book_id?: string;
+  chapter_id?: string;
+  isEdit: boolean;
+  editTopicId: string;
+  topicTitle: string;
+  topicContent: string;
 }) {
   const [showDoc, setShowDoc] = useState<"WRITE" | "PREVIEW">("WRITE");
   const [docContent, setDocContent] = useState<{
     title: string;
-    subtitle: string;
     content: string;
   }>({
-    title: "",
-    subtitle: "",
-    content: "",
+    title: props.topicTitle,
+    content: props.topicContent,
   });
 
   return (
@@ -29,7 +31,6 @@ export function AddBookTopicModal(props: {
         {showDoc === "PREVIEW" ? (
           <PreviewComp
             title={docContent?.title}
-            subtitle={docContent?.subtitle}
             markdown={docContent?.content}
           />
         ) : (
@@ -39,6 +40,8 @@ export function AddBookTopicModal(props: {
             book_id={props.book_id}
             onClose={props.onClose}
             chapter_id={props.chapter_id}
+            isEdit={props.isEdit}
+            editTopicId={props.editTopicId}
           />
         )}
       </Container>
