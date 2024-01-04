@@ -18,7 +18,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.colors.primaryTextColor};
+  color: ${(props) => props.theme.colors.offWhite1};
 `;
 const Inner = styled.div`
   width: 75%;

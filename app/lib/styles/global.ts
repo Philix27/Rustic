@@ -25,7 +25,7 @@ body {
   text-rendering: optimizeSpeed;
   font-family: ${({ theme }) => theme.fonts.anekMalayalam}, sans-serif;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.offWhite2};
   background-color: ${({ theme }) => theme.colors.background};
   line-height: 1;
 }

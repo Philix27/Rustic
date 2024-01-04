@@ -18,9 +18,7 @@ export function AboutUsClient() {
             style={{ borderRadius: "10px" }}
           />
         </Wrapper>
-        <MarkdownStyledComp>
-          <MdFile />
-        </MarkdownStyledComp>
+        <MarkdownStyledComp markdown={<MdFile />} />
       </AppWrapper>
     </>
   );

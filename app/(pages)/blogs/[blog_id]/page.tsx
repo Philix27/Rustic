@@ -1,7 +1,12 @@
 "use client";
-import { AppBlogs } from "@/lib/docs";
-import { AppTopNavbar, AppWrapper, ClientOnly, Landing } from "@/comps";
-import { MarkdownStyledComp } from "@/comps/wrapper/markdown";
+import { AppBlogs } from "@/lib";
+import {
+  AppTopNavbar,
+  AppWrapper,
+  ClientOnly,
+  Landing,
+  MarkdownStyledComp,
+} from "@/comps";
 
 export default function Page({ params }: { params: { blog_id: string } }) {
   const activeContent = AppBlogs.filter(
@@ -18,7 +23,7 @@ export default function Page({ params }: { params: { blog_id: string } }) {
           subtitle={activeContent.subtitle}
           opacity={0.5}
         />
-        <MarkdownStyledComp>{activeContent.comp}</MarkdownStyledComp>
+        <MarkdownStyledComp markdown={activeContent.comp} />
       </AppWrapper>
     </ClientOnly>
   );

@@ -1,12 +1,16 @@
 import ReactMarkdown from "react-markdown";
 import { styled } from "styled-components";
 
-export function MarkdownStyledComp(props: { markdown: string }) {
-  return (
-    <Wrapper>
-      <ReactMarkdown>{props.markdown}</ReactMarkdown>
-    </Wrapper>
-  );
+export function MarkdownStyledComp(props: { markdown: string | JSX.Element }) {
+  if (typeof props.markdown == "string") {
+    return (
+      <Wrapper>
+        <ReactMarkdown>{props.markdown}</ReactMarkdown>
+      </Wrapper>
+    );
+  } else {
+    return <Wrapper>{props.markdown}</Wrapper>;
+  }
 }
 
 const Wrapper = styled.div`

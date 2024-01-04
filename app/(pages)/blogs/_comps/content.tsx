@@ -15,7 +15,7 @@ export default function BlogContentPage() {
         subtitle={activeContent.subtitle}
         opacity={0.5}
       />
-      <MarkdownStyledComp>{activeContent.comp}</MarkdownStyledComp>
+      <MarkdownStyledComp markdown={activeContent.comp} />
     </AppWrapper>
   );
 }
