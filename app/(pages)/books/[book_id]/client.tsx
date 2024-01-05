@@ -25,6 +25,7 @@ export default function BookClient(props: { book_id: string }) {
           coverImage={book.img_url}
           content={book.desc}
           editTopicId={""}
+          book_id={book.id}
         />
       </div>
     </Wrapper>
@@ -35,6 +36,10 @@ const Wrapper = styled.div`
   max-height: 100vh;
   height: 100vh;
   display: flex;
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    flex-direction: column;
+  }
   .sidebar {
     width: 300px;
     max-height: 100vh;
@@ -49,5 +54,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     max-height: 100vh;
     overflow-y: auto;
+    @media ${(props) => props.theme.breakpoints.sm} {
+      width: 100%;
+    }
   }
 `;

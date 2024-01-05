@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ClerkAppProvider from "./clerk";
 import { StylesProvider } from "./styles";

@@ -1,6 +1,5 @@
 "use client";
 import { AppTopNavbar } from "@/comps";
-import { useState } from "react";
 import { trpc } from "@/lib";
 import styled from "styled-components";
 import { ActiveContent, Sidebar } from "../../_comps";
@@ -38,6 +37,8 @@ export default function TopicsClient(props: {
           coverImage={topicsData.video_url}
           content={topicsData.content}
           editTopicId={props.topic_id}
+          book_id={book.id}
+          activeChapterId={props.chapter_id}
         />
       </div>
     </Wrapper>
@@ -48,15 +49,22 @@ const Wrapper = styled.div`
   max-height: 100vh;
   height: 100vh;
   display: flex;
+
   .sidebar {
     width: 300px;
     max-height: 100vh;
     min-height: calc(100vh - 40px);
+    @media ${(props) => props.theme.breakpoints.sm} {
+      display: none;
+    }
   }
   .content_wrapper {
     width: calc(100% - 300px);
     flex-direction: column;
     max-height: 100vh;
     overflow-y: auto;
+    @media ${(props) => props.theme.breakpoints.sm} {
+      width: 100%;
+    }
   }
 `;

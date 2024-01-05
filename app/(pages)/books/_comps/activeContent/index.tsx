@@ -1,15 +1,9 @@
-import {
-  MarkdownStyledComp,
-  Landing,
-  AppModal,
-  Text,
-  IconButton,
-} from "@/comps";
+import { MarkdownStyledComp, Landing, AppModal } from "@/comps";
 import React, { useState } from "react";
-import { MdEdit, MdFavorite } from "react-icons/md";
 import styled from "styled-components";
-import { AddBookTopicModal } from "./addTopicModal";
-import { FaBookmark, FaComment } from "react-icons/fa";
+import { TopButton } from "./topButton";
+import { AddBookTopicModal } from "../addTopicModal";
+import { Navbar } from "./navbar";
 
 export function ActiveContent(props: {
   isFirstPage: boolean;
@@ -18,6 +12,9 @@ export function ActiveContent(props: {
   coverImage: string;
   content: string;
   editTopicId: string;
+  book_id: string;
+  activeChapterId?: string;
+  activeTopicId?: string;
 }) {
   const [showEditModal, setShowEditModal] = useState(false);
   return (
@@ -30,25 +27,11 @@ export function ActiveContent(props: {
           opacity={1}
         />
       )}
-
-      <div className="utilities">
-        <Text variant="B1">{props.bannerTitle}</Text>
-        <div className="icons">
-          <IconButton>
-            <MdFavorite />
-          </IconButton>
-          <IconButton>
-            <FaBookmark />
-          </IconButton>
-          <IconButton>
-            <FaComment />
-          </IconButton>
-          <IconButton>
-            <MdEdit onClick={() => setShowEditModal(true)} />
-          </IconButton>
-        </div>
-      </div>
-      
+      <Navbar book_id={props.book_id} />
+      <TopButton
+        title={props.bannerTitle}
+        onEditClick={() => setShowEditModal(true)}
+      />
       <div className={"mdContentWrapper"}>
         <div className="mdWrapper">
           <MarkdownStyledComp markdown={props.content} />
@@ -69,25 +52,14 @@ export function ActiveContent(props: {
 
 const Wrapper = styled.div`
   width: 100%;
-  max-height: 100vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  .utilities {
-    display: flex;
-    align-items: center;
-    width: 80%;
-    justify-content: space-between;
-    padding: 10px 0;
-    .icons {
-      display: flex;
-    }
-  }
   .mdContentWrapper {
     width: 90%;
+    margin-bottom: 20px;
     .mdWrapper {
       width: 100%;
       display: flex;
