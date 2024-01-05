@@ -1,4 +1,3 @@
-import { AppStyles } from "@/lib";
 import React from "react";
 import { styled } from "styled-components";
 
@@ -41,8 +40,8 @@ const Wrapper = styled.div`
     justify-content: center;
     padding: 2px;
     border-radius: 8px;
-    background-color: ${AppStyles.colors.backgroundLight};
-    border: solid 1px ${AppStyles.colors.backgroundLight};
+    background-color: ${(props) => props.theme.colors.backgroundLight};
+    border: solid 1px ${(props) => props.theme.colors.backgroundLight};
 
     .spacer {
       width: 10px;
@@ -56,6 +55,6 @@ const Button = styled.div<{ is_active: boolean }>`
   border-radius: 5px;
   background-color: ${(props) =>
     props.is_active
-      ? AppStyles.colors.backgroundDark
-      : AppStyles.colors.backgroundLight};
+      ? (props) => props.theme.colors.backgroundDark
+      : (props) => props.theme.colors.backgroundLight};
 `;

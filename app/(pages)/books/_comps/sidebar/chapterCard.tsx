@@ -1,4 +1,4 @@
-import { AppClerk, AppStyles, trpc } from "@/lib";
+import { AppClerk, trpc } from "@/lib";
 import styled from "styled-components";
 import { Text } from "@/comps";
 import React, { memo, useState } from "react";
@@ -51,7 +51,9 @@ export const ChapterCard = memo(function ChapterCard(props: {
                   className="chapter_title"
                   onClick={() => setActiveChapterId(val.id)}
                 >
-                  <Text variant={"B4"}>{index + 1}. {val.title}</Text>
+                  <Text variant={"B4"}>
+                    {index + 1}. {val.title}
+                  </Text>
                   {activeChapterId === val.id ? (
                     <MdArrowDropDown size={25} />
                   ) : (
@@ -90,7 +92,7 @@ export const ChapterCard = memo(function ChapterCard(props: {
   }
 });
 const Wrapper = styled.div`
-  border-bottom: solid 1px ${AppStyles.colors.grey1};
+  border-bottom: solid 1px ${(props) => props.theme.colors.grey1};
   .chapter_title {
     padding: 0 15px;
     display: flex;
@@ -100,7 +102,7 @@ const Wrapper = styled.div`
   }
 
   .add_div {
-    background-color: ${AppStyles.colors.background3};
+    background-color: ${(props) => props.theme.colors.background3};
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -115,5 +117,5 @@ const Footer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${AppStyles.colors.background3};
+  background-color: ${(props) => props.theme.colors.background3};
 `;

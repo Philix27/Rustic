@@ -39,6 +39,10 @@ const Wrapper = styled.div`
     width: 300px;
     max-height: 100vh;
     min-height: calc(100vh - 40px);
+
+    @media ${(props) => props.theme.breakpoints.sm} {
+      display: none;
+    }
   }
   .content_wrapper {
     width: calc(100% - 300px);

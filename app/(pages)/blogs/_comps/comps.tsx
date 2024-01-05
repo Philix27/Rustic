@@ -1,4 +1,3 @@
-import { AppStyles } from "@/lib";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -16,7 +15,7 @@ export const ContentWrapper = styled.div`
   padding: 3rem;
   row-gap: 10px;
   width: 80%;
-  background-color: ${AppStyles.colors.backgroundLight};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
   border-radius: 10px;
 `;
 

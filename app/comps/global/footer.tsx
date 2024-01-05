@@ -10,7 +10,7 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { styled } from "styled-components";
-import { AppLinks, AppStyles } from "@/lib";
+import { AppLinks } from "@/lib";
 import { Text } from "@/comps";
 
 export function AppFooter() {
@@ -70,10 +70,10 @@ export function AppFooter() {
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: ${AppStyles.colors.backgroundLight};
-  color: ${AppStyles.colors.offWhite2};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
+  color: ${(props) => props.theme.colors.offWhite2};
   padding: 15px 10px;
-  @media ${AppStyles.breakpoints.sm} {
+  @media ${(props) => props.theme.breakpoints.sm} {
   }
   .inner {
     display: flex;
@@ -81,17 +81,17 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-around;
     padding: 0 10px;
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       flex-direction: column;
     }
 
     .links {
       display: flex;
-      @media ${AppStyles.breakpoints.sm} {
+      @media ${(props) => props.theme.breakpoints.sm} {
         padding-bottom: 20px;
       }
       a {
-        color: ${AppStyles.colors.offWhite1};
+        color: ${(props) => props.theme.colors.offWhite1};
         margin-left: 10px;
         margin-right: 10px;
       }
@@ -100,7 +100,7 @@ const Wrapper = styled.div`
       display: flex;
       /* flex-direction: column; */
       align-items: center;
-      @media ${AppStyles.breakpoints.sm} {
+      @media ${(props) => props.theme.breakpoints.sm} {
         padding-bottom: 20px;
       }
 
@@ -113,9 +113,9 @@ const Wrapper = styled.div`
 
       a {
         margin-right: 10px;
-        color: ${AppStyles.colors.offWhite1};
+        color: ${(props) => props.theme.colors.offWhite1};
         svg {
-          color: ${AppStyles.colors.offWhite1};
+          color: ${(props) => props.theme.colors.offWhite1};
         }
       }
     }

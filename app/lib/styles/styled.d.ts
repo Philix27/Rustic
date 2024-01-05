@@ -35,5 +35,13 @@ declare module "styled-components" {
     margins: {
       pageTop: "30px";
     };
+    breakpoints: {
+      xs: "screen and (max-width: 400px)"; // for small screen mobile
+      sm: "screen and (max-width: 600px)"; // for mobile screen
+      md: "screen and (max-width: 900px)"; // for tablets
+      lg: "screen and (max-width: 1280px)"; // for laptops
+      xl: "screen and (max-width: 1440px)"; // for desktop / monitors
+      xxl: "screen and (max-width: 1940px)"; // for big screens
+    };
   }
 }

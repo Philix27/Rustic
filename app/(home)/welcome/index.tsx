@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+
 import { AppTopNavbar, AppFooter } from "@/comps";
 import { CardsSection } from "./cards";
 import { HeroSection } from "./hero";
@@ -18,7 +18,7 @@ export default function WelcomeView(props: { title: string }) {
 }
 
 const Wrapper = styled.div`
-  background-color: ${AppStyles.colors.background};
+  background-color: ${(props) => props.theme.colors.background};
   width: 100vw;
   min-height: 100vh;
   display: flex;

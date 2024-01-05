@@ -1,8 +1,7 @@
 import { Text } from "@/comps";
 import { styled } from "styled-components";
 import Link from "next/link";
-import { AppHelperFn, AppLinks, AppStyles } from "@/lib";
-import Chapters from "./aChapter";
+import { AppHelperFn, AppLinks } from "@/lib";
 
 export default function ABook(props: {
   data: {
@@ -29,8 +28,8 @@ export default function ABook(props: {
 }
 
 const InLink = styled(Link)`
-  background-color: ${AppStyles.colors.backgroundLight};
-  color: ${AppStyles.colors.offWhite1};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
+  color: ${(props) => props.theme.colors.offWhite1};
   display: block;
   /* border-radius: 10px; */
   display: flex;
@@ -54,8 +53,8 @@ const Img = styled.img`
 `;
 
 const CardTitle = styled.div`
-  background-color: ${AppStyles.colors.background3};
-  color: ${AppStyles.colors.offWhite2};
+  background-color: ${(props) => props.theme.colors.background3};
+  color: ${(props) => props.theme.colors.offWhite2};
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -1,11 +1,9 @@
 "use client";
 import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
 import React, { useState } from "react";
-import styled from "styled-components";
-import { AppStyles } from "@/lib";
+import styled  from "styled-components";
 import { questionsList } from "./questions";
 import { AddQuestionModal } from "../_comps";
-
 
 export function QuestionsPageClient(props: { topic_id: string }) {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +17,11 @@ export function QuestionsPageClient(props: { topic_id: string }) {
               <Text variant={"B4"} className="title">
                 {i + 1}. {val.question}
               </Text>
-              <hr style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }} />
+              <hr
+                style={{
+                  border: `solid 0.5px ${(props) => props.theme.colors.grey1}`,
+                }}
+              />
               <ol className="subtitle">
                 <li>
                   <Text variant={"B5"}>{val.option1}</Text>
@@ -69,21 +71,21 @@ const GridWrapper = styled.div`
     width: 60%;
     margin-bottom: 50px;
 
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       width: 90%;
     }
   }
 `;
 
 const GridItem = styled.div`
-  background-color: ${AppStyles.colors.backgroundLight};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: solid 1px ${AppStyles.colors.background};
+  border-bottom: solid 1px ${(props) => props.theme.colors.background};
   &:hover {
-    border-bottom: solid 1px ${AppStyles.colors.grey1};
+    border-bottom: solid 1px ${(props) => props.theme.colors.grey1};
   }
   .title {
     color: white;
@@ -99,7 +101,7 @@ const GridItem = styled.div`
     li {
       list-style: lower-alpha;
       list-style-type: lower-alpha;
-      color: ${AppStyles.colors.offWhite1};
+      color: ${(props) => props.theme.colors.offWhite1};
       margin-left: 20px;
       margin-bottom: 10px;
       p {
@@ -113,6 +115,6 @@ const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${AppStyles.colors.background};
+  background-color: ${(props) => props.theme.colors.background};
   padding: 10px 20px;
 `;

@@ -2,7 +2,7 @@
 import { AppButton, AppModal, AppTopNavbar, Text } from "@/comps";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AppClerk, AppStyles, trpc } from "@/lib";
+import { AppClerk, trpc } from "@/lib";
 import Link from "next/link";
 import { AddTopicModal } from "./_comps";
 import { useSession } from "@clerk/nextjs";
@@ -28,7 +28,10 @@ export function QuizClient() {
                   {val.title}
                 </Text>
                 <hr
-                  style={{ border: `solid 0.5px ${AppStyles.colors.grey1}` }}
+                  style={{
+                    border: `solid 0.5px ${(props) =>
+                      props.theme.colors.grey1}`,
+                  }}
                 />
                 <div className="subtitle">
                   <Text variant={"B5"}>{val.desc}</Text>
@@ -80,21 +83,21 @@ const Grid = styled.div`
   width: 80%;
   margin-bottom: 20px;
 
-  @media ${AppStyles.breakpoints.sm} {
+  @media ${(props) => props.theme.breakpoints.sm} {
     grid-template-columns: 1fr;
     width: 90%;
   }
 `;
 
 const GridItem = styled.div`
-  background-color: ${AppStyles.colors.backgroundLight};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: solid 1px ${AppStyles.colors.background};
+  border-bottom: solid 1px ${(props) => props.theme.colors.background};
   &:hover {
-    border-bottom: solid 1px ${AppStyles.colors.grey1};
+    border-bottom: solid 1px ${(props) => props.theme.colors.grey1};
   }
   .title {
     color: white;
@@ -113,6 +116,6 @@ const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${AppStyles.colors.background};
+  background-color: ${(props) => props.theme.colors.background};
   padding: 10px 20px;
 `;

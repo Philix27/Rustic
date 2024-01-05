@@ -31,4 +31,12 @@ export const themeDark: DefaultTheme = {
   margins: {
     pageTop: "30px",
   },
+  breakpoints: {
+    xs: "screen and (max-width: 400px)",
+    sm: "screen and (max-width: 600px)",
+    md: "screen and (max-width: 900px)",
+    lg: "screen and (max-width: 1280px)",
+    xl: "screen and (max-width: 1440px)",
+    xxl: "screen and (max-width: 1940px)"
+  }
 };

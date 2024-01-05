@@ -1,8 +1,7 @@
 import React from "react";
 import { Text } from "@/comps";
 import { styled } from "styled-components";
-import { AppStyles, trpc } from "@/lib";
-
+import { trpc } from "@/lib";
 
 export default function Chapters(props: {
   data: {
@@ -34,18 +33,18 @@ export default function Chapters(props: {
 }
 
 const ChapterTitle = styled.div`
-  background-color: ${AppStyles.colors.backgroundLight};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 10px 15px;
-  border-bottom: solid 1px ${AppStyles.colors.grey1};
+  border-bottom: solid 1px ${(props) => props.theme.colors.grey1};
 `;
 
 const CardTitle = styled.div`
-  background-color: ${AppStyles.colors.background3};
-  color: ${AppStyles.colors.offWhite2};
+  background-color: ${(props) => props.theme.colors.background3};
+  color: ${(props) => props.theme.colors.offWhite2};
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -1,15 +1,15 @@
 import React from "react";
-import { AppStyles } from "@/lib";
 import { Text } from "@/comps";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 export function HeroSection() {
+  const style = useTheme();
   return (
     <Wrapper>
       <Text
         className="first_title"
         variant={"B1"}
-        style={{ color: AppStyles.colors.primary }}
+        style={{ color: style.colors.primary }}
       >
         Build in a weekend
       </Text>
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   justify-content: center;
   text-align: center;
   min-height: 80vh;
-  @media ${AppStyles.breakpoints.sm} {
+  @media ${(props) => props.theme.breakpoints.sm} {
     width: 90%;
     min-height: 70vh;
   }
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
     margin-bottom: 30px;
     color: goldenrod;
 
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       line-height: 40px;
     }
   }
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
     font-size: 45px;
     margin-bottom: 30px;
 
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       line-height: 40px;
     }
   }

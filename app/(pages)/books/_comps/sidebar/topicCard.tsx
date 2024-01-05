@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppClerk, AppStyles, trpc } from "@/lib";
+import { AppClerk, trpc } from "@/lib";
 import { AppModal, AppToasterController, Text } from "@/comps";
 import Link from "next/link";
 import { styled } from "styled-components";
@@ -32,6 +32,7 @@ export function TopicCard(props: {
       AppToasterController("Deleted successfully");
     });
   };
+
   return (
     <Wrapper>
       {props.topics.map((val, index) => (
@@ -78,10 +79,12 @@ const Wrapper = styled.div`
 
 const TopicTitle = styled.div<{ is_active?: boolean }>`
   background-color: ${(props) =>
-    props.is_active ? AppStyles.colors.primary : AppStyles.colors.background3};
+    props.is_active
+      ? (props) => props.theme.colors.primary
+      : (props) => props.theme.colors.background3};
   padding: 10px 25px;
   padding-right: 20px;
-  border-bottom: solid 1px ${AppStyles.colors.grey1};
+  border-bottom: solid 1px ${(props) => props.theme.colors.grey1};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,11 +97,11 @@ const TopicTitle = styled.div<{ is_active?: boolean }>`
     cursor: pointer;
   }
   &:hover {
-    color: ${AppStyles.colors.primary};
-    /* border-bottom: solid 1px ${AppStyles.colors.secondary}; */
-    background-color: ${AppStyles.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
+    /* border-bottom: solid 1px ${(props) => props.theme.colors.secondary}; */
+    background-color: ${(props) => props.theme.colors.primary};
     .title {
-      color: ${AppStyles.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
     }
   }
 `;

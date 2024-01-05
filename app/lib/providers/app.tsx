@@ -6,12 +6,12 @@ import { ToastProvider } from "./toast";
 
 export function AppProviders(props: { children: React.ReactNode }) {
   return (
-    <ClerkAppProvider>
-      <TrpcProvider>
-        <StylesProvider>
+    <StylesProvider>
+      <ClerkAppProvider>
+        <TrpcProvider>
           <ToastProvider>{props.children}</ToastProvider>
-        </StylesProvider>
-      </TrpcProvider>
-    </ClerkAppProvider>
+        </TrpcProvider>
+      </ClerkAppProvider>
+    </StylesProvider>
   );
 }

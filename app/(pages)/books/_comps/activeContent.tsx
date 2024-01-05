@@ -48,6 +48,7 @@ export function ActiveContent(props: {
           </IconButton>
         </div>
       </div>
+      
       <div className={"mdContentWrapper"}>
         <div className="mdWrapper">
           <MarkdownStyledComp markdown={props.content} />

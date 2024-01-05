@@ -1,6 +1,7 @@
 "use client";
-import { AppStyles } from "@/lib";
+
 import React, { ReactNode } from "react";
+import { useTheme } from "styled-components";
 
 type TVariants = "B1" | "B2" | "B3" | "B4" | "B5" | "B6";
 
@@ -10,6 +11,7 @@ export function Text(props: {
   className?: string;
   style?: React.CSSProperties;
 }) {
+  const style = useTheme();
   switch (props.variant) {
     case "B1":
       return (
@@ -17,7 +19,7 @@ export function Text(props: {
           className={props.className}
           style={{
             fontSize: "2rem",
-            color: AppStyles.colors.offWhite2,
+            color: style.colors.offWhite2,
             ...props.style,
           }}
         >
@@ -28,7 +30,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1.5rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1.5rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -37,7 +39,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "1rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -46,7 +48,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "0.9rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.9rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -55,7 +57,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "0.8rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.8rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -64,7 +66,7 @@ export function Text(props: {
       return (
         <p
           className={props.className}
-          style={{ fontSize: "0.7rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "0.7rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>
@@ -74,7 +76,7 @@ export function Text(props: {
       return (
         <p
           className={`text-sm ${props.className}`}
-          style={{ fontSize: "1rem", color: AppStyles.colors.offWhite2 }}
+          style={{ fontSize: "1rem", color: style.colors.offWhite2 }}
         >
           {props.children}
         </p>

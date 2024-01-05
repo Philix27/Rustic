@@ -1,7 +1,7 @@
 "use client";
-import { AppStyles } from "@/lib";
+
 import React, { Fragment, Suspense, useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { Text } from "@/comps";
 import NavLinksCard from "./navLinksCard";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -10,10 +10,11 @@ import { AuthButtons } from "./authButtons";
 
 export function AppTopNavbar(props: { title: string; icons: JSX.Element[] }) {
   const [showSheet, setShowSheet] = useState(false);
+  const style = useTheme();
   return (
     <Wrapper>
       <Menu onClick={() => setShowSheet(!showSheet)}>
-        <AiOutlineMenu color={AppStyles.colors.offWhite2} fontSize={14} />
+        <AiOutlineMenu color={style.colors.offWhite2} fontSize={14} />
         {showSheet && <NavLinksCard />}
       </Menu>
       <div>
@@ -38,8 +39,8 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  background-color: ${AppStyles.colors.backgroundLight};
-  color: ${AppStyles.colors.offWhite2};
+  background-color: ${(props) => props.theme.colors.backgroundLight};
+  color: ${(props) => props.theme.colors.offWhite2};
 
   .right_section {
     display: flex;

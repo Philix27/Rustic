@@ -1,4 +1,4 @@
-import { AppClerk, AppStyles } from "@/lib";
+import { AppClerk } from "@/lib";
 import React, { useState } from "react";
 import { ChapterCard } from "./chapterCard";
 import { AppModal } from "@/comps";
@@ -39,15 +39,13 @@ const Wrapper = styled.div`
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background-color: ${AppStyles.colors.backgroundLight};
-  /* border-top: solid 1px ${AppStyles.colors.grey1}; */
+  background-color: ${(props) => props.theme.colors.backgroundLight};
+  /* border-top: solid 1px ${(props) => props.theme.colors.grey1}; */
   overflow-y: auto;
   scroll-behavior: smooth;
-  @media ${AppStyles.breakpoints.sm} {
-    display: none;
-  }
+
   .add_sec {
-    background-color: ${AppStyles.colors.background3};
+    background-color: ${(props) => props.theme.colors.background3};
     display: flex;
     align-items: center;
     flex-direction: column;

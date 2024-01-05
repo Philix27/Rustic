@@ -5,7 +5,7 @@ import {
   AppToasterController,
   ModalContentWrapper,
 } from "@/comps";
-import { AppClerk, AppStyles, trpc } from "@/lib";
+import { AppClerk, trpc } from "@/lib";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { FormDataType, initialValue } from "./dataType";
@@ -80,7 +80,7 @@ const Content = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    color: ${AppStyles.colors.offWhite1};
+    color: ${(props) => props.theme.colors.offWhite1};
     .spacer {
       width: 50px;
     }

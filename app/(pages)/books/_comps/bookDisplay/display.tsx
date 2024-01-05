@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { AppStyles, trpc } from "@/lib";
+import { trpc } from "@/lib";
 import ABook from "./aBook";
 
 export function BookDisplay() {
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
     row-gap: 20px;
     height: fit-content;
     margin: 20px 0;
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       grid-template-columns: 1fr;
       width: 90%;
     }

@@ -1,14 +1,20 @@
-import { AppStyles } from "@/lib";
 import { Text } from "@/comps";
 import Link from "next/link";
 import React from "react";
-import { styled } from "styled-components";
+import { styled, useTheme } from "styled-components";
 import { navLinkList } from "./links";
 
 export default function NavLinksCard() {
+  const style = useTheme();
+
   return (
     <Container>
-      {navLinkList.map((v, i) => (
+      {navLinkList({
+        homeColor: style.colors.home,
+        booksColor: style.colors.book,
+        blogsColor: style.colors.blogs,
+        quizColor: style.colors.quiz,
+      }).map((v, i) => (
         <Link href={v.link} key={i} className="link">
           <Item key={i}>
             <Icon bgColor={v.color}>{v.icon}</Icon>
@@ -24,8 +30,8 @@ export default function NavLinksCard() {
 }
 
 const Container = styled.div`
-  background-color: ${AppStyles.colors.background3};
-  border: solid 0.5px ${AppStyles.colors.grey2};
+  background-color: ${(props) => props.theme.colors.background3};
+  border: solid 0.5px ${(props) => props.theme.colors.grey2};
   padding: 10px 0;
   position: absolute;
   top: 22px;
@@ -34,8 +40,7 @@ const Container = styled.div`
   z-index: 3;
 
   .link {
-    color: ${AppStyles.colors.offWhite1};
-
+    color: ${(props) => props.theme.colors.offWhite1};
   }
 `;
 
@@ -45,7 +50,7 @@ const Item = styled.div`
   /* margin-bottom: 10px; */
   padding: 10px;
   &:hover {
-    background-color: ${AppStyles.colors.backgroundDark};
+    background-color: ${(props) => props.theme.colors.backgroundDark};
   }
 `;
 const Icon = styled.div<{ bgColor: string }>`
@@ -56,7 +61,7 @@ const Icon = styled.div<{ bgColor: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${AppStyles.colors.offWhite1};
+  color: ${(props) => props.theme.colors.offWhite1};
   background-color: ${(props) => props.bgColor};
 
   svg {

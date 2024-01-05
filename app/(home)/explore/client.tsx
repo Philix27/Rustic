@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+
 import { AppTopNavbar, AppFooter, Text } from "@/comps";
 
 export default function ExploreClient() {
@@ -17,7 +17,7 @@ export default function ExploreClient() {
 }
 
 const Wrapper = styled.div`
-  background-color: ${AppStyles.colors.background};
+  background-color: ${(props) => props.theme.colors.background};
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -45,14 +45,14 @@ const CardGrid = styled.div`
   width: 100%;
   margin: 50px 0;
   div {
-    background-color: ${AppStyles.colors.backgroundDark};
-    border: solid 0.2px ${AppStyles.colors.grey2};
+    background-color: ${(props) => props.theme.colors.backgroundDark};
+    border: solid 0.2px ${(props) => props.theme.colors.grey2};
     padding: 15px;
     border-radius: 10px;
     min-height: 200px;
 
     &:hover {
-      border: solid 0.2px ${AppStyles.colors.offWhite1};
+      border: solid 0.2px ${(props) => props.theme.colors.offWhite1};
     }
   }
 `;

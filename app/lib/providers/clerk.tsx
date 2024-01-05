@@ -1,8 +1,9 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { AppStyles } from "@/lib";
+import { useTheme } from "styled-components";
 
 export default function ClerkAppProvider(props: { children: React.ReactNode }) {
+  const style = useTheme()
   return (
     <ClerkProvider
       appearance={{
@@ -15,11 +16,11 @@ export default function ClerkAppProvider(props: { children: React.ReactNode }) {
           termsPageUrl: "/terms",
         },
         variables: {
-          colorPrimary: AppStyles.colors.primary,
+          colorPrimary: style.colors.primary,
           colorText: "white",
-          colorTextSecondary: AppStyles.colors.offWhite2,
-          colorTextOnPrimaryBackground: AppStyles.colors.offWhite2,
-          colorBackground: AppStyles.colors.background,
+          colorTextSecondary: style.colors.offWhite2,
+          colorTextOnPrimaryBackground: style.colors.offWhite2,
+          colorBackground: style.colors.background,
           colorAlphaShade: "white",
         },
       }}

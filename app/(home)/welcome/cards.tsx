@@ -1,15 +1,21 @@
 "use client";
 import React from "react";
-import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
+import { styled, useTheme } from "styled-components";
+
 import { Text, navLinkList } from "@/comps";
 import Link from "next/link";
 
 export function CardsSection() {
+  const style = useTheme();
   return (
     <WrapperContent>
       <div className={"grid_container"}>
-        {navLinkList.map((v, i) => (
+        {navLinkList({
+          homeColor: style.colors.home,
+          booksColor: style.colors.book,
+          blogsColor: style.colors.blogs,
+          quizColor: style.colors.quiz,
+        }).map((v, i) => (
           <Link href={v.link} key={i}>
             <div className="item">
               <div className="icon_wrapper">
@@ -43,7 +49,7 @@ const WrapperContent = styled.div`
   width: 80%;
   align-items: center;
   padding: 50px 0;
-  @media ${AppStyles.breakpoints.sm} {
+  @media ${(props) => props.theme.breakpoints.sm} {
     width: 90%;
   }
 
@@ -54,7 +60,7 @@ const WrapperContent = styled.div`
     width: 90%;
     margin: 0 30px;
 
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       grid-template-columns: 1fr;
       width: 100%;
     }
@@ -64,7 +70,7 @@ const WrapperContent = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: ${AppStyles.colors.backgroundDark};
+      background-color: ${(props) => props.theme.colors.backgroundDark};
       .icon_wrapper {
         display: flex;
         align-items: center;
@@ -87,7 +93,7 @@ const WrapperContent = styled.div`
       .text_wrapper {
         padding: 10px 20px;
         .title {
-          color: ${AppStyles.colors.offWhite1};
+          color: ${(props) => props.theme.colors.offWhite1};
           margin-bottom: 12px;
           font-weight: 600;
           color: white;
@@ -98,7 +104,7 @@ const WrapperContent = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: ${AppStyles.colors.backgroundLight};
+        background-color: ${(props) => props.theme.colors.backgroundLight};
       }
     }
   }

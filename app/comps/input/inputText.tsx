@@ -3,7 +3,7 @@ import { Path, UseFormRegister } from "react-hook-form";
 import Image from "next/image";
 import { Text } from "@/comps";
 import { ChangeEvent, useState } from "react";
-import { AppImages, AppStyles } from "@/lib";
+import { AppImages } from "@/lib";
 import { styled } from "styled-components";
 
 export const AppInput = (props: {
@@ -84,11 +84,11 @@ const Wrapper = styled.div`
     padding: 12px 10px;
     min-width: 100%;
     color: white;
-    background-color: ${AppStyles.colors.backgroundLight};
+    background-color: ${(props) => props.theme.colors.backgroundLight};
     font-size: 14px;
     outline: none;
     border: none;
-    border: solid 0.5px ${AppStyles.colors.grey1};
+    border: solid 0.5px ${(props) => props.theme.colors.grey1};
   }
   .error_msg {
     /* absolute inset-y-0 right-0 flex items-center pr-3  */

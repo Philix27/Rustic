@@ -10,7 +10,6 @@ import {
   useAuth,
 } from "@clerk/nextjs";
 import { styled } from "styled-components";
-import { AppStyles } from "@/lib";
 
 export function AuthButtons() {
   const { userId } = useAuth();
@@ -35,14 +34,16 @@ const Container = styled.div<{ isSignOut: boolean }>`
   padding: 2.5px 16px;
   color: ${(props) => (props.isSignOut ? "#110000" : "#FFFFFF")};
   background-color: ${(props) =>
-    props.isSignOut ? "white" : AppStyles.colors.primary};
+    props.isSignOut ? "white" : (props) => props.theme.colors.primary};
   &:hover {
     color: ${(props) =>
       props.isSignOut
-        ? AppStyles.colors.offWhite1
-        : AppStyles.colors.backgroundDark};
+        ? (props) => props.theme.colors.offWhite1
+        : (props) => props.theme.colors.backgroundDark};
     background-color: ${(props) =>
-      props.isSignOut ? AppStyles.colors.primary : AppStyles.colors.secondary};
+      props.isSignOut
+        ? (props) => props.theme.colors.primary
+        : (props) => props.theme.colors.secondary};
     font-weight: 500;
   }
 `;

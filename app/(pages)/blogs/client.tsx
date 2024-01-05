@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AppTopNavbar, Text } from "@/comps";
-import { AppStyles, AppBlogs } from "@/lib";
+import { AppBlogs } from "@/lib";
 import styled from "styled-components";
 
 export default function BlogComp() {
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
     row-gap: 10px;
     width: 80%;
     border-radius: 10px;
-    @media ${AppStyles.breakpoints.sm} {
+    @media ${(props) => props.theme.breakpoints.sm} {
       width: 100%;
     }
   }
