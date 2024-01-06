@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { AppProviders } from "@/lib";
 
 export const metadata: Metadata = {
-  title: "Rustic Guide",
+  title: "Rusty Guide",
   description: "Software Engineering",
 };
 
@@ -12,7 +12,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const persistor = persistStore(store);
   return (
     <html lang="en">
       <body>

@@ -11,11 +11,16 @@ type NavListItem = {
   icon: JSX.Element;
 };
 
-export function navLinkList(props: { homeColor: string; booksColor: string; blogsColor: string; quizColor: string; }): NavListItem[] {
+export function navLinkList(props: {
+  homeColor: string;
+  booksColor: string;
+  blogsColor: string;
+  quizColor: string;
+}): NavListItem[] {
   return [
     {
       title: "Home",
-      subtitle: "Welcome to Rustic guide community",
+      subtitle: "Welcome to Rusty guide community",
       story: "Easily write custom code without deploying or scaling servers.",
       icon: <MdHome />,
       color: props.homeColor,

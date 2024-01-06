@@ -11,15 +11,14 @@ export function HeroSection() {
         variant={"B1"}
         style={{ color: style.colors.primary }}
       >
-        Build in a weekend
+        Mastering
       </Text>
       <Text className="second_title" variant={"B1"}>
-        Scale to millions
+        Learn your Rust
       </Text>
       <Text variant={"B2"} className="subtitle">
-        Rustic Guide is an open source Firebase alternative. Start your project
-        with a Postgres database, Authentication, instant APIs, Edge Functions,
-        Realtime subscriptions, Storage, and Vector embeddings.
+        Rusty Guide provides a open source learning platform for Rust enthusiast
+        and those who are interested in core blockchain technologies.
       </Text>
     </Wrapper>
   );
