@@ -31,19 +31,40 @@ model BookChapter {
 }
 
 model BookChapterTopic {
-  id          String       @id @default(uuid())
-  title       String
-  content     String?
-  video_url   String?
-  created_at  DateTime?    @default(now())
-  updated_at  DateTime?    @updatedAt
-  book_id     String?
-  book        Book?        @relation(fields: [book_id], references: [id])
-  chapter_id  String?
-  chapter     BookChapter? @relation(fields: [chapter_id], references: [id])
-  tags        Tags[]
-  quiz_topics QuizTopic[]
+  id             String         @id @default(uuid())
+  title          String
+  content        String?
+  video_url      String?
+  created_at     DateTime?      @default(now())
+  updated_at     DateTime?      @updatedAt
+  book_id        String?
+  // content_blocks ContentBlock[]
+  book           Book?          @relation(fields: [book_id], references: [id])
+  chapter_id     String?
+  chapter        BookChapter?   @relation(fields: [chapter_id], references: [id])
+  tags           Tags[]
+  quiz_topics    QuizTopic[]
 }
+
+// enum TopicType {
+//   BLOG
+//   TUTORIAL
+// }
+
+
+// model ContentBlock {
+//   id         String            @id @default(uuid())
+//   position Int
+//   form       ContentBlockType
+//   content_id String?
+//   content    BookChapterTopic? @relation(fields: [content_id], references: [id])
+// }
+
+// enum ContentBlockType {
+//   TEXT
+//   CODE
+//   VIDEO
+// }
 
 model QuizTopic {
   id          String             @id @default(uuid())

@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { TopButton } from "./topButton";
 import { AddBookTopicModal } from "../addTopicModal";
 import { Navbar } from "./navbar";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import MDX from "@mdx-js/runtime";
+
 
 export function ActiveContent(props: {
   isFirstPage: boolean;
@@ -17,6 +21,7 @@ export function ActiveContent(props: {
   activeTopicId?: string;
 }) {
   const [showEditModal, setShowEditModal] = useState(false);
+  const codeString = "(num) => num + 1";
   return (
     <Wrapper>
       {!props.editTopicId && (
@@ -34,6 +39,7 @@ export function ActiveContent(props: {
       />
       <div className={"mdContentWrapper"}>
         <div className="mdWrapper">
+          {/* <MDX>{props.content}</MDX> */}
           <MarkdownStyledComp markdown={props.content} />
         </div>
       </div>
@@ -62,8 +68,9 @@ const Wrapper = styled.div`
     margin-bottom: 20px;
     .mdWrapper {
       width: 100%;
-      display: flex;
-      justify-content: center;
+
+      /* display: flex; */
+      /* justify-content: center; */
     }
   }
 `;

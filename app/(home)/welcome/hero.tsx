@@ -11,11 +11,13 @@ export function HeroSection() {
         variant={"B1"}
         style={{ color: style.colors.primary }}
       >
-        Mastering
+        Mastering Rust
       </Text>
+
       <Text className="second_title" variant={"B1"}>
-        Learn your Rust
+        Step-by-step guide
       </Text>
+
       <Text variant={"B2"} className="subtitle">
         Rusty Guide provides a open source learning platform for Rust enthusiast
         and those who are interested in core blockchain technologies.

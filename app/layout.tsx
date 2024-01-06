@@ -1,4 +1,6 @@
 import "./lib/styles/index.css";
+import "@code-hike/mdx/dist/index.css";
+import "@code-hike/mdx/styles";
 import type { Metadata } from "next";
 import { AppProviders } from "@/lib";
 
