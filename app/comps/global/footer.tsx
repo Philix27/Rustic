@@ -42,22 +42,13 @@ export function AppFooter() {
         </div>
         <div className="icons_list">
           <Link passHref href="mailto:philixbob@gmail.com">
-            <AiOutlineMail size={15} />
-          </Link>
-          <Link
-            passHref
-            href="https://wa.me/2348108850572?text=Hi+Philix%2C+I%27m+just+visited+your+website."
-          >
-            <FaWhatsapp size={15} />
-          </Link>
-          <Link passHref href="tel:+2348108850572">
-            <AiFillPhone size={15} />
+            <AiOutlineMail />
           </Link>
           <Link passHref href="https://linkedin.com/in/eligbue-felix-362372124">
-            <AiFillLinkedin size={15} />
+            <AiFillLinkedin />
           </Link>
           <Link passHref href="https://facebook.com/eligbue.felix.7">
-            <AiFillFacebook size={15} />
+            <AiFillFacebook />
           </Link>
           <Link passHref href="https://twitter.com/eligbue_felix">
             <AiFillTwitterSquare />
@@ -83,6 +74,7 @@ const Wrapper = styled.div`
     padding: 0 10px;
     @media ${(props) => props.theme.breakpoints.sm} {
       flex-direction: column;
+      margin: 10px 0;
     }
 
     .links {
@@ -115,6 +107,7 @@ const Wrapper = styled.div`
         margin-right: 10px;
         color: ${(props) => props.theme.colors.offWhite1};
         svg {
+          font-size: 16px;
           color: ${(props) => props.theme.colors.offWhite1};
         }
       }
