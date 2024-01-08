@@ -23,9 +23,9 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     min-height: calc(100% - 40px);
-    transform: scale(1.75);
+    /* transform: scale(1.75); */
     @media ${(props) => props.theme.breakpoints.sm} {
-      transform: scale(1.2);
+      /* transform: scale(1.2); */
     }
   }
 `;

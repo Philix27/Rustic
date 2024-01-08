@@ -56,6 +56,7 @@ const Wrapper = styled.div`
     overflow-y: auto;
     @media ${(props) => props.theme.breakpoints.sm} {
       width: 100%;
+      max-height: fit-content;
     }
   }
 `;

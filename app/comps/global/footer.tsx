@@ -1,11 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
 import {
   AiFillFacebook,
   AiFillLinkedin,
-  AiFillPhone,
   AiFillTwitterSquare,
   AiOutlineMail,
 } from "react-icons/ai";
